@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.IO.Compression;
 using System.Text;
 
 namespace Practice1101
@@ -8,34 +10,37 @@ namespace Practice1101
         static void Main(string[] args)
         {
             //1
-            //GetNumbers();
+            GetNumbers();
 
             //2
-            //GetPartOfNumber();
+            GetPartOfNumber();
 
             //3
-            //GetMaximalNumber();
+            GetMaximalNumber();
 
             //4
-            //GetMinimalNumber();
+            GetMinimalNumber();
 
             //5
-            //WriteDigitFromString();
+            WriteDigitFromString();
 
             //6
             GetDateInFormatIso();
 
             //7
-            //ParseStringToDateTime();
+            ParseStringToDateTime();
 
             //8
-            //GetFirstLetterToUp();
+            GetFirstLetterToUp();
 
             //9
-            //GetString();
+            GetString();
 
             //10
-            //BubleSort();
+            BubleSort();
+
+            //12
+            AddMassToZip();
 
             Console.ReadLine();
         }
@@ -228,6 +233,67 @@ namespace Practice1101
                 }
             }
 
+        }
+
+        //12
+        static void AddMassToZip()
+        {
+
+            int[] array = new int[39];
+            Random rand = new Random();
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rand.Next(1, 100);
+            }
+            string path = "array.txt";
+            string pathToZip = "arrayInZip.zip";
+            string fileAfterZip = "fileAfterDecompress.txt";
+            if (!File.Exists(path))
+            {
+                // Create a file to write to.
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    for (int i = 0; i < array.Length; i++)
+                    {
+                        sw.WriteLine(array[i]);
+                    }
+                }
+            }
+
+            //compress
+            using (FileStream sourceStream = new FileStream(path, FileMode.OpenOrCreate))
+            {
+                // поток для записи сжатого файла
+                using (FileStream targetStream = File.Create(pathToZip))
+                {
+                    using (GZipStream compressionStream = new GZipStream(targetStream, CompressionMode.Compress))
+                    {
+                        Console.WriteLine("Сжатие файла {0} завершено. Исходный размер: {1}  сжатый размер: {2}.",
+                            path, sourceStream.Length.ToString(), targetStream.Length.ToString());
+                    }
+                }
+            }
+
+            using (FileStream sourceStream = new FileStream(pathToZip, FileMode.OpenOrCreate))
+            {
+                using (FileStream targetStream = File.Create(fileAfterZip))
+                {
+                    using (GZipStream decompressionStream = new GZipStream(sourceStream, CompressionMode.Decompress))
+                    {
+                        decompressionStream.CopyTo(targetStream);
+                        Console.WriteLine("Восстановлен файл: {0}", "fileAfterDecompress");
+                    }
+                }
+            }
+
+            using (StreamReader sr = File.OpenText("fileAfterDecompress"))
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(s);
+                }
+            }
         }
     }
 }
