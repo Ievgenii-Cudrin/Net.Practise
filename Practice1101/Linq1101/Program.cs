@@ -1,5 +1,8 @@
-﻿using Practice1101.Helper;
+﻿using Linq1101.Entities;
+using Linq1101.Helper;
+using Practice1101.Helper;
 using System;
+using System.Collections.Generic;
 
 namespace Linq1101
 {
@@ -41,6 +44,14 @@ namespace Linq1101
 
             //11
             WorkWithString.ShowWordsWichStartFromAA();
+
+            //SecondTask Linq to object
+
+            //1
+            WorkWithObject.ShowAllAktorsName();
+
+            //2
+            WorkWithObject.ShowActorListWithBirthdayInAugust();
 
             Console.ReadLine();
         }
