@@ -11,6 +11,7 @@ namespace Linq1101
         static void Main(string[] args)
         {
             //LINQ 11.01
+            //Linq to array
 
             //1
             WorkWithString.ShowNumbers();
@@ -52,6 +53,30 @@ namespace Linq1101
 
             //2
             WorkWithObject.ShowActorListWithBirthdayInAugust();
+
+            //3
+            WorkWithObject.ShowTwoELderAuthors();
+
+            //4
+            WorkWithObject.ShowCountOfArticleByAuthor();
+
+            //5
+            WorkWithObject.ShowCountOfArticleByAuthroAndFilmsByAuthor();
+
+            //6
+            WorkWithObject.ShowCountOfDifferentLattersInActorsName();
+
+            //7
+            WorkWithObject.ShowAllArticleNamesAndSortByAuthor();
+
+            //8
+            WorkWithObject.ShowAllActorNamesWithTeirFilms();
+
+            //9
+            WorkWithObject.SummOfPagesAndOtherInt();
+
+            //10
+            WorkWithObject.GetDictionaryWithArticleAuthorNamesANdArticles();
 
             Console.ReadLine();
         }
