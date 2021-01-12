@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Text;
@@ -39,11 +41,12 @@ namespace Practice1101
             //10
             BubleSort();
 
+            //11
+            Show.ShowBFT(Steps.BreadthFirstTraversal());
+            Show.ShowDFT(Steps.DepthFirstTraversal());
+
             //12
             AddMassToZip();
-
-            //13
-            QuickSortMassive();
 
             Console.ReadLine();
         }
@@ -289,7 +292,7 @@ namespace Practice1101
                 }
             }
 
-            using (StreamReader sr = File.OpenText("fileAfterDecompress"))
+            using (StreamReader sr = File.OpenText(fileAfterZip))
             {
                 string s = "";
                 while ((s = sr.ReadLine()) != null)
@@ -297,61 +300,6 @@ namespace Practice1101
                     Console.WriteLine(s);
                 }
             }
-        }
-
-        //13 it isnt my code, find in internet
-        #region
-        static void Swap(ref int x, ref int y)
-        {
-            var t = x;
-            x = y;
-            y = t;
-        }
-        static int Partition(int[] array, int minIndex, int maxIndex)
-        {
-            var pivot = minIndex - 1;
-            for (var i = minIndex; i < maxIndex; i++)
-            {
-                if (array[i] < array[maxIndex])
-                {
-                    pivot++;
-                    Swap(ref array[pivot], ref array[i]);
-                }
-            }
-
-            pivot++;
-            Swap(ref array[pivot], ref array[maxIndex]);
-            return pivot;
-        }
-        static int[] QuickSort(int[] array, int minIndex, int maxIndex)
-        {
-            if (minIndex >= maxIndex)
-            {
-                return array;
-            }
-
-            var pivotIndex = Partition(array, minIndex, maxIndex);
-            QuickSort(array, minIndex, pivotIndex - 1);
-            QuickSort(array, pivotIndex + 1, maxIndex);
-
-            return array;
-        }
-        static int[] QuickSortMass(int[] array)
-        {
-            return QuickSort(array, 0, array.Length - 1);
-        }
-        #endregion
-
-        static void QuickSortMassive()
-        {
-            int[] array = new int[39];
-            Random rand = new Random();
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = rand.Next(1, 100);
-            }
-
-            int[] sortMass = QuickSortMass(array);
         }
     }
 }
