@@ -1,0 +1,13 @@
+E:\Projects\Net.Practise\Practice1101\Train1301\bin\Debug\netcoreapp3.1\Train1301.exe
+E:\Projects\Net.Practise\Practice1101\Train1301\bin\Debug\netcoreapp3.1\Train1301.deps.json
+E:\Projects\Net.Practise\Practice1101\Train1301\bin\Debug\netcoreapp3.1\Train1301.runtimeconfig.json
+E:\Projects\Net.Practise\Practice1101\Train1301\bin\Debug\netcoreapp3.1\Train1301.runtimeconfig.dev.json
+E:\Projects\Net.Practise\Practice1101\Train1301\bin\Debug\netcoreapp3.1\Train1301.dll
+E:\Projects\Net.Practise\Practice1101\Train1301\bin\Debug\netcoreapp3.1\Train1301.pdb
+E:\Projects\Net.Practise\Practice1101\Train1301\obj\Debug\netcoreapp3.1\Train1301.csprojAssemblyReference.cache
+E:\Projects\Net.Practise\Practice1101\Train1301\obj\Debug\netcoreapp3.1\Train1301.AssemblyInfoInputs.cache
+E:\Projects\Net.Practise\Practice1101\Train1301\obj\Debug\netcoreapp3.1\Train1301.AssemblyInfo.cs
+E:\Projects\Net.Practise\Practice1101\Train1301\obj\Debug\netcoreapp3.1\Train1301.csproj.CoreCompileInputs.cache
+E:\Projects\Net.Practise\Practice1101\Train1301\obj\Debug\netcoreapp3.1\Train1301.dll
+E:\Projects\Net.Practise\Practice1101\Train1301\obj\Debug\netcoreapp3.1\Train1301.pdb
+E:\Projects\Net.Practise\Practice1101\Train1301\obj\Debug\netcoreapp3.1\Train1301.genruntimeconfig.cache
