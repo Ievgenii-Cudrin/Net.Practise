@@ -34,5 +34,31 @@ namespace Train1301.ShowData
                 }
             }
         }
+
+        static void ShowDataOfFileOtherThanTxt(string path)
+        {
+            using (FileStream fsSource = new FileStream(path, FileMode.Open, FileAccess.Read))
+            {
+                int length = fsSource.Length > 2048 ? 2048 : (int)fsSource.Length;
+                byte[] bytes = new byte[length];
+                int numBytesToRead = length;
+                int numBytesRead = 0;
+
+                while (numBytesToRead > 0)
+                {
+                    int n = fsSource.Read(bytes, numBytesRead, numBytesToRead);
+
+                    if (n == 0)
+                    {
+                        break;
+                    }
+
+                    numBytesRead += n;
+                    numBytesToRead -= n;
+                }
+
+                Console.WriteLine(string.Join(",", bytes.Select(x => x)));
+            }
+        }
     }
 }
