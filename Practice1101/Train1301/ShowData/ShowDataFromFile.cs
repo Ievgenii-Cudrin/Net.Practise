@@ -8,7 +8,7 @@ namespace Train1301.ShowData
 {
     public static class ShowDataFromFile
     {
-        private static void ShowDataInFile(string path)
+        public static void ShowDataInFile(string path)
         {
             if (Path.GetExtension(path) == ".txt")
             {

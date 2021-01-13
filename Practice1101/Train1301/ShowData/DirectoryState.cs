@@ -13,8 +13,6 @@ namespace Train1301.ShowData
             {
                 Console.WriteLine(directory.Name);
             }
-
-            Console.WriteLine("-----------------");
         }
 
         public static void ShowFiles(FileInfo[] files)
@@ -23,8 +21,7 @@ namespace Train1301.ShowData
             {
                 Console.WriteLine(file.Name);
             }
-
-            Console.WriteLine("-----------------");
+            Console.WriteLine();
         }
     }
 }
