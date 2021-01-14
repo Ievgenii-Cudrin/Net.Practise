@@ -6,9 +6,14 @@ namespace DI.App.Services.PL.Commands
 {
     public class ListUsersCommand : ICommand
     {
-        private readonly IUserStore userStore = new UserStore();
+        private readonly IUserStore userStore;
 
-        public int Number { get; } = 2;
+        public ListUsersCommand(IUserStore userStore)
+        {
+            this.userStore = userStore;
+        }
+
+        public int Number { get; } = 1;
 
         public string DisplayName { get; } = "List users";
 

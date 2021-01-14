@@ -7,7 +7,11 @@ namespace DI.App.Services.PL.Commands
 {
     public class AddUserCommand : ICommand
     {
-        private readonly IUserStore userStore = new UserStore();
+        private readonly IUserStore userStore;
+        public AddUserCommand(IUserStore userStore)
+        {
+            this.userStore = userStore;
+        }
 
         public int Number { get; } = 1;
         public string DisplayName { get; } = "Add user";

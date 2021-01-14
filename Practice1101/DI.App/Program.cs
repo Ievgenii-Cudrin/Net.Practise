@@ -1,4 +1,6 @@
-﻿using DI.App.Services.PL;
+﻿using DI.App.Abstractions;
+using DI.App.Services.PL;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 
 namespace DI.App
@@ -12,8 +14,9 @@ namespace DI.App
     {
         private static void Main()
         {
+            var container = Startup.ConfigureService();
             // Inversion of Control
-            var manager = new CommandManager();
+            var manager = new CommandManager(container.GetRequiredService<ICommandProcessor>());
 
             manager.Start();
         }

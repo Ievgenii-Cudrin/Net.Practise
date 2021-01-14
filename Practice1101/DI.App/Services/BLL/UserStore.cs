@@ -9,6 +9,11 @@ namespace DI.App.Services
     {
         private readonly IDatabaseService dbService = new InMemoryDatabaseService();
 
+        public UserStore(IDatabaseService databaseService)
+        {
+            this.dbService = databaseService;
+        }
+
         public IEnumerable<IUser> Users => this.dbService.Read<IUser>();
 
         public void AddUser(IUser user)

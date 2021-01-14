@@ -9,10 +9,12 @@ namespace DI.App.Services.PL
     {
         private readonly Dictionary<int, ICommand> commands = new Dictionary<int, ICommand>();
 
-        public CommandProcessor()
+        private ICommand addUsers;
+        private ICommand listUsers;
+        public CommandProcessor(ICommand addUsers, ICommand listUsers)
         {
-            var addUsers = new AddUserCommand();
-            var listUsers = new ListUsersCommand();
+            this.addUsers = addUsers;
+            this.listUsers = listUsers;
 
             this.commands.Add(addUsers.Number, addUsers);
             this.commands.Add(listUsers.Number, listUsers);
