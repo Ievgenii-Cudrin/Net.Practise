@@ -57,7 +57,8 @@ namespace Train1301.ShowData
                     numBytesToRead -= n;
                 }
 
-                Console.WriteLine(string.Join(",", bytes.Select(x => x)));
+                string infoInHexFormat = BitConverter.ToString(bytes).Replace("-", "");
+                Console.WriteLine(infoInHexFormat);
             }
         }
     }
