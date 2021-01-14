@@ -9,15 +9,16 @@ namespace DI.App.Services.PL
     {
         private readonly Dictionary<int, ICommand> commands = new Dictionary<int, ICommand>();
 
-        private ICommand addUsers;
-        private ICommand listUsers;
-        public CommandProcessor(ICommand addUsers, ICommand listUsers)
+        private IEnumerable<ICommand> typesRealization;
+            
+        public CommandProcessor(IEnumerable<ICommand> typesRealization)
         {
-            this.addUsers = addUsers;
-            this.listUsers = listUsers;
+            this.typesRealization = typesRealization;
 
-            this.commands.Add(addUsers.Number, addUsers);
-            this.commands.Add(listUsers.Number, listUsers);
+            foreach(var type in typesRealization)
+            {
+                this.commands.Add(type.Number, type);
+            }
         }
 
         public void Process(int number)

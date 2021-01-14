@@ -13,7 +13,7 @@ namespace DI.App.Services.PL.Commands
             this.userStore = userStore;
         }
 
-        public int Number { get; } = 1;
+        public int Number { get; } = 2;
 
         public string DisplayName { get; } = "List users";
 
