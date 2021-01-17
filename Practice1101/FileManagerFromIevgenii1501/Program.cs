@@ -67,8 +67,22 @@ namespace FileManagerFromIevgenii1501
 
             //TODO: Rework using reflection and some greate OOP
             //Add reflection
-            var resultStr = readers.Select(x => x).Where(x => extention.Contains(x.GetType().GetProperty("Format").GetValue(x).ToString())).FirstOrDefault().GetFileData(_currentPath); ;
+            IReader reader = readers.Select(x => x).Where(x => extention.Equals(x.GetType().GetProperty("Format").GetValue(x).ToString())).FirstOrDefault();
+            string resultStr = String.Empty;
+            if (reader == null)
+            {
+                int count = 2048;
+                byte[] result = new byte[count];
+                using (var stream = System.IO.File.OpenRead(_currentPath))
+                    count = stream.Read(result, 0, count);
 
+                resultStr = BitConverter.ToString(result, 0, count).Replace('-', ' ');
+            }
+            else
+            {
+                resultStr = reader.GetFileData(_currentPath);
+            }
+             
             Console.Clear();
             Console.WriteLine(resultStr);
             Console.ReadLine();
