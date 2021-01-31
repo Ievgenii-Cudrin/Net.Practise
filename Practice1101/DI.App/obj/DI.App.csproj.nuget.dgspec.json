@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Projects\\Net.Practise\\Practice1101\\Linq1101\\Linq1101.csproj": {}
+    "E:\\Projects\\Net.Practise\\Practice1101\\DI.App\\DI.App.csproj": {}
   },
   "projects": {
-    "E:\\Projects\\Net.Practise\\Practice1101\\Linq1101\\Linq1101.csproj": {
+    "E:\\Projects\\Net.Practise\\Practice1101\\DI.App\\DI.App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects\\Net.Practise\\Practice1101\\Linq1101\\Linq1101.csproj",
-        "projectName": "Linq1101",
-        "projectPath": "E:\\Projects\\Net.Practise\\Practice1101\\Linq1101\\Linq1101.csproj",
+        "projectUniqueName": "E:\\Projects\\Net.Practise\\Practice1101\\DI.App\\DI.App.csproj",
+        "projectName": "DI.App",
+        "projectPath": "E:\\Projects\\Net.Practise\\Practice1101\\DI.App\\DI.App.csproj",
         "packagesPath": "C:\\Users\\zhend\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects\\Net.Practise\\Practice1101\\Linq1101\\obj\\",
+        "outputPath": "E:\\Projects\\Net.Practise\\Practice1101\\DI.App\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -42,6 +42,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
