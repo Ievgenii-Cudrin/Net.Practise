@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lltPfkjH2890I4lfNLeoSH7qV9d3cCClqLeASW7GHsoK0fTkr5jsIFSskqbmvx+uKHVLoS2tG/ZaiztHp+Fy2g==",
+  "dgSpecHash": "Jmb+mLDoaZ3mTm3zq2S4IuHI0Fcpq7r0gxLWW7XN159NAUAgOLVlylEnWvz3GonnlKnCdKZam2jwpg35lkpIEQ==",
   "success": true,
   "projectFilePath": "E:\\Projects\\Net.Practise\\Practice1101\\Practice1101\\Practice1101.csproj",
   "expectedPackageFiles": [
@@ -85,5 +85,12 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.0.11\\system.xml.readerwriter.4.0.11.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.0.11\\system.xml.xdocument.4.0.11.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file E:\\Projects\\Net.Practise\\Practice1101\\Practice1101\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
