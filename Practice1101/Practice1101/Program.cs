@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Text;
@@ -39,6 +41,10 @@ namespace Practice1101
             //10
             BubleSort();
 
+            //11
+            Show.ShowBFT(Steps.BreadthFirstTraversal());
+            Show.ShowDFT(Steps.DepthFirstTraversal());
+
             //12
             AddMassToZip();
 
@@ -51,7 +57,7 @@ namespace Practice1101
             Console.WriteLine("Enter number");
             string numbers = Console.ReadLine();
 
-            foreach (char c in numbers.ToCharArray())
+            foreach(char c in numbers.ToCharArray())
             {
                 Console.WriteLine(c);
             }
@@ -78,7 +84,7 @@ namespace Practice1101
             int max = int.Parse(numberInString[0].ToString());
             for (int i = 1; i < numberInString.Length; i++)
             {
-                if (max < int.Parse(numberInString[i].ToString()))
+                if(max < int.Parse(numberInString[i].ToString()))
                 {
                     max = int.Parse(numberInString[i].ToString());
                 }
@@ -101,6 +107,7 @@ namespace Practice1101
                     max = int.Parse(numberInString[i].ToString());
                 }
             }
+
             Console.WriteLine(max);
         }
 
@@ -112,7 +119,7 @@ namespace Practice1101
 
             char[] charsFromUserString = stringFromUser.ToCharArray();
 
-            for (int i = 0; i < charsFromUserString.Length; i++)
+            for(int i = 0; i < charsFromUserString.Length; i++)
             {
                 if (Char.IsDigit(charsFromUserString[i]))
                 {
@@ -128,6 +135,7 @@ namespace Practice1101
             Console.WriteLine(dateInIsoFormat);
         }
 
+
         //7
         static void ParseStringToDateTime()
         {
@@ -137,12 +145,12 @@ namespace Practice1101
             int pos = 0;
             string currentValue = "";
 
-            for (int i = 0; i < charsFromString.Length; i++)
+            for(int i = 0; i < charsFromString.Length; i++)
             {
-                if (charsFromString[i] != Char.Parse(" ") && charsFromString[i] != Char.Parse("-"))
+                if(charsFromString[i] != Char.Parse(" ") && charsFromString[i] != Char.Parse("-"))
                 {
                     currentValue = currentValue + charsFromString[i];
-                    if (i == charsFromString.Length - 1)
+                    if(i == charsFromString.Length-1)
                     {
                         dates[pos] = currentValue;
                         currentValue = "";
@@ -150,7 +158,7 @@ namespace Practice1101
                 }
                 else
                 {
-                    if (currentValue != "")
+                    if(currentValue != "")
                     {
                         dates[pos] = currentValue;
                         currentValue = "";
@@ -158,6 +166,7 @@ namespace Practice1101
                     }
                 }
             }
+
             DateTime date = new DateTime(Convert.ToInt32(dates[0]), Convert.ToInt32(dates[2]), Convert.ToInt32(dates[1]));
         }
 
@@ -167,14 +176,14 @@ namespace Practice1101
             string[] names = { "иван иванов", "светлана иванова - петренко" };
             string[] newNames = new string[names.Length];
 
-            for (int i = 0; i < names.Length; i++)
+            for(int i = 0; i < names.Length; i++)
             {
                 char[] charsFromName = names[i].ToCharArray();
                 char[] newNameChars = new char[charsFromName.Length];
                 bool flag = false;
                 for (int j = 0; j < charsFromName.Length; j++)
                 {
-                    if (j == 0 || flag)
+                    if(j == 0 || flag)
                     {
                         newNameChars[j] = Char.ToUpper(charsFromName[j]);
                         flag = false;
@@ -183,15 +192,15 @@ namespace Practice1101
                     {
                         newNameChars[j] = charsFromName[j];
                     }
-                    else if (charsFromName[j] == Char.Parse(" ") || charsFromName[j] == Char.Parse("-"))
+                    else if(charsFromName[j] == Char.Parse(" ") || charsFromName[j] == Char.Parse("-"))
                     {
                         newNameChars[j] = charsFromName[j];
-                        if (Char.IsLetter(charsFromName[j + 1]))
+                        if(Char.IsLetter(charsFromName[j + 1]))
                         {
                             flag = true;
                         }
                     }
-
+                    
                 }
                 newNames[i] = new string(newNameChars);
             }
@@ -229,6 +238,7 @@ namespace Practice1101
                     }
                 }
             }
+
         }
 
         //12
@@ -282,7 +292,7 @@ namespace Practice1101
                 }
             }
 
-            using (StreamReader sr = File.OpenText("fileAfterDecompress"))
+            using (StreamReader sr = File.OpenText(fileAfterZip))
             {
                 string s = "";
                 while ((s = sr.ReadLine()) != null)
