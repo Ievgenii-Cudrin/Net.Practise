@@ -1,0 +1,13 @@
+E:\Projects\Net.Practise\Practice1101\FileManagerFromIevgenii1501\bin\Debug\netcoreapp3.1\FileManagerFromIevgenii1501.exe
+E:\Projects\Net.Practise\Practice1101\FileManagerFromIevgenii1501\bin\Debug\netcoreapp3.1\FileManagerFromIevgenii1501.deps.json
+E:\Projects\Net.Practise\Practice1101\FileManagerFromIevgenii1501\bin\Debug\netcoreapp3.1\FileManagerFromIevgenii1501.runtimeconfig.json
+E:\Projects\Net.Practise\Practice1101\FileManagerFromIevgenii1501\bin\Debug\netcoreapp3.1\FileManagerFromIevgenii1501.runtimeconfig.dev.json
+E:\Projects\Net.Practise\Practice1101\FileManagerFromIevgenii1501\bin\Debug\netcoreapp3.1\FileManagerFromIevgenii1501.dll
+E:\Projects\Net.Practise\Practice1101\FileManagerFromIevgenii1501\bin\Debug\netcoreapp3.1\FileManagerFromIevgenii1501.pdb
+E:\Projects\Net.Practise\Practice1101\FileManagerFromIevgenii1501\obj\Debug\netcoreapp3.1\FileManagerFromIevgenii1501.csprojAssemblyReference.cache
+E:\Projects\Net.Practise\Practice1101\FileManagerFromIevgenii1501\obj\Debug\netcoreapp3.1\FileManagerFromIevgenii1501.AssemblyInfoInputs.cache
+E:\Projects\Net.Practise\Practice1101\FileManagerFromIevgenii1501\obj\Debug\netcoreapp3.1\FileManagerFromIevgenii1501.AssemblyInfo.cs
+E:\Projects\Net.Practise\Practice1101\FileManagerFromIevgenii1501\obj\Debug\netcoreapp3.1\FileManagerFromIevgenii1501.csproj.CoreCompileInputs.cache
+E:\Projects\Net.Practise\Practice1101\FileManagerFromIevgenii1501\obj\Debug\netcoreapp3.1\FileManagerFromIevgenii1501.dll
+E:\Projects\Net.Practise\Practice1101\FileManagerFromIevgenii1501\obj\Debug\netcoreapp3.1\FileManagerFromIevgenii1501.pdb
+E:\Projects\Net.Practise\Practice1101\FileManagerFromIevgenii1501\obj\Debug\netcoreapp3.1\FileManagerFromIevgenii1501.genruntimeconfig.cache
