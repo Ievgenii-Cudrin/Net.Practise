@@ -1,0 +1,13 @@
+E:\Projects\Net.Practise\Practice1101\Linq1101\bin\Debug\netcoreapp3.1\Linq1101.exe
+E:\Projects\Net.Practise\Practice1101\Linq1101\bin\Debug\netcoreapp3.1\Linq1101.deps.json
+E:\Projects\Net.Practise\Practice1101\Linq1101\bin\Debug\netcoreapp3.1\Linq1101.runtimeconfig.json
+E:\Projects\Net.Practise\Practice1101\Linq1101\bin\Debug\netcoreapp3.1\Linq1101.runtimeconfig.dev.json
+E:\Projects\Net.Practise\Practice1101\Linq1101\bin\Debug\netcoreapp3.1\Linq1101.dll
+E:\Projects\Net.Practise\Practice1101\Linq1101\bin\Debug\netcoreapp3.1\Linq1101.pdb
+E:\Projects\Net.Practise\Practice1101\Linq1101\obj\Debug\netcoreapp3.1\Linq1101.csprojAssemblyReference.cache
+E:\Projects\Net.Practise\Practice1101\Linq1101\obj\Debug\netcoreapp3.1\Linq1101.AssemblyInfoInputs.cache
+E:\Projects\Net.Practise\Practice1101\Linq1101\obj\Debug\netcoreapp3.1\Linq1101.AssemblyInfo.cs
+E:\Projects\Net.Practise\Practice1101\Linq1101\obj\Debug\netcoreapp3.1\Linq1101.csproj.CoreCompileInputs.cache
+E:\Projects\Net.Practise\Practice1101\Linq1101\obj\Debug\netcoreapp3.1\Linq1101.dll
+E:\Projects\Net.Practise\Practice1101\Linq1101\obj\Debug\netcoreapp3.1\Linq1101.pdb
+E:\Projects\Net.Practise\Practice1101\Linq1101\obj\Debug\netcoreapp3.1\Linq1101.genruntimeconfig.cache
