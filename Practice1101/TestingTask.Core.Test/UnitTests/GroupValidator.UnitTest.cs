@@ -167,7 +167,7 @@ namespace TestingTask.Core.Test.UnitTests
                 HasPets = true,
                 Guests = new List<Guest>()
                 {
-                    new Guest() { Age = 182, FirstName = "John", LastName = "Lehnon" },
+                    new Guest() { Age = 101, FirstName = "John", LastName = "Lehnon" },
                     new Guest() { Age = 29, FirstName = "Yoko", LastName = "Ono" },
                     new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
                 }
@@ -186,7 +186,7 @@ namespace TestingTask.Core.Test.UnitTests
                 HasPets = true,
                 Guests = new List<Guest>()
                 {
-                    new Guest() { Age = 182, FirstName = "Joh4@$35#5yr23n", LastName = "Lehnon" },
+                    new Guest() { Age = 82, FirstName = "Joh4@$35#5yr23n", LastName = "Lehnon" },
                     new Guest() { Age = 29, FirstName = "Yoko", LastName = "Ono" },
                     new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
                 }
@@ -204,13 +204,49 @@ namespace TestingTask.Core.Test.UnitTests
                 HasPets = true,
                 Guests = new List<Guest>()
                 {
-                    new Guest() { Age = 182, FirstName = "John", LastName = "Lehnon" },
+                    new Guest() { Age = 11, FirstName = "John", LastName = "Lehnon" },
                     new Guest() { Age = 29, FirstName = "Yoko", LastName = "O4@$35#5yr23no" },
                     new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
                 }
             };
 
             Assert.IsFalse(validator.Validate(group));
+        }
+
+        public void GroupValidator_OneGuestFromGroupWithHighAge_ReturnTrue()
+        {
+            var validator = new GroupValidator();
+
+            Group group = new Group()
+            {
+                HasPets = true,
+                Guests = new List<Guest>()
+                {
+                    new Guest() { Age = 100, FirstName = "John", LastName = "Lehnon" },
+                    new Guest() { Age = 29, FirstName = "Yoko", LastName = "O4@$35#5yr23no" },
+                    new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
+                }
+            };
+
+            Assert.IsTrue(validator.Validate(group));
+        }
+
+        public void GroupValidator_OneGuestFromGroupWithLowAge_ReturnTrue()
+        {
+            var validator = new GroupValidator();
+
+            Group group = new Group()
+            {
+                HasPets = true,
+                Guests = new List<Guest>()
+                {
+                    new Guest() { Age = 0, FirstName = "John", LastName = "Lehnon" },
+                    new Guest() { Age = 29, FirstName = "Yoko", LastName = "O4@$35#5yr23no" },
+                    new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
+                }
+            };
+
+            Assert.IsTrue(validator.Validate(group));
         }
 
         public void GroupValidator_OneGuestFromGroupWithNegativeNumbersOfAge_ReturnFalse()
@@ -222,7 +258,7 @@ namespace TestingTask.Core.Test.UnitTests
                 HasPets = true,
                 Guests = new List<Guest>()
                 {
-                    new Guest() { Age = -32, FirstName = "John", LastName = "Lehnon" },
+                    new Guest() { Age = -1, FirstName = "John", LastName = "Lehnon" },
                     new Guest() { Age = 29, FirstName = "Yoko", LastName = "Ono" },
                     new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
                 }
