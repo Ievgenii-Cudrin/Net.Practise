@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "FileManagerFromIevgenii1501/1.0.0": {
+        "runtime": {
+          "FileManagerFromIevgenii1501.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FileManagerFromIevgenii1501/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

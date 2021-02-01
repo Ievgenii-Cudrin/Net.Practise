@@ -1,0 +1,13 @@
+E:\Projects\Net.Practise\Practice1101\WriteToCSVFile\bin\Debug\netcoreapp3.1\WriteToCSVFile.exe
+E:\Projects\Net.Practise\Practice1101\WriteToCSVFile\bin\Debug\netcoreapp3.1\WriteToCSVFile.deps.json
+E:\Projects\Net.Practise\Practice1101\WriteToCSVFile\bin\Debug\netcoreapp3.1\WriteToCSVFile.runtimeconfig.json
+E:\Projects\Net.Practise\Practice1101\WriteToCSVFile\bin\Debug\netcoreapp3.1\WriteToCSVFile.runtimeconfig.dev.json
+E:\Projects\Net.Practise\Practice1101\WriteToCSVFile\bin\Debug\netcoreapp3.1\WriteToCSVFile.dll
+E:\Projects\Net.Practise\Practice1101\WriteToCSVFile\bin\Debug\netcoreapp3.1\WriteToCSVFile.pdb
+E:\Projects\Net.Practise\Practice1101\WriteToCSVFile\obj\Debug\netcoreapp3.1\WriteToCSVFile.AssemblyInfoInputs.cache
+E:\Projects\Net.Practise\Practice1101\WriteToCSVFile\obj\Debug\netcoreapp3.1\WriteToCSVFile.AssemblyInfo.cs
+E:\Projects\Net.Practise\Practice1101\WriteToCSVFile\obj\Debug\netcoreapp3.1\WriteToCSVFile.csproj.CoreCompileInputs.cache
+E:\Projects\Net.Practise\Practice1101\WriteToCSVFile\obj\Debug\netcoreapp3.1\WriteToCSVFile.dll
+E:\Projects\Net.Practise\Practice1101\WriteToCSVFile\obj\Debug\netcoreapp3.1\WriteToCSVFile.pdb
+E:\Projects\Net.Practise\Practice1101\WriteToCSVFile\obj\Debug\netcoreapp3.1\WriteToCSVFile.genruntimeconfig.cache
+E:\Projects\Net.Practise\Practice1101\WriteToCSVFile\obj\Debug\netcoreapp3.1\WriteToCSVFile.csprojAssemblyReference.cache
