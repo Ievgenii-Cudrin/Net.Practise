@@ -40,7 +40,7 @@ namespace TestingTask.Core.Test.UnitTests
                 }
             };
 
-            var expectedHotels = new List<Hotel>();
+            var expectedHotels = new List<string>();
 
             //Act
             var hotelsResult = bookingService.GetSuitableHotelNames(group);
@@ -77,8 +77,8 @@ namespace TestingTask.Core.Test.UnitTests
                         }
                 });
 
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
-            var bookingService = new BookingService(validator.Object, this.hotelRepository.Object);
+            var validator = new GroupValidator();
+            var bookingService = new BookingService(validator, this.hotelRepository.Object);
 
             var group = new Group()
             {
@@ -92,8 +92,6 @@ namespace TestingTask.Core.Test.UnitTests
                     new Guest() { Age = 28, FirstName = "TestN", LastName = "TestF" },
                 }
             };
-
-            validator.Setup(x => x.Validate(group)).Returns(true);
 
             var expectedHotels = new List<string>();
             expectedHotels.Add("test");
@@ -131,8 +129,8 @@ namespace TestingTask.Core.Test.UnitTests
                         }
                 });
 
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
-            var bookingService = new BookingService(validator.Object, this.hotelRepository.Object);
+            var validator = new GroupValidator();
+            var bookingService = new BookingService(validator, this.hotelRepository.Object);
 
             var group = new Group()
             {
@@ -146,8 +144,6 @@ namespace TestingTask.Core.Test.UnitTests
                     new Guest() { Age = 28, FirstName = "TestN", LastName = "TestF" }
                 }
             };
-
-            validator.Setup(x => x.Validate(group)).Returns(true);
 
             var expectedHotels = new List<string>();
             expectedHotels.Add("test");
@@ -183,8 +179,9 @@ namespace TestingTask.Core.Test.UnitTests
                             new Room() { Capacity = 1}
                         }
                 });
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
-            var bookingService = new BookingService(validator.Object, this.hotelRepository.Object);
+
+            var validator = new GroupValidator();
+            var bookingService = new BookingService(validator, this.hotelRepository.Object);
 
             var group = new Group()
             {
@@ -196,8 +193,6 @@ namespace TestingTask.Core.Test.UnitTests
                     new Guest() { Age = 28, FirstName = "TestN", LastName = "TestF" }
                 }
             };
-
-            validator.Setup(x => x.Validate(group)).Returns(true);
 
             Assert.ThrowsException<ArgumentException>(() => bookingService.GetSuitableHotelNames(group));
         }
@@ -227,12 +222,11 @@ namespace TestingTask.Core.Test.UnitTests
                             new Room() { Capacity = 2}
                         }
                 });
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
-            var bookingService = new BookingService(validator.Object, this.hotelRepository.Object);
+
+            var validator = new GroupValidator();
+            var bookingService = new BookingService(validator, this.hotelRepository.Object);
 
             Group group = null;
-
-            validator.Setup(x => x.Validate(group)).Returns(false);
 
             Assert.ThrowsException<ArgumentException>(() => bookingService.GetSuitableHotelNames(group));
         }
@@ -262,12 +256,11 @@ namespace TestingTask.Core.Test.UnitTests
                         }
                 });
 
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
-            var bookingService = new BookingService(validator.Object, this.hotelRepository.Object);
+            var validator = new GroupValidator();
+            var bookingService = new BookingService(validator, this.hotelRepository.Object);
 
             Group group = new Group() { HasPets = false, Guests = new List<Guest>() };
 
-            validator.Setup(x => x.Validate(group)).Returns(false);
 
             Assert.ThrowsException<ArgumentException>(() => bookingService.GetSuitableHotelNames(group));
         }
@@ -298,8 +291,10 @@ namespace TestingTask.Core.Test.UnitTests
                             new Room() { Capacity = 4}
                         }
                 });
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
-            var bookingService = new BookingService(validator.Object, this.hotelRepository.Object);
+
+
+            var validator = new GroupValidator();
+            var bookingService = new BookingService(validator, this.hotelRepository.Object);
 
             var group = new Group()
             {
@@ -311,8 +306,6 @@ namespace TestingTask.Core.Test.UnitTests
                     new Guest() { Age = 28, FirstName = "TestN", LastName = "TestF" }
                 }
             };
-
-            validator.Setup(x => x.Validate(group)).Returns(false);
 
             Assert.ThrowsException<ArgumentException>(() => bookingService.GetSuitableHotelNames(group));
         }
@@ -343,8 +336,9 @@ namespace TestingTask.Core.Test.UnitTests
                             new Room() { Capacity = 4}
                         }
                 });
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
-            var bookingService = new BookingService(validator.Object, this.hotelRepository.Object);
+
+            var validator = new GroupValidator();
+            var bookingService = new BookingService(validator, this.hotelRepository.Object);
 
             var group = new Group()
             {
@@ -356,8 +350,6 @@ namespace TestingTask.Core.Test.UnitTests
                     new Guest() { Age = 28, FirstName = "TestN", LastName = "TestF" }
                 }
             };
-
-            validator.Setup(x => x.Validate(group)).Returns(false);
 
             Assert.ThrowsException<ArgumentException>(() => bookingService.GetSuitableHotelNames(group));
         }
@@ -388,8 +380,9 @@ namespace TestingTask.Core.Test.UnitTests
                             new Room() { Capacity = 4}
                         }
                 });
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
-            var bookingService = new BookingService(validator.Object, this.hotelRepository.Object);
+
+            var validator = new GroupValidator();
+            var bookingService = new BookingService(validator, this.hotelRepository.Object);
 
             var group = new Group()
             {
@@ -401,8 +394,6 @@ namespace TestingTask.Core.Test.UnitTests
                     new Guest() { Age = 28, FirstName = "TestN", LastName = "TestF" }
                 }
             };
-
-            validator.Setup(x => x.Validate(group)).Returns(false);
 
             Assert.ThrowsException<ArgumentException>(() => bookingService.GetSuitableHotelNames(group));
         }
@@ -433,8 +424,9 @@ namespace TestingTask.Core.Test.UnitTests
                             new Room() { Capacity = 4}
                         }
                 });
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
-            var bookingService = new BookingService(validator.Object, this.hotelRepository.Object);
+
+            var validator = new GroupValidator();
+            var bookingService = new BookingService(validator, this.hotelRepository.Object);
 
             var group = new Group()
             {
@@ -446,8 +438,6 @@ namespace TestingTask.Core.Test.UnitTests
                     new Guest() { Age = 28, FirstName = "TestN", LastName = "TestF" }
                 }
             };
-
-            validator.Setup(x => x.Validate(group)).Returns(false);
 
             Assert.ThrowsException<ArgumentException>(() => bookingService.GetSuitableHotelNames(group));
         }
@@ -479,8 +469,8 @@ namespace TestingTask.Core.Test.UnitTests
                         }
                 });
 
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
-            var bookingService = new BookingService(validator.Object, this.hotelRepository.Object);
+            var validator = new GroupValidator();
+            var bookingService = new BookingService(validator, this.hotelRepository.Object);
 
             var group = new Group()
             {
@@ -492,8 +482,6 @@ namespace TestingTask.Core.Test.UnitTests
                     new Guest() { Age = 28, FirstName = "TestN", LastName = "TestF" }
                 }
             };
-
-            validator.Setup(x => x.Validate(group)).Returns(false);
 
             Assert.ThrowsException<ArgumentException>(() => bookingService.GetSuitableHotelNames(group));
         }
@@ -517,8 +505,8 @@ namespace TestingTask.Core.Test.UnitTests
                         }
                 });
 
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
-            var bookingService = new BookingService(validator.Object, this.hotelRepository.Object);
+            var validator = new GroupValidator();
+            var bookingService = new BookingService(validator, this.hotelRepository.Object);
 
             var group = new Group()
             {
@@ -530,8 +518,6 @@ namespace TestingTask.Core.Test.UnitTests
                     new Guest() { Age = 28, FirstName = "TestN", LastName = "TestF" }
                 }
             };
-
-            validator.Setup(x => x.Validate(group)).Returns(false);
 
             Assert.ThrowsException<ArgumentException>(() => bookingService.GetSuitableHotelNames(group));
         }
@@ -576,8 +562,8 @@ namespace TestingTask.Core.Test.UnitTests
                         }
                 });
 
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
-            var bookingService = new BookingService(validator.Object, this.hotelRepository.Object);
+            var validator = new GroupValidator();
+            var bookingService = new BookingService(validator, this.hotelRepository.Object);
 
             var group = new Group()
             {
@@ -592,8 +578,6 @@ namespace TestingTask.Core.Test.UnitTests
                     new Guest() { Age = 28, FirstName = "TestN", LastName = "TestF" }
                 }
             };
-
-            validator.Setup(x => x.Validate(group)).Returns(true);
 
             var expectedHotelsNames = new List<string>();
             expectedHotelsNames.Add("test1");
@@ -645,8 +629,8 @@ namespace TestingTask.Core.Test.UnitTests
                         }
                 });
 
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
-            var bookingService = new BookingService(validator.Object, this.hotelRepository.Object);
+            var validator = new GroupValidator();
+            var bookingService = new BookingService(validator, this.hotelRepository.Object);
 
             var group = new Group()
             {
@@ -663,8 +647,6 @@ namespace TestingTask.Core.Test.UnitTests
                     new Guest() { Age = 28, FirstName = "TestN", LastName = "TestF" }
                 }
             };
-
-            validator.Setup(x => x.Validate(group)).Returns(true);
 
             var expectedHotelsNames = new List<string>();
             expectedHotelsNames.Add("test3");
@@ -715,8 +697,8 @@ namespace TestingTask.Core.Test.UnitTests
                         }
                 });
 
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
-            var bookingService = new BookingService(validator.Object, this.hotelRepository.Object);
+            var validator = new GroupValidator();
+            var bookingService = new BookingService(validator, this.hotelRepository.Object);
 
             var group = new Group()
             {
@@ -731,8 +713,6 @@ namespace TestingTask.Core.Test.UnitTests
                     new Guest() { Age = 28, FirstName = "TestN", LastName = "TestF" }
                 }
             };
-
-            validator.Setup(x => x.Validate(group)).Returns(true);
 
             var expectedHotelsNames = new List<string>();
             expectedHotelsNames.Add("test1");
@@ -783,8 +763,8 @@ namespace TestingTask.Core.Test.UnitTests
                         }
                 });
 
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
-            var bookingService = new BookingService(validator.Object, this.hotelRepository.Object);
+            var validator = new GroupValidator();
+            var bookingService = new BookingService(validator, this.hotelRepository.Object);
 
             var group = new Group()
             {
@@ -799,8 +779,6 @@ namespace TestingTask.Core.Test.UnitTests
                     new Guest() { Age = 28, FirstName = "TestN", LastName = "TestF" }
                 }
             };
-
-            validator.Setup(x => x.Validate(group)).Returns(true);
 
             var expectedHotelsNames = new List<string>();
             expectedHotelsNames.Add("test");
@@ -853,8 +831,9 @@ namespace TestingTask.Core.Test.UnitTests
                         }
                 });
 
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
-            var bookingService = new BookingService(validator.Object, this.hotelRepository.Object);
+
+            var validator = new GroupValidator();
+            var bookingService = new BookingService(validator, this.hotelRepository.Object);
 
             var group = new Group()
             {
@@ -869,8 +848,6 @@ namespace TestingTask.Core.Test.UnitTests
                     new Guest() { Age = 28, FirstName = "TestN", LastName = "TestF" }
                 }
             };
-
-            validator.Setup(x => x.Validate(group)).Returns(true);
 
             Assert.ThrowsException<ArgumentException>(() => bookingService.GetSuitableHotelNames(group));
         }
@@ -929,11 +906,9 @@ namespace TestingTask.Core.Test.UnitTests
                         }
                 });
 
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
-            var bookingService = new BookingService(validator.Object, this.hotelRepository.Object);
+            var validator = new GroupValidator();
+            var bookingService = new BookingService(validator, this.hotelRepository.Object);
 
-            
-            validator.Setup(x => x.Validate(group)).Returns(true);
 
             string name = "test";
             string secondName = "test1";

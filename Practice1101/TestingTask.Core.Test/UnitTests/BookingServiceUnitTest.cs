@@ -48,9 +48,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_EmptyString_TrowArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             string name = string.Empty;
             Group group = new Group()
@@ -70,9 +70,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_OnlyChildrenGroupWithPets_TrowArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             string name = "name";
             Group group = new Group()
@@ -92,9 +92,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_GroupWithOutNames_TrowArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             string name = "name";
             Group group = new Group()
@@ -114,9 +114,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_OneGuestFromGroupWithOutFullName_TrowArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             string name = "name";
             Group group = new Group()
@@ -136,9 +136,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_OneGuestFromGroupWithOutFirstName_TrowArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             string name = "name";
             Group group = new Group()
@@ -158,9 +158,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_OneGuestFromGroupWithOutLastName_TrowArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             string name = "name";
             Group group = new Group()
@@ -180,9 +180,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_OneGuestFromGroupWithVeryHighAge_TrowArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             string name = "name";
             Group group = new Group()
@@ -202,9 +202,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_OneGuestFromGroupWithInvalidFirstName_TrowArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             string name = "name";
             Group group = new Group()
@@ -224,9 +224,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_OneGuestFromGroupWithInvalidLastName_TrowArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             string name = "name";
             Group group = new Group()
@@ -246,9 +246,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_OneGuestFromGroupWithNegativeNumbersOfAge_TrowArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             string name = "name";
             Group group = new Group()
@@ -268,9 +268,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_GroupIsNull_TrowArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             string name = "name";
             Group group = null;
@@ -281,9 +281,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_GroupWithZeroCountOfGuests_TrowArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             string name = string.Empty;
             Group group = new Group()
@@ -298,9 +298,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_ValidGroupAndValidString_ReturnListRoom()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             string name = "name";
             Group group = new Group();
@@ -322,9 +322,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void GetSuitableHotelNames_ValidGroupWithPets_ReturnListWithHotelNames()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             Group group = new Group()
             {
@@ -346,9 +346,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void GetSuitableHotelNames_NullGroup_TrowArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             Group group = null;
 
@@ -358,9 +358,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void GetSuitableHotelNames_EmptyGroup_ArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             Group group = new Group()
             {
@@ -374,9 +374,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void GetSuitableHotelNames_OneGuestFromGroupWithNegativeNumbersOfAge_ArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             Group group = new Group()
             {
@@ -395,9 +395,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void GetSuitableHotelNames_OneGuestFromGroupWithInvalidLastName_ArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             Group group = new Group()
             {
@@ -416,9 +416,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void GetSuitableHotelNames_OneGuestFromGroupWithInvalidFirstName_ArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             Group group = new Group()
             {
@@ -437,9 +437,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void GetSuitableHotelNames_OneGuestFromGroupWithVeryHighAge_ArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             Group group = new Group()
             {
@@ -458,9 +458,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void GetSuitableHotelNames_OneGuestFromGroupWithOutLastName_ArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             Group group = new Group()
             {
@@ -479,9 +479,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void GetSuitableHotelNames_OneGuestFromGroupWithOutFirstName_ArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             Group group = new Group()
             {
@@ -500,9 +500,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void GetSuitableHotelNames_OneGuestFromGroupWithOutFullName_ArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             Group group = new Group()
             {
@@ -521,9 +521,9 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void GetSuitableHotelNames_GroupWithOutNames_ArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var validator = new GroupValidator();
             Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            var bookingService = new BookingService(validator, hotelRepository.Object);
 
             Group group = new Group()
             {
