@@ -83,7 +83,7 @@ namespace TestingTask.Core.Test.UnitTests
         }
 
         [TestMethod]
-        public void GroupValidator_GroupWithOutNames_ReturnFalse()
+        public void GroupValidator_GroupWithEmptyNames_ReturnFalse()
         {
             var validator = new GroupValidator();
 
@@ -102,7 +102,7 @@ namespace TestingTask.Core.Test.UnitTests
         }
 
         [TestMethod]
-        public void GroupValidator_OneGuestFromGroupWithOutFullName_ReturnFalse()
+        public void GroupValidator_OneGuestFromGroupWithEmptyFullName_ReturnFalse()
         {
             var validator = new GroupValidator();
 
@@ -121,7 +121,7 @@ namespace TestingTask.Core.Test.UnitTests
         }
 
         [TestMethod]
-        public void GroupValidator_OneGuestFromGroupWithOutFirstName_ReturnFalse()
+        public void GroupValidator_OneGuestFromGroupWithEmptyFirstName_ReturnFalse()
         {
             var validator = new GroupValidator();
 
@@ -140,7 +140,7 @@ namespace TestingTask.Core.Test.UnitTests
         }
 
         [TestMethod]
-        public void GroupValidator_OneGuestFromGroupWithOutLastName_ReturnFalse()
+        public void GroupValidator_OneGuestFromGroupWithEmptyName_ReturnFalse()
         {
             var validator = new GroupValidator();
 
@@ -169,43 +169,6 @@ namespace TestingTask.Core.Test.UnitTests
                 {
                     new Guest() { Age = 101, FirstName = "John", LastName = "Lehnon" },
                     new Guest() { Age = 29, FirstName = "Yoko", LastName = "Ono" },
-                    new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
-                }
-            };
-
-            Assert.IsFalse(validator.Validate(group));
-        }
-
-        //Regex.Match(firstNameTextBox.Text, "^[A-Z][a-zA-Z]*$")
-        public void GroupValidator_OneGuestFromGroupWithInvalidFirstName_ReturnFalse()
-        {
-            var validator = new GroupValidator();
-
-            Group group = new Group()
-            {
-                HasPets = true,
-                Guests = new List<Guest>()
-                {
-                    new Guest() { Age = 82, FirstName = "Joh4@$35#5yr23n", LastName = "Lehnon" },
-                    new Guest() { Age = 29, FirstName = "Yoko", LastName = "Ono" },
-                    new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
-                }
-            };
-
-            Assert.IsFalse(validator.Validate(group));
-        }
-
-        public void GroupValidator_OneGuestFromGroupWithInvalidLastName_ReturnFalse()
-        {
-            var validator = new GroupValidator();
-
-            Group group = new Group()
-            {
-                HasPets = true,
-                Guests = new List<Guest>()
-                {
-                    new Guest() { Age = 11, FirstName = "John", LastName = "Lehnon" },
-                    new Guest() { Age = 29, FirstName = "Yoko", LastName = "O4@$35#5yr23no" },
                     new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
                 }
             };
