@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Projects\\Net.Practise\\Practice1101\\Practice1101\\Practice1101.csproj": {}
+    "E:\\Projects\\Net.Practise\\Practice1101\\Threads1801\\Threads1801.csproj": {}
   },
   "projects": {
-    "E:\\Projects\\Net.Practise\\Practice1101\\Practice1101\\Practice1101.csproj": {
+    "E:\\Projects\\Net.Practise\\Practice1101\\Threads1801\\Threads1801.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects\\Net.Practise\\Practice1101\\Practice1101\\Practice1101.csproj",
-        "projectName": "Practice1101",
-        "projectPath": "E:\\Projects\\Net.Practise\\Practice1101\\Practice1101\\Practice1101.csproj",
+        "projectUniqueName": "E:\\Projects\\Net.Practise\\Practice1101\\Threads1801\\Threads1801.csproj",
+        "projectName": "Threads1801",
+        "projectPath": "E:\\Projects\\Net.Practise\\Practice1101\\Threads1801\\Threads1801.csproj",
         "packagesPath": "C:\\Users\\zhend\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects\\Net.Practise\\Practice1101\\Practice1101\\obj\\",
+        "outputPath": "E:\\Projects\\Net.Practise\\Practice1101\\Threads1801\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
