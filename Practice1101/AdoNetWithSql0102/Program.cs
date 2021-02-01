@@ -105,9 +105,10 @@ namespace AdoNetWithSql0102
 
         static void FourthTask(string connectionString)
         {
-            string sqlExpression = "Select Max([UnitPrice])" +
-                " FROM[Northwind].[dbo].[Products], [Northwind].[dbo].[Categories]" +
-                " Where[CategoryName] = 'Seafood'";
+            string sqlExpression = "Select TOP 1 [ProductName]" +
+                " FROM[Northwind].[dbo].[Products], [Northwind].[dbo].[Categories]" +"" +
+                " Where[CategoryName] = 'Seafood'" +
+                " ORDER BY[UnitPrice]";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
