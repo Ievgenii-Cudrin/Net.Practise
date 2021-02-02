@@ -30,9 +30,9 @@ namespace AdoNetWithSql0102
 
         static void FirstTask(string connectionString)
         {
-            string sqlExpression = "SELECT [EmployeeID],[LastName],[FirstName] " +
-                "FROM[Northwind].[dbo].[Employees] " +
-                "WHERE[City] = @City";
+            string sqlExpression = @"SELECT [EmployeeID],[LastName],[FirstName] 
+                FROM[Northwind].[dbo].[Employees] 
+                WHERE[City] = @City";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -64,12 +64,11 @@ namespace AdoNetWithSql0102
 
         static void SecondTask(string connectionString)
         {
-            string sqlExpression = "SELECT TOP 1 COUNT(Distinct [Orders].[CustomerID]) as Count_Customers" +
-                " FROM[Employees]" +
-                " JOIN [Orders]" +
-                " ON[Employees].[EmployeeID] = [Orders].[EmployeeID]" +
-                " GROUP BY[Employees].[EmployeeID]" +
-                " ORDER BY Count_Customers DESC ";
+            string sqlExpression = @"SELECT TOP 1 COUNT(Distinct [Orders].[CustomerID]) as Count_Customers
+                 FROM[Employees] JOIN [Orders]
+                 ON[Employees].[EmployeeID] = [Orders].[EmployeeID]
+                 GROUP BY[Employees].[EmployeeID]
+                 ORDER BY Count_Customers DESC";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -82,11 +81,10 @@ namespace AdoNetWithSql0102
 
         static void ThirdTask(string connectionString)
         {
-            string sqlExpression = "SELECT  [ShipCity]" +
-                ", [ShipCountry]" +
-                " FROM[Northwind].[dbo].[Orders]" +
-                " GROUP BY[ShipCity], [ShipCountry]" +
-                " HAVING COUNT([OrderID])> 2";
+            string sqlExpression = @"SELECT  [ShipCity], [ShipCountry]
+                FROM[Northwind].[dbo].[Orders]
+                GROUP BY[ShipCity], [ShipCountry]
+                HAVING COUNT([OrderID])> 2";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -113,12 +111,12 @@ namespace AdoNetWithSql0102
 
         static void FourthTask(string connectionString)
         {
-            string sqlExpression = "Select Distinct [ProductName]" +
-                "FROM[Northwind].[dbo].[Products], [Northwind].[dbo].[Categories] " +
-                "Where[UnitPrice] = " +
-                "(SELECT MAX([UnitPrice]) " +
-                "FROM[Northwind].[dbo].[Products], [Northwind].[dbo].[Categories] " +
-                "Where[CategoryName] = @Seafood); ";
+            string sqlExpression = @"Select Distinct [ProductName]
+                FROM[Northwind].[dbo].[Products], [Northwind].[dbo].[Categories] 
+                Where[UnitPrice] = 
+                (SELECT MAX([UnitPrice]) 
+                FROM[Northwind].[dbo].[Products], [Northwind].[dbo].[Categories] 
+                Where[CategoryName] = @Seafood); ";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
