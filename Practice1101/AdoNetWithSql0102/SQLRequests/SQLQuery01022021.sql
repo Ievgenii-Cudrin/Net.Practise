@@ -23,10 +23,12 @@ SELECT  [ShipCity]
   HAVING COUNT([OrderID])>2
 
 /*4*/
-Select TOP 1 [ProductName]
+Select Distinct [ProductName]
 	FROM [Northwind].[dbo].[Products], [Northwind].[dbo].[Categories]
-	Where [CategoryName] = 'Seafood'
-	ORDER BY [UnitPrice]
+	Where [UnitPrice] = 
+	(SELECT MAX([UnitPrice]) 
+	FROM [Northwind].[dbo].[Products], [Northwind].[dbo].[Categories] 
+	Where [CategoryName] = 'Seafood');
 
 
 	

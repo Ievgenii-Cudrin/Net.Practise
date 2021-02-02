@@ -19,6 +19,8 @@
 *.csproj.nuget.dgspec
 *.csproj.nuget.g.props
 *.csproj.nuget.g.targets
+*.v2
+*.cache
 dir_to_ignore/
 
 
