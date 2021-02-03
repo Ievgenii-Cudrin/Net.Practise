@@ -186,7 +186,7 @@ namespace TestingTask.Core.Test.UnitTests
                 Guests = new List<Guest>()
                 {
                     new Guest() { Age = 100, FirstName = "John", LastName = "Lehnon" },
-                    new Guest() { Age = 29, FirstName = "Yoko", LastName = "O4@$35#5yr23no" },
+                    new Guest() { Age = 29, FirstName = "Yoko", LastName = "Ono" },
                     new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
                 }
             };
@@ -204,7 +204,7 @@ namespace TestingTask.Core.Test.UnitTests
                 Guests = new List<Guest>()
                 {
                     new Guest() { Age = 0, FirstName = "John", LastName = "Lehnon" },
-                    new Guest() { Age = 29, FirstName = "Yoko", LastName = "O4@$35#5yr23no" },
+                    new Guest() { Age = 29, FirstName = "Yoko", LastName = "Ono" },
                     new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
                 }
             };
