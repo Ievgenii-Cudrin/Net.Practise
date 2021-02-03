@@ -59,7 +59,7 @@ namespace TestingTask.Core.Test.UnitTests
                 new Hotel() 
                 { 
                     Name = "test", 
-                    AllowPets = false, 
+                    AllowPets = true, 
                     Rooms = 
                     {
                         new Room() { Capacity = 2},
@@ -94,7 +94,8 @@ namespace TestingTask.Core.Test.UnitTests
             };
 
             var expectedHotels = new List<string>();
-            expectedHotels.Add("test");
+            //test1 - big hotel
+            expectedHotels.Add("test1");
             //Act
             var hotelsResult = bookingService.GetSuitableHotelNames(group);
 
@@ -146,7 +147,6 @@ namespace TestingTask.Core.Test.UnitTests
             };
 
             var expectedHotels = new List<string>();
-            expectedHotels.Add("test");
             expectedHotels.Add("test1");
             //Act
             var hotelsResult = bookingService.GetSuitableHotelNames(group);
