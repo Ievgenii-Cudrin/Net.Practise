@@ -26,10 +26,31 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_NullString_TrowArgumentException()
         {
-            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test",
+                    AllowPets = false,
+                    Rooms =
+                    {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                    }
+                });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
 
+            Mock<IValidator<Group>> validator = new Mock<IValidator<Group>>();
+            var bookingService = new BookingService(validator.Object, hotelRepository.Object);
             string name = null;
             Group group = new Group()
             {
@@ -48,8 +69,29 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_EmptyString_TrowArgumentException()
         {
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test",
+                    AllowPets = false,
+                    Rooms =
+                    {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                    }
+                });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
             string name = string.Empty;
@@ -70,11 +112,33 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_OnlyChildrenGroupWithPets_TrowArgumentException()
         {
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test",
+                    AllowPets = false,
+                    Rooms =
+                    {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                    }
+                });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
+
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
-            string name = "name";
+            string name = "test";
             Group group = new Group()
             {
                 HasPets = true,
@@ -90,13 +154,35 @@ namespace TestingTask.Core.Test.UnitTests
         }
 
         [TestMethod]
-        public void Book_GroupWithOutNames_TrowArgumentException()
+        public void Book_GroupWithEmptyNames_TrowArgumentException()
         {
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test",
+                    AllowPets = false,
+                    Rooms =
+                    {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                    }
+                });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
+
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
-            string name = "name";
+            string name = "test";
             Group group = new Group()
             {
                 HasPets = true,
@@ -112,13 +198,35 @@ namespace TestingTask.Core.Test.UnitTests
         }
 
         [TestMethod]
-        public void Book_OneGuestFromGroupWithOutFullName_TrowArgumentException()
+        public void Book_OneGuestFromGroupWithEmptyFullName_TrowArgumentException()
         {
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test",
+                    AllowPets = false,
+                    Rooms =
+                    {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                    }
+                });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
+
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
-            string name = "name";
+            string name = "test";
             Group group = new Group()
             {
                 HasPets = true,
@@ -134,13 +242,35 @@ namespace TestingTask.Core.Test.UnitTests
         }
 
         [TestMethod]
-        public void Book_OneGuestFromGroupWithOutFirstName_TrowArgumentException()
+        public void Book_OneGuestFromGroupEmptyFirstName_TrowArgumentException()
         {
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test",
+                    AllowPets = false,
+                    Rooms =
+                    {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                    }
+                });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
+
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
-            string name = "name";
+            string name = "test";
             Group group = new Group()
             {
                 HasPets = true,
@@ -156,13 +286,35 @@ namespace TestingTask.Core.Test.UnitTests
         }
 
         [TestMethod]
-        public void Book_OneGuestFromGroupWithOutLastName_TrowArgumentException()
+        public void Book_OneGuestFromGroupEmptyLastName_TrowArgumentException()
         {
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test",
+                    AllowPets = false,
+                    Rooms =
+                    {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                    }
+                });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
+
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
-            string name = "name";
+            string name = "test";
             Group group = new Group()
             {
                 HasPets = true,
@@ -180,17 +332,39 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_OneGuestFromGroupWithVeryHighAge_TrowArgumentException()
         {
+            this.hotelsList.Add(
+                   new Hotel()
+                   {
+                       Name = "test",
+                       AllowPets = false,
+                       Rooms =
+                       {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                       }
+                   });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
+
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
-            string name = "name";
+            string name = "test";
             Group group = new Group()
             {
                 HasPets = true,
                 Guests = new List<Guest>()
                 {
-                    new Guest() { Age = 182, FirstName = "John", LastName = "Lehnon" },
+                    new Guest() { Age = 101, FirstName = "John", LastName = "Lehnon" },
                     new Guest() { Age = 29, FirstName = "Yoko", LastName = "Ono" },
                     new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
                 }
@@ -199,64 +373,140 @@ namespace TestingTask.Core.Test.UnitTests
             Assert.ThrowsException<ArgumentException>(() => bookingService.Book(name, group));
         }
 
-        [TestMethod]
-        public void Book_OneGuestFromGroupWithInvalidFirstName_TrowArgumentException()
+        public void Book_OneGuestFromGroupWithAge100_TrowArgumentException()
         {
+            this.hotelsList.Add(
+                   new Hotel()
+                   {
+                       Name = "test",
+                       AllowPets = false,
+                       Rooms =
+                       {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                       }
+                   });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
+
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
-            string name = "name";
+            string name = "test";
             Group group = new Group()
             {
                 HasPets = true,
                 Guests = new List<Guest>()
                 {
-                    new Guest() { Age = 182, FirstName = "Joh4@$35#5yr23n", LastName = "Lehnon" },
+                    new Guest() { Age = 100, FirstName = "John", LastName = "Lehnon" },
                     new Guest() { Age = 29, FirstName = "Yoko", LastName = "Ono" },
                     new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
                 }
             };
 
-            Assert.ThrowsException<ArgumentException>(() => bookingService.Book(name, group));
+            var expectedRooms = new List<Room>() {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 2}
+                    };
+            List<Room> suitableRoomsResult = bookingService.Book(name, group);
+
+            CollectionAssert.AreEqual(expectedRooms, suitableRoomsResult);
         }
 
-        [TestMethod]
-        public void Book_OneGuestFromGroupWithInvalidLastName_TrowArgumentException()
+        public void Book_OneGuestFromGroupWithAge0_TrowArgumentException()
         {
+            this.hotelsList.Add(
+                   new Hotel()
+                   {
+                       Name = "test",
+                       AllowPets = false,
+                       Rooms =
+                       {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                       }
+                   });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
+
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
-            string name = "name";
+            string name = "test";
             Group group = new Group()
             {
                 HasPets = true,
                 Guests = new List<Guest>()
                 {
-                    new Guest() { Age = 182, FirstName = "John", LastName = "Lehnon" },
-                    new Guest() { Age = 29, FirstName = "Yoko", LastName = "O4@$35#5yr23no" },
+                    new Guest() { Age = 0, FirstName = "John", LastName = "Lehnon" },
+                    new Guest() { Age = 29, FirstName = "Yoko", LastName = "Ono" },
                     new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
                 }
             };
 
-            Assert.ThrowsException<ArgumentException>(() => bookingService.Book(name, group));
+            var expectedRooms = new List<Room>() {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 2}
+                    };
+            List<Room> suitableRoomsResult = bookingService.Book(name, group);
+
+            CollectionAssert.AreEqual(expectedRooms, suitableRoomsResult);
         }
 
         [TestMethod]
         public void Book_OneGuestFromGroupWithNegativeNumbersOfAge_TrowArgumentException()
         {
+            this.hotelsList.Add(
+                   new Hotel()
+                   {
+                       Name = "test",
+                       AllowPets = false,
+                       Rooms =
+                       {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                       }
+                   });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
+
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
-            string name = "name";
+            string name = "test";
             Group group = new Group()
             {
                 HasPets = true,
                 Guests = new List<Guest>()
                 {
-                    new Guest() { Age = -32, FirstName = "John", LastName = "Lehnon" },
+                    new Guest() { Age = -1, FirstName = "John", LastName = "Lehnon" },
                     new Guest() { Age = 29, FirstName = "Yoko", LastName = "Ono" },
                     new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
                 }
@@ -268,11 +518,33 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_GroupIsNull_TrowArgumentException()
         {
+            this.hotelsList.Add(
+                   new Hotel()
+                   {
+                       Name = "test",
+                       AllowPets = false,
+                       Rooms =
+                       {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                       }
+                   });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
+
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
-            string name = "name";
+            string name = "test";
             Group group = null;
 
             Assert.ThrowsException<ArgumentException>(() => bookingService.Book(name, group));
@@ -281,11 +553,33 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_GroupWithZeroCountOfGuests_TrowArgumentException()
         {
+            this.hotelsList.Add(
+                   new Hotel()
+                   {
+                       Name = "test",
+                       AllowPets = false,
+                       Rooms =
+                       {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                       }
+                   });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
+
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
-            string name = string.Empty;
+            string name = "test";
             Group group = new Group()
             {
                 Guests = new List<Guest>(),
@@ -298,11 +592,33 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void Book_ValidGroupAndValidString_ReturnListRoom()
         {
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test",
+                    AllowPets = false,
+                    Rooms =
+                    {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 2}
+                    }
+                });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
+
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
-            string name = "name";
+            string name = "test";
             Group group = new Group();
 
             List<Guest> guests = new List<Guest>()
@@ -312,7 +628,10 @@ namespace TestingTask.Core.Test.UnitTests
                 new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
             };
 
-            var expectedRooms = new List<Room>();
+            var expectedRooms = new List<Room> {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 2}
+                    };
             List<Room> suitableRoomsResult = bookingService.Book(name, group);
 
             CollectionAssert.AreEqual(expectedRooms, suitableRoomsResult);
@@ -322,8 +641,30 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void GetSuitableHotelNames_ValidGroupWithPets_ReturnListWithHotelNames()
         {
+            this.hotelsList.Add(
+                   new Hotel()
+                   {
+                       Name = "test",
+                       AllowPets = false,
+                       Rooms =
+                       {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                       }
+                   });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
+
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
             Group group = new Group()
@@ -337,7 +678,7 @@ namespace TestingTask.Core.Test.UnitTests
                 }
             };
 
-            var expectedNames = new List<string>();
+            var expectedNames = new List<string> { "test", "test1" };
             List<string> suitableHotelNamesResult = bookingService.GetSuitableHotelNames(group);
 
             CollectionAssert.AreEqual(expectedNames, suitableHotelNamesResult);
@@ -346,8 +687,30 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void GetSuitableHotelNames_NullGroup_TrowArgumentException()
         {
+            this.hotelsList.Add(
+                   new Hotel()
+                   {
+                       Name = "test",
+                       AllowPets = false,
+                       Rooms =
+                       {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                       }
+                   });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
+
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
             Group group = null;
@@ -358,8 +721,30 @@ namespace TestingTask.Core.Test.UnitTests
         [TestMethod]
         public void GetSuitableHotelNames_EmptyGroup_ArgumentException()
         {
+            this.hotelsList.Add(
+                   new Hotel()
+                   {
+                       Name = "test",
+                       AllowPets = false,
+                       Rooms =
+                       {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                       }
+                   });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
+
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
             Group group = new Group()
@@ -372,94 +757,32 @@ namespace TestingTask.Core.Test.UnitTests
         }
 
         [TestMethod]
-        public void GetSuitableHotelNames_OneGuestFromGroupWithNegativeNumbersOfAge_ArgumentException()
+        public void GetSuitableHotelNames_OneGuestFromGroupWithEmptyLastName_ArgumentException()
         {
-            var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator, hotelRepository.Object);
-
-            Group group = new Group()
-            {
-                HasPets = true,
-                Guests = new List<Guest>()
+            this.hotelsList.Add(
+                   new Hotel()
+                   {
+                       Name = "test",
+                       AllowPets = false,
+                       Rooms =
+                       {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                       }
+                   });
+            this.hotelsList.Add(
+                new Hotel()
                 {
-                    new Guest() { Age = -32, FirstName = "John", LastName = "Lehnon" },
-                    new Guest() { Age = 29, FirstName = "Yoko", LastName = "O4@$35#5yr23no" },
-                    new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
-                }
-            };
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
 
-            Assert.ThrowsException<ArgumentException>(() => bookingService.GetSuitableHotelNames(group));
-        }
-
-        [TestMethod]
-        public void GetSuitableHotelNames_OneGuestFromGroupWithInvalidLastName_ArgumentException()
-        {
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator, hotelRepository.Object);
-
-            Group group = new Group()
-            {
-                HasPets = true,
-                Guests = new List<Guest>()
-                {
-                    new Guest() { Age = 182, FirstName = "John", LastName = "Lehnon" },
-                    new Guest() { Age = 29, FirstName = "Yoko", LastName = "O4@$35#5yr23no" },
-                    new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
-                }
-            };
-
-            Assert.ThrowsException<ArgumentException>(() => bookingService.GetSuitableHotelNames(group));
-        }
-
-        [TestMethod]
-        public void GetSuitableHotelNames_OneGuestFromGroupWithInvalidFirstName_ArgumentException()
-        {
-            var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator, hotelRepository.Object);
-
-            Group group = new Group()
-            {
-                HasPets = true,
-                Guests = new List<Guest>()
-                {
-                    new Guest() { Age = 182, FirstName = "Joh4@$35#5yr23n", LastName = "Lehnon" },
-                    new Guest() { Age = 29, FirstName = "Yoko", LastName = "Ono" },
-                    new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
-                }
-            };
-
-            Assert.ThrowsException<ArgumentException>(() => bookingService.GetSuitableHotelNames(group));
-        }
-
-        [TestMethod]
-        public void GetSuitableHotelNames_OneGuestFromGroupWithVeryHighAge_ArgumentException()
-        {
-            var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
-            var bookingService = new BookingService(validator, hotelRepository.Object);
-
-            Group group = new Group()
-            {
-                HasPets = true,
-                Guests = new List<Guest>()
-                {
-                    new Guest() { Age = 182, FirstName = "John", LastName = "Lehnon" },
-                    new Guest() { Age = 29, FirstName = "Yoko", LastName = "Ono" },
-                    new Guest() { Age = 4, FirstName = "Sean", LastName = "Lehnon" }
-                }
-            };
-
-            Assert.ThrowsException<ArgumentException>(() => bookingService.GetSuitableHotelNames(group));
-        }
-
-        [TestMethod]
-        public void GetSuitableHotelNames_OneGuestFromGroupWithOutLastName_ArgumentException()
-        {
-            var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
             Group group = new Group()
@@ -477,10 +800,32 @@ namespace TestingTask.Core.Test.UnitTests
         }
 
         [TestMethod]
-        public void GetSuitableHotelNames_OneGuestFromGroupWithOutFirstName_ArgumentException()
+        public void GetSuitableHotelNames_OneGuestFromGroupWithEmtyFirstName_ArgumentException()
         {
+            this.hotelsList.Add(
+                   new Hotel()
+                   {
+                       Name = "test",
+                       AllowPets = false,
+                       Rooms =
+                       {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                       }
+                   });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
+
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
             Group group = new Group()
@@ -498,10 +843,32 @@ namespace TestingTask.Core.Test.UnitTests
         }
 
         [TestMethod]
-        public void GetSuitableHotelNames_OneGuestFromGroupWithOutFullName_ArgumentException()
+        public void GetSuitableHotelNames_OneGuestFromGroupWithEmptyFullName_ArgumentException()
         {
+            this.hotelsList.Add(
+                   new Hotel()
+                   {
+                       Name = "test",
+                       AllowPets = false,
+                       Rooms =
+                       {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                       }
+                   });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
+
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
             Group group = new Group()
@@ -519,10 +886,32 @@ namespace TestingTask.Core.Test.UnitTests
         }
 
         [TestMethod]
-        public void GetSuitableHotelNames_GroupWithOutNames_ArgumentException()
+        public void GetSuitableHotelNames_GroupEmptyAllNames_ArgumentException()
         {
+            this.hotelsList.Add(
+                   new Hotel()
+                   {
+                       Name = "test",
+                       AllowPets = false,
+                       Rooms =
+                       {
+                        new Room() { Capacity = 3},
+                        new Room() { Capacity = 1}
+                       }
+                   });
+            this.hotelsList.Add(
+                new Hotel()
+                {
+                    Name = "test1",
+                    AllowPets = true,
+                    Rooms =
+                        {
+                            new Room() { Capacity = 2},
+                            new Room() { Capacity = 1},
+                        }
+                });
+
             var validator = new GroupValidator();
-            Mock<IHotelRepository> hotelRepository = new Mock<IHotelRepository>();
             var bookingService = new BookingService(validator, hotelRepository.Object);
 
             Group group = new Group()
