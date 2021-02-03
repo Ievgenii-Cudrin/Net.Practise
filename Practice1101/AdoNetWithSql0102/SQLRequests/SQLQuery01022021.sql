@@ -30,5 +30,11 @@ Select Distinct [ProductName]
 	FROM [Northwind].[dbo].[Products], [Northwind].[dbo].[Categories] 
 	Where [CategoryName] = 'Seafood');
 
+/*6*/
+SELECT [c].[ContactName]
+FROM [Northwind].[dbo].[Customers] AS c
+JOIN [Northwind].[dbo].[Orders] AS o ON [c].[CustomerID] = [o].[CustomerID]
+WHERE EXISTS(SELECT 1 FROM [Northwind].[dbo].[Orders] WHERE [CustomerID] = [o].[CustomerID] AND [OrderDate] > DATEADD(MONTH, 6, [o].[OrderDate]))
+GROUP BY [c].[ContactName]
 
 	

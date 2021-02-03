@@ -14,14 +14,15 @@ namespace AdoNetWithSql0102
             string usersdbConnectionString = ConfigurationManager.ConnectionStrings["UserDBConnection"].ConnectionString;
 
             FirstTask(nortwindConnectionString);
-            //SecondTask(nortwindConnectionString);
-            //ThirdTask(nortwindConnectionString);
-            //FourthTask(nortwindConnectionString);
+            SecondTask(nortwindConnectionString);
+            ThirdTask(nortwindConnectionString);
+            FourthTask(nortwindConnectionString);
+            SixTask(nortwindConnectionString);
 
-            //CreateUserAndAddToDb(usersdbConnectionString);
-            //ReadAllUsers(usersdbConnectionString);
-            //UpdateUser(1, usersdbConnectionString);
-            //DeleteUser(3, usersdbConnectionString);
+            CreateUserAndAddToDb(usersdbConnectionString);
+            ReadAllUsers(usersdbConnectionString);
+            UpdateUser(1, usersdbConnectionString);
+            DeleteUser(3, usersdbConnectionString);
 
 
 
@@ -128,6 +129,23 @@ namespace AdoNetWithSql0102
                 command.Parameters.Add(parametr);
                 object maxPrice = command.ExecuteScalar();
                 Console.WriteLine(maxPrice);
+            }
+        }
+
+        static void SixTask(string connectionString)
+        {
+            string sqlExpression = @"SELECT [c].[ContactName]
+                                FROM [Northwind].[dbo].[Customers] AS c
+                                JOIN [Northwind].[dbo].[Orders] AS o ON [c].[CustomerID] = [o].[CustomerID]
+                                WHERE EXISTS(SELECT 1 FROM [Northwind].[dbo].[Orders] WHERE [CustomerID] = [o].[CustomerID] AND [OrderDate] > DATEADD(MONTH, 6, [o].[OrderDate]))
+                                GROUP BY [c].[ContactName]";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpression, connection);
+                object count = command.ExecuteScalar();
+                Console.WriteLine(count);
             }
         }
 
