@@ -19,6 +19,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.DI
                 .AddTransient<IRoleService, RoleService>()
                 .AddTransient<IUserService, UserService>()
                 .AddTransient<IUserView,UserView>()
+                .AddTransient<IRoleView, RoleView>()
                 .BuildServiceProvider();
 
             return provider;
