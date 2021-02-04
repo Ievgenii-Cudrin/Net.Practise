@@ -13,5 +13,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Interfaces
         public void UpdateRole();
 
         public void DeleteRole();
+
+        public void ShowUsersInOneRole();
     }
 }

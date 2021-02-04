@@ -44,6 +44,11 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Services
             roleRepository.Delete(id);
         }
 
+        public Role GetRole(int id)
+        {
+            return roleRepository.Get(id);
+        }
+
         public List<User> GetUsersInRole(int roleId)
         {
             return roleRepository.GetAllUserInRole(roleId);

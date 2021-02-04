@@ -35,7 +35,12 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Views
 
         public void DeleteRole()
         {
-            throw new NotImplementedException();
+            RoleCondoleMessageHelpers.ShowRoles(roleService.GetAllRoles());
+            Console.WriteLine("Enter role id to delete: ");
+            int idToDelete = Convert.ToInt32(Console.ReadLine());
+            //delete role
+            userService.DeleteUser(idToDelete);
+            Branch.StartApp();
         }
 
         public void ShowAllRoles()
@@ -46,7 +51,24 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Views
 
         public void UpdateRole()
         {
-            throw new NotImplementedException();
+            RoleCondoleMessageHelpers.ShowRoles(this.roleService.GetAllRoles());
+            Console.WriteLine("Enter role id for update:");
+            int roleId = Convert.ToInt32(Console.ReadLine());
+            Role role = roleService.GetRole(roleId);
+            //Todo
+            Console.WriteLine("Enter role name: ");
+            string name = Console.ReadLine();
+            role.Name = name;
+            roleService.UpdateRole(role);
+            Branch.StartApp();
+        }
+
+        public void ShowUsersInOneRole()
+        {
+            Console.WriteLine("Enter role id for show user in this role:");
+            int roleId = Convert.ToInt32(Console.ReadLine());
+            UserConsoleMessageHelper.ShowUsers(roleService.GetUsersInRole(roleId));
+            Branch.StartApp();
         }
     }
 }

@@ -20,10 +20,10 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.ProgramBranch
             $"\n2 Show all users" +
             $"\n3 Update user" +
             $"\n4.Delete user" +
-            $"\n5.See the list of your skills" +
+            $"\n5. Create role" +
             $"\n6. Show all roles" +
-            $"\n7.My information" +
-            $"\n8.LogOut"
+            $"\n7. Update role" +
+            $"\n8. Delete role"
             );
 
             string choice = Console.ReadLine();
@@ -43,16 +43,16 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.ProgramBranch
                     userView.DeleteUser();
                     break;
                 case ("5"):
-                    userView.CreateUser();
+                    roleView.CreateRole();
                     break;
                 case ("6"):
                     roleView.ShowAllRoles();
                     break;
                 case ("7"):
-                    userView.UpdateUser();
+                    roleView.UpdateRole();
                     break;
                 case ("8"):
-                    userView.DeleteUser();
+                    roleView.DeleteRole();
                     break;
                 default:
                     StartApp();
