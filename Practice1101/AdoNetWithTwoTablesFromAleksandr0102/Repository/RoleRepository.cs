@@ -13,7 +13,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
         static string connectionString = ConfigurationManager.ConnectionStrings["UserDBConnection"].ConnectionString;
         public void Create(Role role)
         {
-            string sqlExpression = String.Format("INSERT INTO Roles (Name) VALUES (@name)");
+            string sqlExpression = String.Format("INSERT INTO Roles (RoleName) VALUES (@name)");
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -94,7 +94,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
 
         public void Update(Role role)
         {
-            string sqlExpression = $"UPDATE Roles SET Name=@name WHERE Id=@id";
+            string sqlExpression = $"UPDATE Roles SET RoleName=@name WHERE Id=@id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -113,7 +113,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
         public List<User> GetAllUserInRole(int roleId)
         {
             List<User> users = new List<User>();
-            string sqlExpression = @"select u.[Id], u.[Name], u.[RolesId], r.[Name]
+            string sqlExpression = @"select u.[Id], u.[UserName], u.[RolesId], r.[RoleName]
                                     from [Users] u
                                     Left Join Roles r On u.[RolesId] = r.[Id]
                                     Where r.[Id] = 2";

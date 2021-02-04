@@ -26,6 +26,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Views
             {
                 Console.WriteLine($"{user.Id}. {user.Name}, {user.UserRole.Name}");
             }
+            Branch.StartApp();
         }
 
         public void CreateUser()
@@ -50,6 +51,40 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Views
             };
 
             this.userService.CreateUser(user);
+            Branch.StartApp();
+        }
+
+        public void UpdateUser()
+        {
+            List<User> users = this.userService.GetAllUsers().ToList();
+
+            foreach (var user in users)
+            {
+                Console.WriteLine($"{user.Id} - {user.Name}, {user.UserRole.Name}");
+            }
+
+            Console.WriteLine("Enter user id for update:");
+            int userId = Convert.ToInt32(Console.ReadLine());
+            User userToUpdate = userService.GetUser(userId);
+            Console.WriteLine("Enter user name: ");
+            string name = Console.ReadLine();
+            Console.WriteLine("Available position: ");
+
+            List<Role> roles = this.roleService.GetAllRoles().ToList();
+
+            foreach (var role in roles)
+            {
+                Console.WriteLine($"{role.Id} - {role.Name}");
+            }
+
+            Console.WriteLine("Enter role id for update:");
+            int roleId = Convert.ToInt32(Console.ReadLine());
+
+            userToUpdate.Name = name;
+            userToUpdate.UserRole = roles.Where(x => x.Id == roleId).FirstOrDefault();
+            
+
+            this.userService.UpdateUser(userToUpdate);
             Branch.StartApp();
         }
     }

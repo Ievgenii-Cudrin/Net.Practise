@@ -3,6 +3,7 @@ using AdoNetWithTwoTablesFromAleksandr0102.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
@@ -13,7 +14,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
         static string connectionString = ConfigurationManager.ConnectionStrings["UserDBConnection"].ConnectionString;
         public void Create(User user)
         {
-            string sqlExpression = String.Format("INSERT INTO Users (Name, RoleId) VALUES (@name, @roleId)");
+            string sqlExpression = String.Format("INSERT INTO Users (UserName, RolesId) VALUES (@name, @roleId)");
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -48,10 +49,11 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
         public User Get(int id)
         {
             User user = new User();
-            string sqlExpression = @"select u.[Id], u.[Name], r.[Id], r.[Name] 
-                                    from [Users] u
-                                    Left Join Roles r On u.[RolesId] = r.[Id]
-                                    Where u.[Id] = @id";
+            Role role = new Role();
+            string sqlExpression = @"Select [Users].[Id], [Users].[UserName], [Users].[RolesId], [Roles].[RoleName] 
+                                    from [Users]
+                                    Left Join Roles On [Users].[RolesId] = [Roles].[Id]
+                                    Where [Users].[Id] = 3";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -59,12 +61,17 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 SqlParameter idParam = new SqlParameter("@id", id);
                 command.Parameters.Add(idParam);
-                SqlDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.SingleRow);
 
-                user.Id = reader.GetInt32(0);
-                user.Name = reader.GetString(1);
-                user.UserRole.Id = reader.GetInt32(2);
-                user.UserRole.Name = reader.GetString(3);
+                while (reader.Read())
+                {
+                    user.Name = reader.GetString("UserName");
+                    user.Id = reader.GetInt32("Id");
+                    role.Id = reader.GetInt32("RolesId");
+                    role.Name = reader.GetString("RoleName");
+                };
+
+                user.UserRole = role;
                 reader.Close();
             }
 
@@ -74,7 +81,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
         public IEnumerable<User> GetAll()
         {
             List<User> users = new List<User>();
-            string sqlExpression = @"select u.[Id], u.[Name], r.[Id], r.[Name] 
+            string sqlExpression = @"select u.[Id], u.[UserName], r.[Id], r.[RoleName] 
                                     from [Users] u
                                     Left Join Roles r On u.[RolesId] = r.[Id]";
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -111,7 +118,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
 
         public void Update(User user)
         {
-            string sqlExpression = $"UPDATE Users SET Name=@name, RoleId=@roleId WHERE Id=@id";
+            string sqlExpression = $"UPDATE Users SET UserName=@name, RolesId=@roleId WHERE Id=@id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

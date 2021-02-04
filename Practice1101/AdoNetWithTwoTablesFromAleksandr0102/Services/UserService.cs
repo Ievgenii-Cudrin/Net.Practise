@@ -33,5 +33,10 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Services
         {
             userRepository.Delete(id);
         }
+
+        public User GetUser(int id)
+        {
+            return userRepository.Get(id);
+        }
     }
 }

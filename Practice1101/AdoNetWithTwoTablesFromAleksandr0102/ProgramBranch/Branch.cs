@@ -16,8 +16,8 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.ProgramBranch
         {
             Console.WriteLine($"Please, make your choice: " +
             $"\n1.Create user" +
-            $"\n2 Pass the available course" +
-            $"\n3 Сontinue the started course" +
+            $"\n2 Show all users" +
+            $"\n3 Update user" +
             $"\n4.See the list of all passed courses" +
             $"\n5.See the list of your skills" +
             $"\n6.See the list of courses in progress" +
@@ -33,8 +33,10 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.ProgramBranch
                     userView.CreateUser();
                     break;
                 case ("2"):
+                    userView.ShowAllUsers();
                     break;
                 case ("3"):
+                    userView.UpdateUser();
                     break;
                 default:
                     StartApp();

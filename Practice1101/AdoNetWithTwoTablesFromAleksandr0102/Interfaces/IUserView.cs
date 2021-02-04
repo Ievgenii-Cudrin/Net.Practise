@@ -9,5 +9,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Interfaces
         public void ShowAllUsers();
 
         public void CreateUser();
+
+        public void UpdateUser();
     }
 }
