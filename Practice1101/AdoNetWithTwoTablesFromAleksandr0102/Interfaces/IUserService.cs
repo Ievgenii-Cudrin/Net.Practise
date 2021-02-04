@@ -7,12 +7,12 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Interfaces
 {
     public interface IUserService
     {
-        public void CreateRole(User user);
+        public void CreateUser(User user);
 
-        public List<User> GetAllRoles();
+        public List<User> GetAllUsers();
 
-        public void UpdateRole(User user);
+        public void UpdateUser(User user);
 
-        public void DeleteRole(int id);
+        public void DeleteUser(int id);
     }
 }
