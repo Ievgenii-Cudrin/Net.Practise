@@ -9,8 +9,6 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Interfaces
     {
         public void CreateRole(User user);
 
-        public void ShowAllRole();
-
         public List<User> GetAllRoles();
 
         public void UpdateRole(User user);
