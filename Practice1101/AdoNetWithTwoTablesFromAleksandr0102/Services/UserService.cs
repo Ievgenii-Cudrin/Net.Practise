@@ -16,22 +16,22 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Services
             this.userRepository = userRepository;
         }
 
-        public void CreateRole(User user)
+        public void CreateUser(User user)
         {
             userRepository.Create(user);
         }
 
-        public List<User> GetAllRoles()
+        public List<User> GetAllUsers()
         {
             return userRepository.GetAll().ToList();
         }
 
-        public void UpdateRole(User user)
+        public void UpdateUser(User user)
         {
             userRepository.Update(user);
         }
 
-        public void DeleteRole(int id)
+        public void DeleteUser(int id)
         {
             userRepository.Delete(id);
         }
