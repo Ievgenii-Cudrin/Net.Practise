@@ -352,15 +352,4 @@ ASALocalRun/
 .localhistory/
 
 # BeatPulse healthcheck temp database
-healthchecksdb
-Practice1101/.vs/Practice1101/DesignTimeBuild/.dtbcache.v2
-Practice1101/.vs/Practice1101/DesignTimeBuild/.dtbcache.v2
-Practice1101/.vs/Practice1101/v16/.suo
-*.cache
-Practice1101/AdoNetWithTwoTablesFromAleksandr0102/AdoNetWithTwoTablesFromAleksandr0102.csproj
-Practice1101/.vs/Practice1101/DesignTimeBuild/.dtbcache.v2
-Practice1101/.vs/Practice1101/v16/.suo
-Practice1101/Practice1101.sln
-Practice1101/Practice1101/obj/Debug/netcoreapp3.1/Practice1101.csprojAssemblyReference.cache
-Practice1101/Threads1801/obj/Debug/netcoreapp3.1/Threads1801.csprojAssemblyReference.cache
 *.cache
