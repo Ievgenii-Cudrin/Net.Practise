@@ -1,6 +1,7 @@
 ﻿using AdoNetWithTwoTablesFromAleksandr0102.Interfaces;
 using AdoNetWithTwoTablesFromAleksandr0102.Repository;
 using AdoNetWithTwoTablesFromAleksandr0102.Services;
+using AdoNetWithTwoTablesFromAleksandr0102.Views;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.DI
                 .AddTransient<IRoleRepository, RoleRepository>()
                 .AddTransient<IRoleService, RoleService>()
                 .AddTransient<IUserService, UserService>()
+                .AddTransient<IUserView,UserView>()
                 .BuildServiceProvider();
 
             return provider;

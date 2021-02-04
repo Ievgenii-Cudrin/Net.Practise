@@ -1,6 +1,7 @@
 ﻿using AdoNetWithTwoTablesFromAleksandr0102.DI;
 using AdoNetWithTwoTablesFromAleksandr0102.Entities;
 using AdoNetWithTwoTablesFromAleksandr0102.Interfaces;
+using AdoNetWithTwoTablesFromAleksandr0102.ProgramBranch;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -9,18 +10,19 @@ using System.Text;
 
 namespace AdoNetWithTwoTablesFromAleksandr0102.Views
 {
-    public class UserView
+    public class UserView : IUserView
     {
-        IUserService userService = Startup.ConfigureService().GetRequiredService<IUserService>();
-        IRoleService roleService = Startup.ConfigureService().GetRequiredService<IRoleService>();
-        public UserView(IUserService userService)
+        IUserService userService;
+        IRoleService roleService;
+        public UserView(IUserService userService, IRoleService roleService)
         {
             this.userService = userService;
+            this.roleService = roleService;
         }
 
         public void ShowAllUsers()
         {
-            foreach (var user in userService.GetAllUsers())
+            foreach (var user in this.userService.GetAllUsers())
             {
                 Console.WriteLine($"{user.Id}. {user.Name}, {user.UserRole.Name}");
             }
@@ -31,7 +33,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Views
             Console.WriteLine("Enter user name: ");
             string name = Console.ReadLine();
             Console.WriteLine("Available position: ");
-            List<Role> roles = roleService.GetAllRoles().ToList();
+            List<Role> roles = this.roleService.GetAllRoles().ToList();
 
             foreach (var role in roles)
             {
@@ -47,7 +49,8 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Views
                 UserRole = roles.Where(x => x.Id == roleId).FirstOrDefault()
             };
 
-            userService.CreateUser(user);
+            this.userService.CreateUser(user);
+            Branch.StartApp();
         }
     }
 }
