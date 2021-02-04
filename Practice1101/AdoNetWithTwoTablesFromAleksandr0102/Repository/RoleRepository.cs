@@ -3,6 +3,7 @@ using AdoNetWithTwoTablesFromAleksandr0102.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
@@ -47,14 +48,20 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
         {
             Role role = new Role();
             string sqlExpression = "SELECT * FROM Roles WHERE Id=@id";
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
-                SqlDataReader reader = command.ExecuteReader();
+                SqlParameter idParam = new SqlParameter("@id", id);
+                command.Parameters.Add(idParam);
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.SingleRow);
 
-                role.Id = reader.GetInt32(0);
-                role.Name = reader.GetString(1);
+                while (reader.Read())
+                {
+                    role.Id = reader.GetInt32("Id");
+                    role.Name = reader.GetString("RoleName");
+                };
 
                 reader.Close();
             }

@@ -32,7 +32,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
 
         public void Delete(int id)
         {
-            string sqlExpression = $"DELETE FROM Users WHERE Id=@id";
+            string sqlExpression = $"DELETE FROM Roles WHERE Id=@id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

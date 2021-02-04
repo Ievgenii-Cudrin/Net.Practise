@@ -74,6 +74,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Views
         public void ShowAllUsers()
         {
             UserConsoleMessageHelper.ShowUsers(userService.GetAllUsers());
+            Branch.StartApp();
         }
     }
 }
