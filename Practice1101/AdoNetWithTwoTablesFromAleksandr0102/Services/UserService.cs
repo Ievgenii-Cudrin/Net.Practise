@@ -7,7 +7,7 @@ using System.Text;
 
 namespace AdoNetWithTwoTablesFromAleksandr0102.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
         IUserRepository userRepository;
 
@@ -21,22 +21,14 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Services
             userRepository.Create(user);
         }
 
-        public void ShowAllRole()
-        {
-            foreach (var user in userRepository.GetAll().ToList())
-            {
-                Console.WriteLine($"{user.Id}. {user.Name}");
-            }
-        }
-
-        public List<Role> GetAllRoles()
+        public List<User> GetAllRoles()
         {
             return userRepository.GetAll().ToList();
         }
 
-        public void UpdateRole(Role role)
+        public void UpdateRole(User user)
         {
-            userRepository.Update(role);
+            userRepository.Update(user);
         }
 
         public void DeleteRole(int id)
