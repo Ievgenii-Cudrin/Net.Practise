@@ -70,5 +70,10 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Views
             userService.DeleteUser(idToDelete);
             Branch.StartApp();
         }
+
+        public void ShowAllUsers()
+        {
+            UserConsoleMessageHelper.ShowUsers(userService.GetAllUsers());
+        }
     }
 }

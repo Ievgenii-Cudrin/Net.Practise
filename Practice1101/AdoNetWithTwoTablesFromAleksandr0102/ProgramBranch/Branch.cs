@@ -11,6 +11,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.ProgramBranch
     public static class Branch
     {
         static IUserView userView = Startup.ConfigureService().GetRequiredService<IUserView>();
+        static IRoleView roleView = Startup.ConfigureService().GetRequiredService<IRoleView>();
 
         public static void StartApp()
         {
@@ -20,7 +21,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.ProgramBranch
             $"\n3 Update user" +
             $"\n4.Delete user" +
             $"\n5.See the list of your skills" +
-            $"\n6.See the list of courses in progress" +
+            $"\n6. Show all roles" +
             $"\n7.My information" +
             $"\n8.LogOut"
             );
@@ -39,6 +40,18 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.ProgramBranch
                     userView.UpdateUser();
                     break;
                 case ("4"):
+                    userView.DeleteUser();
+                    break;
+                case ("5"):
+                    userView.CreateUser();
+                    break;
+                case ("6"):
+                    roleView.ShowAllRoles();
+                    break;
+                case ("7"):
+                    userView.UpdateUser();
+                    break;
+                case ("8"):
                     userView.DeleteUser();
                     break;
                 default:
