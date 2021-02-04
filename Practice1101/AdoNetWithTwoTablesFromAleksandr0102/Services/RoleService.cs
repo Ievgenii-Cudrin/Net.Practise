@@ -7,7 +7,7 @@ using System.Text;
 
 namespace AdoNetWithTwoTablesFromAleksandr0102.Services
 {
-    public class RoleService
+    public class RoleService : IRoleService
     {
         IRoleRepository roleRepository;
 
