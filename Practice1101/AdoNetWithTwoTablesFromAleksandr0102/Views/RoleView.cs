@@ -7,22 +7,30 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Views
 {
     public class RoleView : IRoleView
     {
-        public void CreateUser()
+        IUserService userService;
+        IRoleService roleService;
+        public RoleView(IUserService userService, IRoleService roleService)
+        {
+            this.userService = userService;
+            this.roleService = roleService;
+        }
+
+        public void CreateRole()
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteUser()
+        public void DeleteRole()
         {
             throw new NotImplementedException();
         }
 
-        public void ShowAllUsers()
+        public void ShowAllRoles()
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateUser()
+        public void UpdateRole()
         {
             throw new NotImplementedException();
         }

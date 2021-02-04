@@ -6,12 +6,12 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Interfaces
 {
     public interface IRoleView
     {
-        public void ShowAllUsers();
+        public void ShowAllRoles();
 
-        public void CreateUser();
+        public void CreateRole();
 
-        public void UpdateUser();
+        public void UpdateRole();
 
-        public void DeleteUser();
+        public void DeleteRole();
     }
 }
