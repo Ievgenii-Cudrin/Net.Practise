@@ -8,21 +8,19 @@ using System.Text;
 
 namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
 {
-    public class UserRepository : IUserRepository
+    public class RoleRepository : IRoleRepository
     {
         static string connectionString = ConfigurationManager.ConnectionStrings["UserDBConnection"].ConnectionString;
-        public void Create(User user)
+        public void Create(Role role)
         {
-            string sqlExpression = String.Format("INSERT INTO Users (Name, RoleId) VALUES (@name, @role)");
+            string sqlExpression = String.Format("INSERT INTO Roles (Name) VALUES (@name)");
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
-                SqlParameter nameParam = new SqlParameter("@name", user.Name);
+                SqlParameter nameParam = new SqlParameter("@name", role.Name);
                 command.Parameters.Add(nameParam);
-                SqlParameter roleParam = new SqlParameter("@role", user.RoleId);
-                command.Parameters.Add(roleParam);
 
                 command.ExecuteNonQuery();
                 Console.WriteLine("Добавлен объект");
@@ -31,7 +29,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
 
         public void Delete(int id)
         {
-            string sqlExpression = $"DELETE FROM Users WHERE Id=@id";
+            string sqlExpression = $"DELETE FROM Roles WHERE Id=@id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -45,30 +43,29 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
             }
         }
 
-        public User Get(int id)
+        public Role Get(int id)
         {
-            User user = new User();
-            string sqlExpression = "SELECT * FROM Users WHERE Id=@id";
+            Role role = new Role();
+            string sqlExpression = "SELECT * FROM Roles WHERE Id=@id";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 SqlDataReader reader = command.ExecuteReader();
 
-                user.Id = reader.GetInt32(0);
-                user.Name = reader.GetString(1);
-                user.RoleId = reader.GetInt32(2);
+                role.Id = reader.GetInt32(0);
+                role.Name = reader.GetString(1);
 
                 reader.Close();
             }
 
-            return user;
+            return role;
         }
 
-        public IEnumerable<User> GetAll()
+        public IEnumerable<Role> GetAll()
         {
-            List<User> users = new List<User>();
-            string sqlExpression = "SELECT * FROM Users";
+            List<Role> roles = new List<Role>();
+            string sqlExpression = "SELECT * FROM Roles";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -79,36 +76,33 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
                 {
                     while (reader.Read())
                     {
-                        User user = new User()
+                        Role role = new Role()
                         {
                             Id = reader.GetInt32(0),
-                            Name = reader.GetString(1),
-                            RoleId = reader.GetInt32(2)
+                            Name = reader.GetString(1)
                         };
 
-                        users.Add(user);
+                        roles.Add(role);
                     }
                 }
 
                 reader.Close();
             }
 
-            return users;
+            return roles;
         }
 
-        public void Update(User user)
+        public void Update(Role role)
         {
-            string sqlExpression = $"UPDATE Users SET Name=@name, RoleId=@roleId WHERE Id=@id";
+            string sqlExpression = $"UPDATE Roles SET Name=@name WHERE Id=@id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
-                SqlParameter nameParam = new SqlParameter("@name", user.Name);
+                SqlParameter nameParam = new SqlParameter("@name", role.Name);
                 command.Parameters.Add(nameParam);
-                SqlParameter roleParam = new SqlParameter("@roleId", user.RoleId);
-                command.Parameters.Add(roleParam);
-                SqlParameter idParam = new SqlParameter("@id", user.Id);
+                SqlParameter idParam = new SqlParameter("@id", role.Id);
                 command.Parameters.Add(idParam);
 
                 command.ExecuteNonQuery();
