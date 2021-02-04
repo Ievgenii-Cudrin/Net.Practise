@@ -12,7 +12,15 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.MessageHelpers
         {
             foreach (var user in users)
             {
-                Console.WriteLine($"{user.Id}. {user.Name}, {user.UserRole.Name}");
+                if (user.UserRole != null)
+                {
+                    Console.WriteLine($"{user.Id}. {user.Name}, {user.UserRole.Name}");
+                }
+                else
+                {
+                    Console.WriteLine($"{user.Id}. {user.Name}, no roles");
+                }
+                
             }
         }
     }

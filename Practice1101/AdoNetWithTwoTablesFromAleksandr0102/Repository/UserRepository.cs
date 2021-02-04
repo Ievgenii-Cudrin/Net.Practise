@@ -53,7 +53,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
             string sqlExpression = @"Select [Users].[Id], [Users].[UserName], [Users].[RolesId], [Roles].[RoleName] 
                                     from [Users]
                                     Left Join Roles On [Users].[RolesId] = [Roles].[Id]
-                                    Where [Users].[Id] = 3";
+                                    Where [Users].[Id] = @id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -65,10 +65,22 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
 
                 while (reader.Read())
                 {
-                    user.Name = reader.GetString("UserName");
-                    user.Id = reader.GetInt32("Id");
-                    role.Id = reader.GetInt32("RolesId");
-                    role.Name = reader.GetString("RoleName");
+                    try
+                    {
+                        role.Id = reader.GetInt32("RolesId");
+                        role.Name = reader.GetString("RoleName");
+
+                    }
+                    catch
+                    {
+                        role = null;
+                    }
+                    finally
+                    {
+                        user.Id = reader.GetInt32("Id");
+                        user.Name = reader.GetString("UserName");
+                        user.UserRole = role;
+                    }
                 };
 
                 user.UserRole = role;
@@ -94,17 +106,25 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
                 {
                     while (reader.Read())
                     {
-                        Role role = new Role()
+                        User user = new User();
+                        Role role = new Role();
+
+                        try
                         {
-                            Id = reader.GetInt32(2),
-                            Name = reader.GetString(3)
-                        };
-                        User user = new User()
+                            role.Id = reader.GetInt32(2);
+                            role.Name = reader.GetString(3);
+                            
+                        }
+                        catch
                         {
-                            Id = reader.GetInt32(0),
-                            Name = reader.GetString(1),
-                            UserRole = role
-                        };
+                            role = null;
+                        }
+                        finally
+                        {
+                            user.Id = reader.GetInt32(0);
+                            user.Name = reader.GetString(1);
+                            user.UserRole = role;
+                        }
 
                         users.Add(user);
                     }

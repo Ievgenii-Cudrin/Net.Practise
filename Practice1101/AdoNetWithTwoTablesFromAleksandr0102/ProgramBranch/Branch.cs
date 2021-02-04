@@ -23,7 +23,8 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.ProgramBranch
             $"\n5. Create role" +
             $"\n6. Show all roles" +
             $"\n7. Update role" +
-            $"\n8. Delete role"
+            $"\n8. Delete role" +
+            $"\n9 Show all users in one role"
             );
 
             string choice = Console.ReadLine();
@@ -53,6 +54,9 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.ProgramBranch
                     break;
                 case ("8"):
                     roleView.DeleteRole();
+                    break;
+                case ("9"):
+                    roleView.ShowUsersInOneRole();
                     break;
                 default:
                     StartApp();

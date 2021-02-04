@@ -123,12 +123,14 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
             string sqlExpression = @"select u.[Id], u.[UserName], u.[RolesId], r.[RoleName]
                                     from [Users] u
                                     Left Join Roles r On u.[RolesId] = r.[Id]
-                                    Where r.[Id] = 2";
+                                    Where r.[Id] = @id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlParameter idParam = new SqlParameter("@id", roleId);
+                command.Parameters.Add(idParam);
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.HasRows)
