@@ -18,7 +18,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.ProgramBranch
             $"\n1.Create user" +
             $"\n2 Show all users" +
             $"\n3 Update user" +
-            $"\n4.See the list of all passed courses" +
+            $"\n4.Delete user" +
             $"\n5.See the list of your skills" +
             $"\n6.See the list of courses in progress" +
             $"\n7.My information" +
@@ -37,6 +37,9 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.ProgramBranch
                     break;
                 case ("3"):
                     userView.UpdateUser();
+                    break;
+                case ("4"):
+                    userView.DeleteUser();
                     break;
                 default:
                     StartApp();

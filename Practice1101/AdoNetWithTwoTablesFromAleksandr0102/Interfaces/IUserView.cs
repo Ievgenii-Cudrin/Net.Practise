@@ -11,5 +11,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Interfaces
         public void CreateUser();
 
         public void UpdateUser();
+
+        public void DeleteUser();
     }
 }
