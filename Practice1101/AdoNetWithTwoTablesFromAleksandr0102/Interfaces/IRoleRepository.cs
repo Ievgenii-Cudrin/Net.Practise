@@ -13,6 +13,8 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Interfaces
 
         public void Update(Role item);
 
+        public List<User> GetAllUserInRole(int roleId);
+
         public void Delete(int id);
     }
 }
