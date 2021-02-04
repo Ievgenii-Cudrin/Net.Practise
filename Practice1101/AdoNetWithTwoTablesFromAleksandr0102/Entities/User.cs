@@ -7,7 +7,9 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Entities
     public class User
     {
         public int Id { get; set; }
+
         public string Name { get; set; }
-        public int RoleId { get; set; }
+
+        public Role UserRole { get; set; }
     }
 }
