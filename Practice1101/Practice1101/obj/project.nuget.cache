@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Jmb+mLDoaZ3mTm3zq2S4IuHI0Fcpq7r0gxLWW7XN159NAUAgOLVlylEnWvz3GonnlKnCdKZam2jwpg35lkpIEQ==",
+  "dgSpecHash": "wknLBzaszNkG2DaUz065NECjBqnHGG87a9WQsmozovFFPob3H2C9HFTIJfa/kBuG1etsw6tApPzy5v1eJMm0wg==",
   "success": true,
-  "projectFilePath": "E:\\Projects\\Net.Practise\\Practice1101\\Practice1101\\Practice1101.csproj",
+  "projectFilePath": "E:\\Projects\\Net.Practise0502\\Practice1101\\Practice1101\\Practice1101.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\zhend\\.nuget\\packages\\microsoft.graph\\3.21.0\\microsoft.graph.3.21.0.nupkg.sha512",
@@ -85,12 +85,5 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.0.11\\system.xml.readerwriter.4.0.11.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.0.11\\system.xml.xdocument.4.0.11.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file E:\\Projects\\Net.Practise\\Practice1101\\Practice1101\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
