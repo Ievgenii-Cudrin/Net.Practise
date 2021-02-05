@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projects\\Net.Practise\\Practice1101\\BullsAndCows\\BullsAndCows.csproj",
+      "projectUniqueName": "E:\\Projects\\Net.Practise0502\\Practice1101\\BullsAndCows\\BullsAndCows.csproj",
       "projectName": "BullsAndCows",
-      "projectPath": "E:\\Projects\\Net.Practise\\Practice1101\\BullsAndCows\\BullsAndCows.csproj",
+      "projectPath": "E:\\Projects\\Net.Practise0502\\Practice1101\\BullsAndCows\\BullsAndCows.csproj",
       "packagesPath": "C:\\Users\\zhend\\.nuget\\packages\\",
-      "outputPath": "E:\\Projects\\Net.Practise\\Practice1101\\BullsAndCows\\obj\\",
+      "outputPath": "E:\\Projects\\Net.Practise0502\\Practice1101\\BullsAndCows\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -11,3 +11,16 @@ E:\Projects\Net.Practise\Practice1101\BullsAndCows\obj\Debug\netcoreapp3.1\Bulls
 E:\Projects\Net.Practise\Practice1101\BullsAndCows\obj\Debug\netcoreapp3.1\BullsAndCows.dll
 E:\Projects\Net.Practise\Practice1101\BullsAndCows\obj\Debug\netcoreapp3.1\BullsAndCows.pdb
 E:\Projects\Net.Practise\Practice1101\BullsAndCows\obj\Debug\netcoreapp3.1\BullsAndCows.genruntimeconfig.cache
+E:\Projects\Net.Practise0502\Practice1101\BullsAndCows\bin\Debug\netcoreapp3.1\BullsAndCows.exe
+E:\Projects\Net.Practise0502\Practice1101\BullsAndCows\bin\Debug\netcoreapp3.1\BullsAndCows.deps.json
+E:\Projects\Net.Practise0502\Practice1101\BullsAndCows\bin\Debug\netcoreapp3.1\BullsAndCows.runtimeconfig.json
+E:\Projects\Net.Practise0502\Practice1101\BullsAndCows\bin\Debug\netcoreapp3.1\BullsAndCows.runtimeconfig.dev.json
+E:\Projects\Net.Practise0502\Practice1101\BullsAndCows\bin\Debug\netcoreapp3.1\BullsAndCows.dll
+E:\Projects\Net.Practise0502\Practice1101\BullsAndCows\bin\Debug\netcoreapp3.1\BullsAndCows.pdb
+E:\Projects\Net.Practise0502\Practice1101\BullsAndCows\obj\Debug\netcoreapp3.1\BullsAndCows.csprojAssemblyReference.cache
+E:\Projects\Net.Practise0502\Practice1101\BullsAndCows\obj\Debug\netcoreapp3.1\BullsAndCows.AssemblyInfoInputs.cache
+E:\Projects\Net.Practise0502\Practice1101\BullsAndCows\obj\Debug\netcoreapp3.1\BullsAndCows.AssemblyInfo.cs
+E:\Projects\Net.Practise0502\Practice1101\BullsAndCows\obj\Debug\netcoreapp3.1\BullsAndCows.csproj.CoreCompileInputs.cache
+E:\Projects\Net.Practise0502\Practice1101\BullsAndCows\obj\Debug\netcoreapp3.1\BullsAndCows.dll
+E:\Projects\Net.Practise0502\Practice1101\BullsAndCows\obj\Debug\netcoreapp3.1\BullsAndCows.pdb
+E:\Projects\Net.Practise0502\Practice1101\BullsAndCows\obj\Debug\netcoreapp3.1\BullsAndCows.genruntimeconfig.cache
