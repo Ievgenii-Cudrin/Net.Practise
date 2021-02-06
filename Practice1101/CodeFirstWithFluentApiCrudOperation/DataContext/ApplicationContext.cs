@@ -72,6 +72,8 @@ namespace CodeFirstWithFluentApiCrudOperation.DataContext
                 .HasForeignKey(s => s.BusinessEntityID)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<EmployeeDepartment>().HasKey(x => x.EmployeeDepartmentID);
+
         }
     }
 }
