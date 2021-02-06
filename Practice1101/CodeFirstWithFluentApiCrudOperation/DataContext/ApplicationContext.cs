@@ -1,4 +1,5 @@
 ﻿using CodeFirstWithFluentApiCrudOperation.Entities;
+using CodeFirstWithFluentApiCrudOperation.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace CodeFirstWithFluentApiCrudOperation.DataContext
 {
-    public class ApplicationContext : DbContext
+    public class ApplicationContext : DbContext, IDbContext
     {
         public DbSet<Person> Persons { get; set; }
 
