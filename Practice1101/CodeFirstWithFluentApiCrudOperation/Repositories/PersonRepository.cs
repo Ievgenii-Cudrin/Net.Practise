@@ -10,15 +10,12 @@ namespace CodeFirstWithFluentApiCrudOperation.Repositories
 {
     public class PersonRepository : IPersonRepository
     {
-        ApplicationContext db;
+        ApplicationContext db = new ApplicationContext();
 
-        public PersonRepository(ApplicationContext db)
-        {
-            this.db = db;
-        }
         public void Create(Person item)
         {
             this.db.Persons.Add(item);
+            this.db.SaveChanges();
         }
 
         public void Delete(int id)

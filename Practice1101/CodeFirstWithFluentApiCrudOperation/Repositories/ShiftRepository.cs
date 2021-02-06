@@ -10,15 +10,11 @@ namespace CodeFirstWithFluentApiCrudOperation.Repositories
 {
     public class ShiftRepository : IShiftRepository
     {
-        ApplicationContext db;
-
-        public ShiftRepository(ApplicationContext db)
-        {
-            this.db = db;
-        }
+        ApplicationContext db = new ApplicationContext();
         public void Create(Shift item)
         {
             this.db.Shift.Add(item);
+            this.db.SaveChanges();
         }
 
         public void Delete(int id)

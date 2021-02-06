@@ -10,15 +10,11 @@ namespace CodeFirstWithFluentApiCrudOperation.Repositories
 {
     public class JobCandidateRepository : IJobCandidateRepository
     {
-        ApplicationContext db;
-
-        public JobCandidateRepository(ApplicationContext db)
-        {
-            this.db = db;
-        }
+        ApplicationContext db = new ApplicationContext();
         public void Create(JobCandidate item)
         {
             this.db.JobCandidate.Add(item);
+            this.db.SaveChanges();
         }
 
         public void Delete(int id)

@@ -10,15 +10,11 @@ namespace CodeFirstWithFluentApiCrudOperation.Repositories
 {
     public class EmployeePayHistoryRepository : IEmployeePayHistoryRepository
     {
-        ApplicationContext db;
-
-        public EmployeePayHistoryRepository(ApplicationContext db)
-        {
-            this.db = db;
-        }
+        ApplicationContext db = new ApplicationContext();
         public void Create(EmployeePayHistory item)
         {
             this.db.EmployeePayHistory.Add(item);
+            this.db.SaveChanges();
         }
 
         public void Delete(int id)

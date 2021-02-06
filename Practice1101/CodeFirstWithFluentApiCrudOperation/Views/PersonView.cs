@@ -1,17 +1,28 @@
 ﻿using CodeFirstWithFluentApiCrudOperation.BLLInterfaces;
+using CodeFirstWithFluentApiCrudOperation.DI;
+using CodeFirstWithFluentApiCrudOperation.Entities;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CodeFirstWithFluentApiCrudOperation.Views
 {
-    public class PersonView
+    public static class PersonView
     {
-        IPersonService personService;
+        static IPersonService personService = Startup.ConfigureService().GetRequiredService<IPersonService>();
 
-        public PersonView(IPersonService personService)
+        public static void CreatePerson()
         {
-            this.personService = personService;
+            Person person = new Person()
+            {
+                FirstName = "John",
+                LastName = "Lennon",
+                PersonType = "European"
+            };
+
+            personService.CreatePerson(person);
+            Console.WriteLine("Person added");
         }
     }
 }

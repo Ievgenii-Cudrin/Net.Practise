@@ -11,15 +11,12 @@ namespace CodeFirstWithFluentApiCrudOperation.Repositories
 {
     public class DepartmentRepository : IDepartmentReposotiry
     {
-        ApplicationContext db;
+        ApplicationContext db = new ApplicationContext();
 
-        public DepartmentRepository(ApplicationContext db)
-        {
-            this.db = db;
-        }
         public void Create(Department item)
         {
             this.db.Department.Add(item);
+            this.db.SaveChanges();
         }
 
         public void Delete(int id)
