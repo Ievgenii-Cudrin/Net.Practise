@@ -56,6 +56,8 @@ namespace CodeFirstWithFluentApiCrudOperation.DataContext
                 .HasForeignKey(s => s.BusinessEntityID)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            modelBuilder.Entity<EmployeePayHistory>().HasKey(x => x.EmployeePayHistoryId);
+
         }
     }
 }
