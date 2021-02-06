@@ -23,5 +23,7 @@ namespace CodeFirstWithFluentApiCrudOperation.Entities
         public List<JobCandidate> JobCandidates { get; set; }
 
         public List<SalesPerson> SalesPersons { get; set; }
+
+        public List<EmployeePayHistory> EmployeePayHistories { get; set; }
     }
 }

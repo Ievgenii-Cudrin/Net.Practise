@@ -58,6 +58,20 @@ namespace CodeFirstWithFluentApiCrudOperation.DataContext
 
             modelBuilder.Entity<EmployeePayHistory>().HasKey(x => x.EmployeePayHistoryId);
 
+            modelBuilder.Entity<EmployeePayHistory>()
+                .HasIndex(u => u.BusinessEntityID)
+                .IsUnique();
+
+            modelBuilder.Entity<EmployeePayHistory>()
+                .HasIndex(u => u.RateChangeDate)
+                .IsUnique();
+
+            modelBuilder.Entity<Employee>()
+                .HasMany<EmployeePayHistory>(g => g.EmployeePayHistories)
+                .WithOne(s => s.Employee)
+                .HasForeignKey(s => s.BusinessEntityID)
+                .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

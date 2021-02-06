@@ -13,5 +13,9 @@ namespace CodeFirstWithFluentApiCrudOperation.Entities
         public int Rate { get; set; }
 
         public int PayFrequency { get; set; }
+
+        public int BusinessEntityID { get; set; }
+
+        public Employee Employee { get; set; }
     }
 }
