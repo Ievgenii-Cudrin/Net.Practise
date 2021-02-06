@@ -26,6 +26,6 @@ namespace CodeFirstWithFluentApiCrudOperation.Entities
 
         public List<EmployeePayHistory> EmployeePayHistories { get; set; }
 
-        //public List<EmployeeDepartment> EmployeeDepartments { get; set; }
+        public List<EmployeeDepartmen> EmployeeDepartments { get; set; }
     }
 }

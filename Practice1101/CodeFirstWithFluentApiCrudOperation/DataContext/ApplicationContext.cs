@@ -73,7 +73,14 @@ namespace CodeFirstWithFluentApiCrudOperation.DataContext
                 .OnDelete(DeleteBehavior.Cascade);
             
             modelBuilder.Entity<EmployeeDepartmen>().HasKey(x => x.StartDateDocument);
-            //modelBuilder.Entity<EmployeeDepartment>().HasKey(x => x.BusinessEntityID);
+            
+            modelBuilder.Entity<EmployeeDepartmen>().HasKey(x => x.BusinessEntityID);
+
+            modelBuilder.Entity<Employee>()
+                .HasMany<EmployeeDepartmen>(g => g.EmployeeDepartments)
+                .WithOne(s => s.Employee)
+                .HasForeignKey(s => s.BusinessEntityID)
+                .OnDelete(DeleteBehavior.Cascade);
 
         }
     }

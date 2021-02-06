@@ -7,9 +7,6 @@ namespace CodeFirstWithFluentApiCrudOperation.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "EmployeeDepartment");
-
             migrationBuilder.CreateTable(
                 name: "EmployeeDepartmen",
                 columns: table => new
@@ -29,7 +26,7 @@ namespace CodeFirstWithFluentApiCrudOperation.Migrations
                 name: "EmployeeDepartmen");
 
             migrationBuilder.CreateTable(
-                name: "EmployeeDepartment",
+                name: "EmployeeDepartmen",
                 columns: table => new
                 {
                     StartDateDocument = table.Column<DateTime>(type: "datetime2", nullable: false),
