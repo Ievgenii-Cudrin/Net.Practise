@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CodeFirstWithFluentApiCrudOperation.Interfaces
 {
-    public interface IEmployeeRepositoryRepository
+    public interface IEmployeeRepository
     {
         public IEnumerable<Employee> GetAll();
 
