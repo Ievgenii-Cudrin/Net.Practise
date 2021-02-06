@@ -4,14 +4,16 @@ using CodeFirstWithFluentApiCrudOperation.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CodeFirstWithFluentApiCrudOperation.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210206180815_CreatePrimaryKeyDepIdInEmployeeDepartment")]
+    partial class CreatePrimaryKeyDepIdInEmployeeDepartment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -79,7 +81,9 @@ namespace CodeFirstWithFluentApiCrudOperation.Migrations
             modelBuilder.Entity("CodeFirstWithFluentApiCrudOperation.Entities.EmployeeDepartmen", b =>
                 {
                     b.Property<int>("DepartmentID")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
 
                     b.Property<int>("BusinessEntityID")
                         .HasColumnType("int");
@@ -236,19 +240,11 @@ namespace CodeFirstWithFluentApiCrudOperation.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CodeFirstWithFluentApiCrudOperation.Entities.Department", "Department")
-                        .WithMany("EmployeeDepartments")
-                        .HasForeignKey("DepartmentID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("CodeFirstWithFluentApiCrudOperation.Entities.Shift", "Shift")
                         .WithMany("EmployeeDepartments")
                         .HasForeignKey("ShiftID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Department");
 
                     b.Navigation("Employee");
 
@@ -286,11 +282,6 @@ namespace CodeFirstWithFluentApiCrudOperation.Migrations
                         .IsRequired();
 
                     b.Navigation("Employee");
-                });
-
-            modelBuilder.Entity("CodeFirstWithFluentApiCrudOperation.Entities.Department", b =>
-                {
-                    b.Navigation("EmployeeDepartments");
                 });
 
             modelBuilder.Entity("CodeFirstWithFluentApiCrudOperation.Entities.Employee", b =>

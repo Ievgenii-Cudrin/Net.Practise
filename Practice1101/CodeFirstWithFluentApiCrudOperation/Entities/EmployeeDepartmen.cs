@@ -17,5 +17,9 @@ namespace CodeFirstWithFluentApiCrudOperation.Entities
         public int ShiftID { get; set; }
 
         public Shift Shift { get; set; }
+
+        public int DepartmentID { get; set; }
+
+        public Department Department { get; set; }
     }
 }

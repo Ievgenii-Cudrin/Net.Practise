@@ -4,14 +4,16 @@ using CodeFirstWithFluentApiCrudOperation.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CodeFirstWithFluentApiCrudOperation.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210206181739_CreateOneManyDepartmentEmpDep")]
+    partial class CreateOneManyDepartmentEmpDep
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,26 +80,26 @@ namespace CodeFirstWithFluentApiCrudOperation.Migrations
 
             modelBuilder.Entity("CodeFirstWithFluentApiCrudOperation.Entities.EmployeeDepartmen", b =>
                 {
-                    b.Property<int>("DepartmentID")
+                    b.Property<int>("ShiftID")
                         .HasColumnType("int");
 
                     b.Property<int>("BusinessEntityID")
                         .HasColumnType("int");
 
+                    b.Property<int>("DepartmentID")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("EndStateDocument")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("ShiftID")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("StartDateDocument")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("DepartmentID");
+                    b.HasKey("ShiftID");
 
                     b.HasIndex("BusinessEntityID");
 
-                    b.HasIndex("ShiftID");
+                    b.HasIndex("DepartmentID");
 
                     b.ToTable("EmployeeDepartmen");
                 });

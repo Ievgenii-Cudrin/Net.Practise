@@ -11,5 +11,7 @@ namespace CodeFirstWithFluentApiCrudOperation.Entities
         public string Name { get; set; }
 
         public string GroupName { get; set; }
+
+        public List<EmployeeDepartmen> EmployeeDepartments { get; set; }
     }
 }
