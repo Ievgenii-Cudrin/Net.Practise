@@ -1,7 +1,5 @@
 ﻿using CrudOperationEFCodeFirst0502.Entities.Sales;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using CrudOperationEFCodeFirst0502.Entities.Pers;
 
 namespace CrudOperationEFCodeFirst0502.Entities.HumanResources
