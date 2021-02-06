@@ -1,6 +1,8 @@
-﻿using CodeFirstWithFluentApiCrudOperation.DataContext;
+﻿using CodeFirstWithFluentApiCrudOperation.BLLInterfaces;
+using CodeFirstWithFluentApiCrudOperation.DataContext;
 using CodeFirstWithFluentApiCrudOperation.Interfaces;
 using CodeFirstWithFluentApiCrudOperation.Repositories;
+using CodeFirstWithFluentApiCrudOperation.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -21,6 +23,14 @@ namespace CodeFirstWithFluentApiCrudOperation.DI
                 .AddTransient<IPersonRepository, PersonRepository>()
                 .AddTransient<ISalesPersonRepository, SalesPersonRepository>()
                 .AddTransient<IShiftRepository, ShiftRepository>()
+                .AddTransient<IDepartmentService, DepartmentService>()
+                .AddTransient<IEmployeeDepartmenService, EmployeeDepartmenService>()
+                .AddTransient<IEmployeePayHistoryService, EmployeePayHistoryService>()
+                .AddTransient<IEmployeeService, EmployeeService>()
+                .AddTransient<IJobCandidateService, JobCandidateService>()
+                .AddTransient<IPersonService, PersonService>()
+                .AddTransient<ISalesPersonService, SalesPersonService>()
+                .AddTransient<IShiftService, ShiftService>()
                 .BuildServiceProvider();
 
             return provider;
