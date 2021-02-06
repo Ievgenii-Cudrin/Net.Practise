@@ -15,6 +15,7 @@ namespace CodeFirstWithFluentApiCrudOperation
                 Shift shift = new Shift() { Name = "First", StartTime = DateTime.Now, EndTime = DateTime.Now};
                 // добавляем их в бд
                 db.Persons.Add(person);
+                db.Shift.Add(shift);
                 db.SaveChanges();
                 Console.WriteLine("Объекты успешно сохранены");
 
@@ -24,6 +25,13 @@ namespace CodeFirstWithFluentApiCrudOperation
                 foreach (Person u in users)
                 {
                     Console.WriteLine($"{u.PersonID}.{u.FirstName} - {u.LastName}");
+                }
+
+                var shifts = db.Shift.ToList();
+                Console.WriteLine("Список shifts:");
+                foreach (Shift u in shifts)
+                {
+                    Console.WriteLine($"{u.ShiftID}.{u.Name} - {u.StartTime}");
                 }
             }
             Console.Read();
