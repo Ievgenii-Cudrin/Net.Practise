@@ -7,7 +7,7 @@ using System.Text;
 
 namespace CodeFirstWithFluentApiCrudOperation.DataContext
 {
-    public class ApplicationContext : DbContext, IDbContext
+    public class ApplicationContext : DbContext
     {
         public DbSet<Person> Persons { get; set; }
 
@@ -15,7 +15,7 @@ namespace CodeFirstWithFluentApiCrudOperation.DataContext
 
         public DbSet<Employee> Employee { get; set; }
 
-        public DbSet<EmployeeDepartmen> EployeeDepartmen { get; set; }
+        public DbSet<EmployeeDepartmen> EmployeeDepartmen { get; set; }
 
         public DbSet<EmployeePayHistory> EmployeePayHistory { get; set; }
 
