@@ -96,6 +96,12 @@ namespace CodeFirstWithFluentApiCrudOperation.DataContext
 
             modelBuilder.Entity<EmployeeDepartmen>().HasKey(x => x.ShiftID);
 
+            modelBuilder.Entity<Department>().HasKey(x => x.DepartmentID);
+
+            modelBuilder.Entity<Department>()
+                .HasIndex(u => u.Name)
+                .IsUnique();
+
         }
     }
 }
