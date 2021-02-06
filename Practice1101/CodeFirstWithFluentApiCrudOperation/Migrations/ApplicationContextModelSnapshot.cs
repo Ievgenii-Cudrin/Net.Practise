@@ -54,25 +54,17 @@ namespace CodeFirstWithFluentApiCrudOperation.Migrations
                     b.ToTable("Employee");
                 });
 
-            modelBuilder.Entity("CodeFirstWithFluentApiCrudOperation.Entities.EmployeeDepartment", b =>
+            modelBuilder.Entity("CodeFirstWithFluentApiCrudOperation.Entities.EmployeeDepartmen", b =>
                 {
                     b.Property<DateTime>("StartDateDocument")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("BusinessEntityID")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("EmployeeBusinessEntityID")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("EndStateDocument")
                         .HasColumnType("datetime2");
 
                     b.HasKey("StartDateDocument");
 
-                    b.HasIndex("EmployeeBusinessEntityID");
-
-                    b.ToTable("EmployeeDepartment");
+                    b.ToTable("EmployeeDepartmen");
                 });
 
             modelBuilder.Entity("CodeFirstWithFluentApiCrudOperation.Entities.EmployeePayHistory", b =>
@@ -175,15 +167,6 @@ namespace CodeFirstWithFluentApiCrudOperation.Migrations
                         .IsRequired();
 
                     b.Navigation("Person");
-                });
-
-            modelBuilder.Entity("CodeFirstWithFluentApiCrudOperation.Entities.EmployeeDepartment", b =>
-                {
-                    b.HasOne("CodeFirstWithFluentApiCrudOperation.Entities.Employee", "Employee")
-                        .WithMany()
-                        .HasForeignKey("EmployeeBusinessEntityID");
-
-                    b.Navigation("Employee");
                 });
 
             modelBuilder.Entity("CodeFirstWithFluentApiCrudOperation.Entities.EmployeePayHistory", b =>
