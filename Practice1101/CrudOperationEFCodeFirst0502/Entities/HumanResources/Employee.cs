@@ -8,7 +8,7 @@ namespace CrudOperationEFCodeFirst0502.Entities.HumanResources
 {
     public class Employee
     {
-        public int BusinessEnrirtID { get; set; }
+        public int BusinessEntityID { get; set; }
 
         public int NationalIDNumber { get; set; }
 

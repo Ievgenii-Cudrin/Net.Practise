@@ -1,8 +1,6 @@
-﻿using CrudOperationEFCodeFirst0502.Entities.Pers;
+﻿using CrudOperationEFCodeFirst0502.Entities.HumanResources;
+using CrudOperationEFCodeFirst0502.Entities.Pers;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CrudOperationEFCodeFirst0502.DataContext
 {
@@ -12,17 +10,20 @@ namespace CrudOperationEFCodeFirst0502.DataContext
 
         public ApplicationContext()
         {
-            Database.EnsureCreated();
         }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-7QBD7T4;Initial Catalog=EfCodeFirst;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-7QBD7T4;Database=EfCodeFirst;Trusted_Connection=True");
+            //Server=DESKTOP-7QBD7T4;Database=EfCodeFirst;Trusted_Connection=True;MultipleActiveResultSets=true
+            //Server=DESKTOP-7QBD7T4;DatabaseEfCodeFirst;User Id=DESKTOP-7QBD7T4/zhend;Password=
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Person>()
-                .HasKey(p => p.PersonID);
+            modelBuilder.Entity<Person>().HasKey(x => x.PersonID);
+            modelBuilder.Entity<Employee>().HasKey(x => x.BusinessEntityID);
         }
     }
+
 }

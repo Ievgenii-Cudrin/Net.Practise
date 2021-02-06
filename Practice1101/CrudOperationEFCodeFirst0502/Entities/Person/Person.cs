@@ -15,6 +15,6 @@ namespace CrudOperationEFCodeFirst0502.Entities.Pers
 
         public string LastName { get; set; }
 
-        //public List<Employee> Employees { get; set; }
+        public List<Employee> Employees { get; set; }
     }
 }
