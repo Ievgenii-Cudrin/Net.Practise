@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CodeFirstWithFluentApiCrudOperation.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210206170713_CreateEmployeeDepartment")]
+    [Migration("20210206171331_CreateEmployeeDepartment")]
     partial class CreateEmployeeDepartment
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,18 +58,21 @@ namespace CodeFirstWithFluentApiCrudOperation.Migrations
 
             modelBuilder.Entity("CodeFirstWithFluentApiCrudOperation.Entities.EmployeeDepartment", b =>
                 {
-                    b.Property<int>("EmployeeDepartmentID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.Property<DateTime>("StartDateDocument")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("BusinessEntityID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("EmployeeBusinessEntityID")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("EndStateDocument")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("StartDateDocument")
-                        .HasColumnType("datetime2");
+                    b.HasKey("StartDateDocument");
 
-                    b.HasKey("EmployeeDepartmentID");
+                    b.HasIndex("EmployeeBusinessEntityID");
 
                     b.ToTable("EmployeeDepartment");
                 });
@@ -174,6 +177,15 @@ namespace CodeFirstWithFluentApiCrudOperation.Migrations
                         .IsRequired();
 
                     b.Navigation("Person");
+                });
+
+            modelBuilder.Entity("CodeFirstWithFluentApiCrudOperation.Entities.EmployeeDepartment", b =>
+                {
+                    b.HasOne("CodeFirstWithFluentApiCrudOperation.Entities.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeBusinessEntityID");
+
+                    b.Navigation("Employee");
                 });
 
             modelBuilder.Entity("CodeFirstWithFluentApiCrudOperation.Entities.EmployeePayHistory", b =>
