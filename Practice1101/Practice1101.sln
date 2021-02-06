@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BullsAndCows", "BullsAndCow
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq1101", "Linq1101\Linq1101.csproj", "{59BE5A2E-2242-4C05-8E63-030157714FBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudOperationEFCodeFirst0502", "CrudOperationEFCodeFirst0502\CrudOperationEFCodeFirst0502.csproj", "{66EF7310-68A6-4586-809E-80665EEF8FF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrudOperationEFCodeFirst0502", "CrudOperationEFCodeFirst0502\CrudOperationEFCodeFirst0502.csproj", "{66EF7310-68A6-4586-809E-80665EEF8FF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBFirstCrudOperation0502", "DBFirstCrudOperation0502\DBFirstCrudOperation0502.csproj", "{E8917F3D-34DD-4CB5-905B-9C98AE186079}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{66EF7310-68A6-4586-809E-80665EEF8FF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66EF7310-68A6-4586-809E-80665EEF8FF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66EF7310-68A6-4586-809E-80665EEF8FF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8917F3D-34DD-4CB5-905B-9C98AE186079}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8917F3D-34DD-4CB5-905B-9C98AE186079}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8917F3D-34DD-4CB5-905B-9C98AE186079}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8917F3D-34DD-4CB5-905B-9C98AE186079}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
