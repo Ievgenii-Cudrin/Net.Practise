@@ -10,6 +10,20 @@ namespace CodeFirstWithFluentApiCrudOperation.DataContext
     {
         public DbSet<Person> Persons { get; set; }
 
+        public DbSet<Department> Departments { get; set; }
+
+        public DbSet<Employee> Employees { get; set; }
+
+        public DbSet<EmployeeDepartmen> EployeeDepartments { get; set; }
+
+        public DbSet<EmployeePayHistory> EmployeePayHistories { get; set; }
+
+        public DbSet<JobCandidate> JobCandidates { get; set; }
+
+        public DbSet<SalesPerson> SalesPersons { get; set; }
+
+        public DbSet<Shift> Shifts { get; set; }
+
         public ApplicationContext()
         {
         }
