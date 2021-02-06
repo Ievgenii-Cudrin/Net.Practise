@@ -7,11 +7,11 @@ namespace CodeFirstWithFluentApiCrudOperation.BLLInterfaces
 {
     public interface IDepartmentService
     {
-        public void CreateDepartment(Department user);
+        public void CreateDepartment(Department item);
 
         public List<Department> GetAllDepartments();
 
-        public void UpdatePerson(Department user);
+        public void UpdatePerson(Department item);
 
         public void DeleteDepartment(int id);
 

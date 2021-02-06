@@ -7,11 +7,11 @@ namespace CodeFirstWithFluentApiCrudOperation.BLLInterfaces
 {
     public interface IJobCandidateService
     {
-        public void CreateJobCandidate(JobCandidate user);
+        public void CreateJobCandidate(JobCandidate item);
 
         public List<JobCandidate> GetAllJobCandidates();
 
-        public void UpdateJobCandidate(JobCandidate user);
+        public void UpdateJobCandidate(JobCandidate item);
 
         public void DeleteJobCandidate(int id);
 

@@ -7,11 +7,11 @@ namespace CodeFirstWithFluentApiCrudOperation.BLLInterfaces
 {
     public interface ISalesPersonService
     {
-        public void CreateSalesPerson(SalesPerson user);
+        public void CreateSalesPerson(SalesPerson item);
 
         public List<SalesPerson> GetAllSalesPersons();
 
-        public void UpdateSalesPerson(SalesPerson user);
+        public void UpdateSalesPerson(SalesPerson item);
 
         public void DeleteSalesPerson(int id);
 

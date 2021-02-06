@@ -7,11 +7,11 @@ namespace CodeFirstWithFluentApiCrudOperation.BLLInterfaces
 {
     public interface IEmployeePayHistoryService
     {
-        public void CreateEmployeePayHistory(EmployeePayHistory user);
+        public void CreateEmployeePayHistory(EmployeePayHistory item);
 
         public List<EmployeePayHistory> GetAllDepartments();
 
-        public void UpdateEmployeePayHistory(EmployeePayHistory user);
+        public void UpdateEmployeePayHistory(EmployeePayHistory item);
 
         public void DeleteEmployeePayHistory(int id);
 

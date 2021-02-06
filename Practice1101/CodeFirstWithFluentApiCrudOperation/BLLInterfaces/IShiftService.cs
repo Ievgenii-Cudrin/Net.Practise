@@ -7,11 +7,11 @@ namespace CodeFirstWithFluentApiCrudOperation.BLLInterfaces
 {
     public interface IShiftService
     {
-        public void CreateShift(Shift user);
+        public void CreateShift(Shift item);
 
         public List<Shift> GetAllShifts();
 
-        public void UpdateShift(Shift user);
+        public void UpdateShift(Shift item);
 
         public void DeleteShift(int id);
 
