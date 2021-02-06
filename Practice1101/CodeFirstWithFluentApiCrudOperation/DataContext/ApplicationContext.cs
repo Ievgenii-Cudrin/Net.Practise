@@ -84,6 +84,17 @@ namespace CodeFirstWithFluentApiCrudOperation.DataContext
 
             modelBuilder.Entity<Shift>().HasKey(x => x.ShiftID);
 
+            modelBuilder.Entity<Shift>()
+                .HasIndex(u => u.ShiftID)
+                .IsUnique();
+
+            modelBuilder.Entity<Shift>()
+                .HasMany<EmployeeDepartmen>(g => g.EmployeeDepartments)
+                .WithOne(s => s.Shift)
+                .HasForeignKey(s => s.ShiftID)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<EmployeeDepartmen>().HasKey(x => x.ShiftID);
 
         }
     }

@@ -4,14 +4,16 @@ using CodeFirstWithFluentApiCrudOperation.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CodeFirstWithFluentApiCrudOperation.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20210206175117_CreateShiftUniqKey")]
+    partial class CreateShiftUniqKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,9 +58,6 @@ namespace CodeFirstWithFluentApiCrudOperation.Migrations
 
             modelBuilder.Entity("CodeFirstWithFluentApiCrudOperation.Entities.EmployeeDepartmen", b =>
                 {
-                    b.Property<int>("ShiftID")
-                        .HasColumnType("int");
-
                     b.Property<int>("BusinessEntityID")
                         .HasColumnType("int");
 
@@ -68,9 +67,7 @@ namespace CodeFirstWithFluentApiCrudOperation.Migrations
                     b.Property<DateTime>("StartDateDocument")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("ShiftID");
-
-                    b.HasIndex("BusinessEntityID");
+                    b.HasKey("BusinessEntityID");
 
                     b.ToTable("EmployeeDepartmen");
                 });
@@ -209,15 +206,7 @@ namespace CodeFirstWithFluentApiCrudOperation.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CodeFirstWithFluentApiCrudOperation.Entities.Shift", "Shift")
-                        .WithMany("EmployeeDepartments")
-                        .HasForeignKey("ShiftID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Employee");
-
-                    b.Navigation("Shift");
                 });
 
             modelBuilder.Entity("CodeFirstWithFluentApiCrudOperation.Entities.EmployeePayHistory", b =>
@@ -267,11 +256,6 @@ namespace CodeFirstWithFluentApiCrudOperation.Migrations
             modelBuilder.Entity("CodeFirstWithFluentApiCrudOperation.Entities.Person", b =>
                 {
                     b.Navigation("Employees");
-                });
-
-            modelBuilder.Entity("CodeFirstWithFluentApiCrudOperation.Entities.Shift", b =>
-                {
-                    b.Navigation("EmployeeDepartments");
                 });
 #pragma warning restore 612, 618
         }
