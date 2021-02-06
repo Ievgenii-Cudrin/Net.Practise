@@ -12,7 +12,6 @@ namespace CodeFirstWithFluentApiCrudOperation.DI
         public static IServiceProvider ConfigureService()
         {
             var provider = new ServiceCollection()
-                .AddTransient<IDbContext, ApplicationContext>()
                 .BuildServiceProvider();
 
             return provider;
