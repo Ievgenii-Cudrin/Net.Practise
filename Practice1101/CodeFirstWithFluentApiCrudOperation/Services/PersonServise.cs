@@ -8,11 +8,11 @@ using System.Text;
 
 namespace CodeFirstWithFluentApiCrudOperation.Services
 {
-    public class PersonServise : IPersonService
+    public class PersonService : IPersonService
     {
         IPersonRepository personRepository;
 
-        public PersonServise(IPersonRepository personRepository)
+        public PersonService(IPersonRepository personRepository)
         {
             this.personRepository = personRepository;
         }
