@@ -13,25 +13,32 @@ namespace CodeFirstWithFluentApiCrudOperation
             //PersonView.CreatePerson();
             //PersonView.UpdatePerson(1);
             //PersonView.DeletePerson(4);
-            //PersonView.ShowAllPersons();
+            PersonView.ShowAllPersons();
 
             //DepartmentView.CreateDepartment();
-            //DepartmentView.ShowAllDepartments();
+            DepartmentView.ShowAllDepartments();
             //DepartmentView.UpdateDepartment(2);
             //DepartmentView.ShowAllDepartments();
             //DepartmentView.DeleteDepartment(1);
 
             //EmployeeView.CreateEmployee();
-            //EmployeeView.ShowAllEmployees();
+            EmployeeView.ShowAllEmployees();
             //EmployeeView.UpdateEmployee(2);
             //EmployeeView.ShowAllEmployees();
             //EmployeeView.DeleteEmployee(2);
 
-            ShiftView.CreateShift();
+            //ShiftView.CreateShift();
             ShiftView.ShowAllShifts();
-            ShiftView.UpdateShift(1);
-            ShiftView.ShowAllShifts();
-            ShiftView.DeleteShift(2);
+            //ShiftView.UpdateShift(1);
+            //ShiftView.ShowAllShifts();
+            //ShiftView.DeleteShift(2);
+
+            //EmployeeDepartmentView.CreateEmployeeDepartment();
+            EmployeeDepartmentView.ShowAllEmployeesDepartment();
+            //EmployeeDepartmentView.UpdateEmployeeDepartment(2);
+            //EmployeeDepartmentView.ShowAllEmployeesDepartment();
+            //EmployeeDepartmentView.DeleteEmployeeDepartment(2);
+            //EmployeeDepartmentView.ShowAllEmployeesDepartment();
 
             Console.Read();
         }
