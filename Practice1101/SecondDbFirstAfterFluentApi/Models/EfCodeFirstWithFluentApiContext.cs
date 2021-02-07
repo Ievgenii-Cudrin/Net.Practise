@@ -77,7 +77,7 @@ namespace SecondDbFirstAfterFluentApi.Models
                     .HasForeignKey(d => d.PersonId);
             });
 
-            modelBuilder.Entity<EmployeeDepartman>(entity =>
+            modelBuilder.Entity<EmployeeDepartmen>(entity =>
             {
                 entity.HasKey(e => e.DepartmentId);
 

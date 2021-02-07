@@ -9,7 +9,7 @@ namespace SecondDbFirstAfterFluentApi.Models
     {
         public Shift()
         {
-            EmployeeDepartmen = new HashSet<EmployeeDepartman>();
+            EmployeeDepartmen = new HashSet<EmployeeDepartmen>();
         }
 
         public int ShiftId { get; set; }
@@ -17,6 +17,6 @@ namespace SecondDbFirstAfterFluentApi.Models
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
 
-        public virtual ICollection<EmployeeDepartman> EmployeeDepartmen { get; set; }
+        public virtual ICollection<EmployeeDepartmen> EmployeeDepartmen { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace SecondDbFirstAfterFluentApi.Models
     {
         public Employee()
         {
-            EmployeeDepartmen = new HashSet<EmployeeDepartman>();
+            EmployeeDepartmen = new HashSet<EmployeeDepartmen>();
             JobCandidates = new HashSet<JobCandidate>();
             SalesPeople = new HashSet<SalesPerson>();
         }
@@ -23,7 +23,7 @@ namespace SecondDbFirstAfterFluentApi.Models
 
         public virtual Person Person { get; set; }
         public virtual EmployeePayHistory EmployeePayHistory { get; set; }
-        public virtual ICollection<EmployeeDepartman> EmployeeDepartmen { get; set; }
+        public virtual ICollection<EmployeeDepartmen> EmployeeDepartmen { get; set; }
         public virtual ICollection<JobCandidate> JobCandidates { get; set; }
         public virtual ICollection<SalesPerson> SalesPeople { get; set; }
     }
