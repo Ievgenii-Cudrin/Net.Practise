@@ -29,9 +29,9 @@ namespace CodeFirstWithFluentApiCrudOperation
 
             ShiftView.CreateShift();
             ShiftView.ShowAllShifts();
-            ShiftView.UpdateShift(0);
+            ShiftView.UpdateShift(1);
             ShiftView.ShowAllShifts();
-            ShiftView.DeleteShift(1);
+            ShiftView.DeleteShift(2);
 
             Console.Read();
         }
