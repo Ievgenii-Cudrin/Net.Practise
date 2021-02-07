@@ -27,6 +27,12 @@ namespace CodeFirstWithFluentApiCrudOperation
             //EmployeeView.ShowAllEmployees();
             //EmployeeView.DeleteEmployee(2);
 
+            ShiftView.CreateShift();
+            ShiftView.ShowAllShifts();
+            ShiftView.UpdateShift(0);
+            ShiftView.ShowAllShifts();
+            ShiftView.DeleteShift(1);
+
             Console.Read();
         }
     }
