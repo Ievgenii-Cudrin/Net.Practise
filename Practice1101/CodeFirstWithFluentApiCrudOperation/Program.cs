@@ -40,6 +40,13 @@ namespace CodeFirstWithFluentApiCrudOperation
             //EmployeeDepartmentView.DeleteEmployeeDepartment(2);
             //EmployeeDepartmentView.ShowAllEmployeesDepartment();
 
+            SalesPersonView.CreateSalesPerson();
+            SalesPersonView.ShowAllSalesPersons();
+            SalesPersonView.UpdateSalesPerson(2);
+            SalesPersonView.ShowAllSalesPersons();
+            SalesPersonView.DeleteSalesPerson(1);
+            SalesPersonView.ShowAllSalesPersons();
+
             Console.Read();
         }
     }
