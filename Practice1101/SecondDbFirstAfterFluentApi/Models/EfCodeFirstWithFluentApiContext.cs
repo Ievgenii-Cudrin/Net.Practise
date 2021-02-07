@@ -18,13 +18,13 @@ namespace SecondDbFirstAfterFluentApi.Models
         }
 
         public virtual DbSet<Department> Departments { get; set; }
-        public virtual DbSet<Employee> Employees { get; set; }
-        public virtual DbSet<EmployeeDepartman> EmployeeDepartmen { get; set; }
-        public virtual DbSet<EmployeePayHistory> EmployeePayHistories { get; set; }
-        public virtual DbSet<JobCandidate> JobCandidates { get; set; }
+        public virtual DbSet<Employee> Employee { get; set; }
+        public virtual DbSet<EmployeeDepartmen> EmployeeDepartmen { get; set; }
+        public virtual DbSet<EmployeePayHistory> EmployeePayHistory { get; set; }
+        public virtual DbSet<JobCandidate> JobCandidate { get; set; }
         public virtual DbSet<Person> Persons { get; set; }
-        public virtual DbSet<SalesPerson> SalesPeople { get; set; }
-        public virtual DbSet<Shift> Shifts { get; set; }
+        public virtual DbSet<SalesPerson> SalesPerson { get; set; }
+        public virtual DbSet<Shift> Shift { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

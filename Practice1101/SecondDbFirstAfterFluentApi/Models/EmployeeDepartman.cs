@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SecondDbFirstAfterFluentApi.Models
 {
-    public partial class EmployeeDepartman
+    public partial class EmployeeDepartmen
     {
         public DateTime StartDateDocument { get; set; }
         public DateTime EndStateDocument { get; set; }

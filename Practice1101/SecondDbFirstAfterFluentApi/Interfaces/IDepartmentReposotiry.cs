@@ -1,4 +1,4 @@
-﻿using CodeFirstWithFluentApiCrudOperation.Entities;
+﻿using SecondDbFirstAfterFluentApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
