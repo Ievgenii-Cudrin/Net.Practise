@@ -122,8 +122,6 @@ namespace CodeFirstWithFluentApiCrudOperation.DataContext
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<EmployeeDepartmen>().HasKey(x => x.DepartmentID);
-
-
         }
     }
 }

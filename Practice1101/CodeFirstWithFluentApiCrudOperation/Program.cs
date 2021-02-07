@@ -10,7 +10,10 @@ namespace CodeFirstWithFluentApiCrudOperation
     {
         static void Main(string[] args)
         {
-            PersonView.CreatePerson();
+            //PersonView.CreatePerson();
+            //PersonView.UpdatePerson(1);
+            //PersonView.DeletePerson(4);
+            PersonView.ShowAllPersons();
 
             Console.Read();
         }
