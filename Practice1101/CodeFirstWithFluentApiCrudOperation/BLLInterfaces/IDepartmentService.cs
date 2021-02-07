@@ -11,7 +11,7 @@ namespace CodeFirstWithFluentApiCrudOperation.BLLInterfaces
 
         public List<Department> GetAllDepartments();
 
-        public void UpdatePerson(Department item);
+        public void UpdateDepartment(Department item);
 
         public void DeleteDepartment(int id);
 

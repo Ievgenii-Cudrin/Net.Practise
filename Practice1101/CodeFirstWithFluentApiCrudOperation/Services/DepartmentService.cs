@@ -36,9 +36,9 @@ namespace CodeFirstWithFluentApiCrudOperation.Services
             return this.departmentReposotiry.Get(id);
         }
 
-        public void UpdatePerson(Department user)
+        public void UpdateDepartment(Department item)
         {
-            this.departmentReposotiry.Update(user);
+            this.departmentReposotiry.Update(item);
         }
     }
 }
