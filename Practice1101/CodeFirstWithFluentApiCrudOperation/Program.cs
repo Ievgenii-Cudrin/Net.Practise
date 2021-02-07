@@ -47,12 +47,19 @@ namespace CodeFirstWithFluentApiCrudOperation
             //SalesPersonView.DeleteSalesPerson(1);
             //SalesPersonView.ShowAllSalesPersons();
 
-            JobCandidateView.CreateJobCandidate();
+            //JobCandidateView.CreateJobCandidate();
             JobCandidateView.ShowAllJobCandidate();
-            JobCandidateView.UpdateJobCandidate(2);
-            JobCandidateView.ShowAllJobCandidate();
-            JobCandidateView.DeleteJobCandidate(1);
-            JobCandidateView.ShowAllJobCandidate();
+            //JobCandidateView.UpdateJobCandidate(2);
+            //JobCandidateView.ShowAllJobCandidate();
+            //JobCandidateView.DeleteJobCandidate(1);
+            //JobCandidateView.ShowAllJobCandidate();
+
+            //EmployeePayHistoryView.CreateEmployeePayHistory();
+            EmployeePayHistoryView.ShowAllEmployeePayHistories();
+            //EmployeePayHistoryView.UpdateEmployeePayHistory(2);
+            //EmployeePayHistoryView.ShowAllEmployeePayHistories();
+            //EmployeePayHistoryView.DeleteEmployeePayHistory(2);
+            //EmployeePayHistoryView.ShowAllEmployeePayHistories();
 
             Console.Read();
         }
