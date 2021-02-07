@@ -1,6 +1,7 @@
 ﻿using CodeFirstWithFluentApiCrudOperation.DataContext;
 using CodeFirstWithFluentApiCrudOperation.Entities;
 using CodeFirstWithFluentApiCrudOperation.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +15,19 @@ namespace CodeFirstWithFluentApiCrudOperation.Repositories
 
         public void Create(EmployeeDepartmen item)
         {
-            this.db.EmployeeDepartmen.Add(item);
-            this.db.SaveChanges();
+            this.db.Database.OpenConnection();
+            try
+            {
+                this.db.EmployeeDepartmen.Add(item);
+                this.db.Database.ExecuteSqlRaw($"SET IDENTITY_INSERT EmployeeDepartmen ON");
+                this.db.SaveChanges();
+                this.db.Database.ExecuteSqlRaw($"SET IDENTITY_INSERT EmployeeDepartmen OFF");
+            }
+            finally
+            {
+                this.db.SaveChanges();
+                this.db.Database.CloseConnection();
+            }
         }
 
         public void Delete(int id)
