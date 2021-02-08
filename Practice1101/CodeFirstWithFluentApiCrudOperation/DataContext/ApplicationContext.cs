@@ -8,6 +8,7 @@ using System.Text;
 namespace CodeFirstWithFluentApiCrudOperation.DataContext
 {
     public class ApplicationContext : DbContext
+
     {
         public DbSet<Person> Persons { get; set; }
 
@@ -100,7 +101,7 @@ namespace CodeFirstWithFluentApiCrudOperation.DataContext
             modelBuilder.Entity<Shift>().HasKey(x => x.ShiftID);
 
             modelBuilder.Entity<Shift>()
-                .HasIndex(u => u.ShiftID)
+                .HasIndex(u => u.Name)
                 .IsUnique();
 
             modelBuilder.Entity<Shift>()
