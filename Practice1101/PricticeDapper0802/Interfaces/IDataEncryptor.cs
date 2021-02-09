@@ -6,6 +6,6 @@ namespace PricticeDapper0802.Interfaces
 {
     public interface IDataEncryptor
     {
-        public void EncryptData(string email);
+        void EncryptData(string email);
     }
 }
