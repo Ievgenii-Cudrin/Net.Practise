@@ -20,6 +20,7 @@ namespace PricticeDapper0802.DI
                 .AddTransient<IMailService, MailService>()
                 .AddTransient<IUserMailService, UserMailService>()
                 .AddTransient<IUserService, UserService>()
+                .AddTransient<IDataEncryptor, DataEncryptor>()
                 .BuildServiceProvider();
 
             return provider;
