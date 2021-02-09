@@ -2,8 +2,6 @@
 using PricticeDapper0802.DI;
 using PricticeDapper0802.Entities;
 using PricticeDapper0802.Interfaces;
-using PricticeDapper0802.Repositories;
-using PricticeDapper0802.Services;
 using System;
 using System.Text.Json;
 
@@ -35,6 +33,33 @@ namespace PricticeDapper0802
                 Date = DateTime.Now.ToString("yyyy-MM-dd")
             };
 
+            LetterBody thirdBody = new LetterBody()
+            {
+                To = "Test6@gmail.com",
+                From = "Test7@gmail.com",
+                Subject = "Test1",
+                Letter = "Some text",
+                Date = DateTime.Now.ToString("yyyy-MM-dd")
+            };
+
+            LetterBody fourthBody = new LetterBody()
+            {
+                To = "Test2@gmail.com",
+                From = "Test3@gmail.com",
+                Subject = "Test1",
+                Letter = "Some text",
+                Date = DateTime.Now.ToString("yyyy-MM-dd")
+            };
+
+            LetterBody fivesBody = new LetterBody()
+            {
+                To = "Test4@gmail.com",
+                From = "Test5@gmail.com",
+                Subject = "Test1",
+                Letter = "Some text",
+                Date = DateTime.Now.ToString("yyyy-MM-dd")
+            };
+
 
             Mail firstMail = new Mail()
             {
@@ -44,6 +69,21 @@ namespace PricticeDapper0802
             Mail secondMail = new Mail()
             {
                 Object = JsonSerializer.Serialize(secondBody)
+            };
+
+            Mail thirdMail = new Mail()
+            {
+                Object = JsonSerializer.Serialize(thirdBody)
+            };
+
+            Mail fourthMail = new Mail()
+            {
+                Object = JsonSerializer.Serialize(fourthBody)
+            };
+
+            Mail fivesMail = new Mail()
+            {
+                Object = JsonSerializer.Serialize(fivesBody)
             };
 
             User firstUser = new User()
@@ -58,7 +98,7 @@ namespace PricticeDapper0802
             {
                 Name = "Fn1",
                 Surname = "Sn1",
-                Email = "Test1@gmail.com",
+                Email = "Test2@gmail.com",
                 DateOfBirth = DateTime.Now.ToString("yyyy-MM-dd")
             };
 
@@ -67,10 +107,16 @@ namespace PricticeDapper0802
 
             mailService.AddMail(secondMail, 1);
             mailService.AddMail(firstMail, 2);
+            mailService.AddMail(thirdMail, 1);
+            mailService.AddMail(fourthMail, 2);
+            mailService.AddMail(fivesMail, 1);
 
             //mailService.DeleteMail(1);
 
             dataEncryptor.EncryptData("Test@gmail.com");
+            dataEncryptor.EncryptData("Test5@gmail.com");
+            dataEncryptor.EncryptData("Test7@gmail.com");
+            dataEncryptor.EncryptData("Test2@gmail.com");
 
             Console.ReadLine();
         }
