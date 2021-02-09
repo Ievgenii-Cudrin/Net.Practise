@@ -17,17 +17,17 @@ namespace PricticeDapper0802.Services
 
         public void AddUser(User user)
         {
-            this.userRepository.Add(user);
+            this.userRepository.Add(user).Wait(); ;
         }
 
         public void UpdateUser(User user)
         {
-            this.userRepository.Update(user);
+            this.userRepository.Update(user).Wait();
         }
 
         public void DeleteUser(User user)
         {
-            this.userRepository.Delete(user);
+            this.userRepository.Delete(user).Wait();
         }
 
         public List<User> GetAllUsers()
