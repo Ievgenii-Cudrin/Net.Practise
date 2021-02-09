@@ -14,6 +14,7 @@ namespace PricticeDapper0802
         static void Main(string[] args)
         {
             IMailService mailService = Startup.ConfigureService().GetRequiredService<IMailService>();
+            IUserService userSevice = Startup.ConfigureService().GetRequiredService<IUserService>();
 
             LetterBody firstBody = new LetterBody()
             {
@@ -44,28 +45,29 @@ namespace PricticeDapper0802
                 Object = JsonSerializer.Serialize(secondBody)
             };
 
-            User user = new User()
+            User firstUser = new User()
+            {
+                Name = "Fn",
+                Surname = "Sn",
+                
+                DateOfBirth = DateTime.Now
+            };
+
+            User secondUser = new User()
             {
                 Name = "Fn",
                 Surname = "Sn",
                 DateOfBirth = DateTime.Now
             };
 
-            Repository<Mail> mailRepo = new Repository<Mail>();
-            //mailRepo.Add(firstMail).Wait();
-            mailService.AddMail(secondMail, 0);
-            mailRepo.Add(secondMail).Wait();
+            userSevice.AddUser(firstUser);
+            userSevice.AddUser(secondUser);
 
-            Repository<User> userRepo = new Repository<User>();
-            //userRepo.Add(user).Wait();
+            mailService.AddMail(secondMail, 1);
+            mailService.AddMail(firstMail, 2);
 
-            var a = userRepo.FindAll().Result;
+            mailService.DeleteMail(1);
 
-            
-
-            string json = JsonSerializer.Serialize(firstBody);
-            Console.WriteLine(json);
-            
             Console.ReadLine();
         }
     }
