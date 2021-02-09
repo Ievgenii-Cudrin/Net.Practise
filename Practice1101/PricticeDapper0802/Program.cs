@@ -1,6 +1,7 @@
 ﻿using PricticeDapper0802.Entities;
 using PricticeDapper0802.Repositories;
 using System;
+using System.Text.Json;
 
 namespace PricticeDapper0802
 {
@@ -8,15 +9,33 @@ namespace PricticeDapper0802
     {
         static void Main(string[] args)
         {
-            Mail mail = new Mail()
+            LetterBody firstBody = new LetterBody()
             {
-                Object = @"{
-                            'To': 'Test@gmail.com'
-                            'From': 'Test@gmail.com',
-                            'Subject': 'Test',
-                            'Letter': 'Some text',
-                            'Date': '2021-01-05'
-                           }"
+                To = "Test@gmail.com",
+                From = "Test@gmail.com",
+                Subject = "Test",
+                Letter = "Some text",
+                Date = DateTime.Now.ToString("yyyy-MM-dd")
+            };
+
+            LetterBody secondBody = new LetterBody()
+            {
+                To = "Test1@gmail.com",
+                From = "Test1@gmail.com",
+                Subject = "Test1",
+                Letter = "Some text",
+                Date = DateTime.Now.ToString("yyyy-MM-dd")
+            };
+
+
+            Mail firstMail = new Mail()
+            {
+                Object = JsonSerializer.Serialize(firstBody)
+            };
+
+            Mail secondMail = new Mail()
+            {
+                Object = JsonSerializer.Serialize(secondBody)
             };
 
             User user = new User()
@@ -27,14 +46,19 @@ namespace PricticeDapper0802
             };
 
             Repository<Mail> mailRepo = new Repository<Mail>();
-            mailRepo.Add(mail).Wait();
+            //mailRepo.Add(firstMail).Wait();
+            //mailRepo.Add(secondMail).Wait();
 
             Repository<User> userRepo = new Repository<User>();
-            userRepo.Add(user).Wait();
+            //userRepo.Add(user).Wait();
 
             var a = userRepo.FindAll().Result;
 
-            Console.WriteLine("Hello World!");
+            
+
+            string json = JsonSerializer.Serialize(firstBody);
+            Console.WriteLine(json);
+            
             Console.ReadLine();
         }
     }

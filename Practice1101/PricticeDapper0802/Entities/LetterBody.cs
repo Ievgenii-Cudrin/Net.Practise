@@ -14,6 +14,6 @@ namespace PricticeDapper0802.Entities
 
         public string Letter { get; set; }
 
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
     }
 }
