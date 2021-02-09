@@ -11,7 +11,7 @@ namespace PricticeDapper0802.Interfaces
 
         public Task Update(T entity);
 
-        public Task Remove(T entity);
+        public Task Delete(T entity);
 
         public Task<T> FindByID(int id);
 

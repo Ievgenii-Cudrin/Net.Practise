@@ -54,7 +54,7 @@ namespace PricticeDapper0802.Repositories
             return await CreateConnection().GetAsync<T>(id);
         }
 
-        public async Task Remove(T entity)
+        public async Task Delete(T entity)
         {
             //await this.db.ExecuteAsync($"DELETE FROM {name} WHERE Id = @id", typeof(T).GetProperty("Id").GetValue(entity));
             await CreateConnection().DeleteAsync<T>(entity);
