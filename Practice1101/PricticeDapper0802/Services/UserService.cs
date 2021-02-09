@@ -7,7 +7,7 @@ using System.Text;
 
 namespace PricticeDapper0802.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
         IRepository<User> userRepository;
         public UserService(IRepository<User> userRepo)
@@ -25,9 +25,14 @@ namespace PricticeDapper0802.Services
             this.userRepository.Update(user).Wait();
         }
 
-        public void DeleteUser(User user)
+        public void DeleteUser(int id)
         {
-            this.userRepository.Delete(user).Wait();
+            User user = this.userRepository.FindByID(id).Result;
+
+            if(user != null)
+            {
+                this.userRepository.Delete(user).Wait();
+            }
         }
 
         public List<User> GetAllUsers()
