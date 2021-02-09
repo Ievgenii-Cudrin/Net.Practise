@@ -48,9 +48,9 @@ namespace PricticeDapper0802.Services
             {
                 LetterBody body = JsonSerializer.Deserialize<LetterBody>(mail.Object);
 
-                if (body.From == email)
+                if (body.To == email)
                 {
-                    body.From = Convert.ToBase64String(Encoding.UTF8.GetBytes(body.From));
+                    body.To = Convert.ToBase64String(Encoding.UTF8.GetBytes(body.To));
                     mail.Object = JsonSerializer.Serialize(body);
                     this.mailService.UpdateMail(mail);
                 }
@@ -63,7 +63,7 @@ namespace PricticeDapper0802.Services
             {
                 LetterBody body = JsonSerializer.Deserialize<LetterBody>(mail.Object);
 
-                if (body.To == email)
+                if (body.From == email)
                 {
                     body.From = Convert.ToBase64String(Encoding.UTF8.GetBytes(body.From));
                     mail.Object = JsonSerializer.Serialize(body);
