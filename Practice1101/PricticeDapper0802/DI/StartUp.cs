@@ -18,6 +18,7 @@ namespace PricticeDapper0802.DI
                 .AddTransient<IRepository<Mail>, Repository<Mail>>()
                 .AddTransient<IRepository<UserMail>, Repository<UserMail>>()
                 .AddTransient<IMailService, MailService>()
+                .AddTransient<IUserMailService, UserMailService>()
                 .BuildServiceProvider();
 
             return provider;
