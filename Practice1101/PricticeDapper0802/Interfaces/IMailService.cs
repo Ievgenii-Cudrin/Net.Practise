@@ -12,5 +12,7 @@ namespace PricticeDapper0802.Interfaces
         public void UpdateMail(Mail mail);
 
         public List<Mail> GetAllMails();
+
+        public void DeleteMail(int id);
     }
 }
