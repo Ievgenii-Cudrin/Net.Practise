@@ -15,6 +15,7 @@ namespace PricticeDapper0802
         {
             IMailService mailService = Startup.ConfigureService().GetRequiredService<IMailService>();
             IUserService userSevice = Startup.ConfigureService().GetRequiredService<IUserService>();
+            IDataEncryptor dataEncryptor = Startup.ConfigureService().GetRequiredService<IDataEncryptor>();
 
             LetterBody firstBody = new LetterBody()
             {
@@ -49,15 +50,16 @@ namespace PricticeDapper0802
             {
                 Name = "Fn",
                 Surname = "Sn",
-                
-                DateOfBirth = DateTime.Now
+                Email = "Test@gmail.com",
+                DateOfBirth = DateTime.Now.ToString("yyyy-MM-dd")
             };
 
             User secondUser = new User()
             {
-                Name = "Fn",
-                Surname = "Sn",
-                DateOfBirth = DateTime.Now
+                Name = "Fn1",
+                Surname = "Sn1",
+                Email = "Test1@gmail.com",
+                DateOfBirth = DateTime.Now.ToString("yyyy-MM-dd")
             };
 
             userSevice.AddUser(firstUser);
@@ -66,7 +68,9 @@ namespace PricticeDapper0802
             mailService.AddMail(secondMail, 1);
             mailService.AddMail(firstMail, 2);
 
-            mailService.DeleteMail(1);
+            //mailService.DeleteMail(1);
+
+            dataEncryptor.EncryptData("Test@gmail.com");
 
             Console.ReadLine();
         }
