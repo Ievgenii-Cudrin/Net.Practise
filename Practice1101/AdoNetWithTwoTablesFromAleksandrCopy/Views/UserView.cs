@@ -67,7 +67,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Views
             Console.WriteLine("Enter id user id to delete: ");
             int idToDelete = Convert.ToInt32(Console.ReadLine());
             //delete user
-            userService.DeleteUser(idToDelete);
+            this.userService.DeleteUser(this.userService.GetUser(idToDelete));
             Branch.StartApp();
         }
 

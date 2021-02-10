@@ -10,20 +10,23 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Services
     public class RoleService : IRoleService
     {
         IRoleRepository roleRepository;
+        List<Role> roles;
 
         public RoleService(IRoleRepository roleRepository)
         {
             this.roleRepository = roleRepository;
+            this.roles = this.roleRepository.GetAll().ToList();
         }
 
         public void CreateRole(Role role)
         {
-            roleRepository.Create(role);
+            this.roleRepository.Create(role);
+            this.roles.Add(role);
         }
 
         public void ShowAllRole()
         {
-            foreach(var role in roleRepository.GetAll().ToList())
+            foreach(var role in roles)
             {
                 Console.WriteLine($"{role.Id}. {role.Name}");
             }
@@ -31,22 +34,24 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Services
 
         public List<Role> GetAllRoles()
         {
-            return roleRepository.GetAll().ToList();
+            return roles;
         }
 
         public void UpdateRole(Role role)
         {
-            roleRepository.Update(role);
+            this.roleRepository.Update(role);
+            this.roles.Where(x => x.Id == role.Id).Select(x => x = role);
         }
 
-        public void DeleteRole(int id)
+        public void DeleteRole(Role role)
         {
-            roleRepository.Delete(id);
+            this.roleRepository.Delete(role.Id);
+            this.roles.Remove(role);
         }
 
         public Role GetRole(int id)
         {
-            return roleRepository.Get(id);
+            return this.roles.Where(x => x.Id == id).FirstOrDefault();
         }
     }
 }

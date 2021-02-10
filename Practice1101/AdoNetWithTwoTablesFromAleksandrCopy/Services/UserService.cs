@@ -8,35 +8,40 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Services
     public class UserService : IUserService
     {
         IUserRepository userRepository;
+        List<User> users;
 
         public UserService(IUserRepository userRepository)
         {
             this.userRepository = userRepository;
+            this.users = this.userRepository.GetAll().ToList();
         }
 
         public void CreateUser(User user)
         {
-            userRepository.Create(user);
+            this.userRepository.Create(user);
+            this.users.Add(user);
         }
 
         public List<User> GetAllUsers()
         {
-            return userRepository.GetAll().ToList();
+            return users;
         }
 
         public void UpdateUser(User user)
         {
-            userRepository.Update(user);
+            this.userRepository.Update(user);
+            this.users.Where(x => x.Id == user.Id).Select(x => x = user);
         }
 
-        public void DeleteUser(int id)
+        public void DeleteUser(User user)
         {
-            userRepository.Delete(id);
+            userRepository.Delete(user.Id);
+            this.users.Remove(user);
         }
 
         public User GetUser(int id)
         {
-            return userRepository.Get(id);
+            return this.users.Where(x => x.Id == id).FirstOrDefault();
         }
     }
 }
