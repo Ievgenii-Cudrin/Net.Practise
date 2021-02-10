@@ -1,5 +1,6 @@
 ﻿using AdoNetWithTwoTablesFromAleksandr0102.Entities;
 using AdoNetWithTwoTablesFromAleksandr0102.Interfaces;
+using AdoNetWithTwoTablesFromAleksandrCopy.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,7 +12,8 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
 {
     public class UserRepository : IUserRepository
     {
-        static string connectionString = ConfigurationManager.ConnectionStrings["UserDBConnection"].ConnectionString;
+        static string connectionString = Connection.ConnectionString;
+
         public void Create(User user)
         {
             string sqlExpression = String.Format("INSERT INTO Users (UserName, RolesId) VALUES (@name, @roleId)");

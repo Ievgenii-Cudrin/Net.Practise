@@ -1,5 +1,6 @@
 ﻿using AdoNetWithTwoTablesFromAleksandr0102.Entities;
 using AdoNetWithTwoTablesFromAleksandr0102.Interfaces;
+using AdoNetWithTwoTablesFromAleksandrCopy.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -10,7 +11,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
 {
     public class RoleRepository : IRoleRepository
     {
-        static string connectionString = ConfigurationManager.ConnectionStrings["UserDBConnection"].ConnectionString;
+        static string connectionString = Connection.ConnectionString;
         public void Create(Role role)
         {
             string sqlExpression = String.Format("INSERT INTO Roles (RoleName) VALUES (@name)");
