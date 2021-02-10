@@ -3,3 +3,24 @@
 
 # Ada Library Information
 *.ali
+Practice1101/AdoNetWithSql0102/obj/AdoNetWithSql0102.csproj.nuget.dgspec.json
+Practice1101/AdoNetWithSql0102/obj/AdoNetWithSql0102.csproj.nuget.g.props
+Practice1101/AdoNetWithSql0102/obj/AdoNetWithSql0102.csproj.nuget.g.targets
+*.cache
+*.cs
+*.dll
+*.config
+*.json
+*.pdb
+*.exe
+*.props
+*.targets
+*.CopyComplete
+*.txt
+*.cache
+*.cache
+Practice1101/SomeBusinessService/obj/SomeBusinessService.csproj.nuget.g.props
+Practice1101/SomeBusinessService/obj/SomeBusinessService.csproj.nuget.dgspec.json
+Practice1101/SomeBusinessService/obj/project.nuget.cache
+*.json
+*.cache
