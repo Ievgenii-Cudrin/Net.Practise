@@ -48,10 +48,5 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Services
         {
             return roleRepository.Get(id);
         }
-
-        public List<User> GetUsersInRole(int roleId)
-        {
-            return roleRepository.GetAllUserInRole(roleId);
-        }
     }
 }

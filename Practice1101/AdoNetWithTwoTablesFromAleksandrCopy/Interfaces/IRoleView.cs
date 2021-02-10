@@ -13,7 +13,5 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Interfaces
         void UpdateRole();
 
         void DeleteRole();
-
-        void ShowUsersInOneRole();
     }
 }

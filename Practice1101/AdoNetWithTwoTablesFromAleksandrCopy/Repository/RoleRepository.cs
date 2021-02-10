@@ -116,47 +116,5 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
                 Console.WriteLine("Обновлен объект");
             }
         }
-
-        public List<User> GetAllUserInRole(int roleId)
-        {
-            List<User> users = new List<User>();
-            string sqlExpression = @"select u.[Id], u.[UserName], u.[RolesId], r.[RoleName]
-                                    from [Users] u
-                                    Left Join Roles r On u.[RolesId] = r.[Id]
-                                    Where r.[Id] = @id";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                SqlCommand command = new SqlCommand(sqlExpression, connection);
-                SqlParameter idParam = new SqlParameter("@id", roleId);
-                command.Parameters.Add(idParam);
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        Role role = new Role()
-                        {
-                            Id = reader.GetInt32(2),
-                            Name = reader.GetString(3)
-                        };
-                        User user = new User()
-                        {
-                            Id = reader.GetInt32(0),
-                            Name = reader.GetString(1),
-                            UserRole = role
-                        };
-
-                        users.Add(user);
-                    }
-                }
-
-                reader.Close();
-            }
-
-            return users;
-        }
     }
 }

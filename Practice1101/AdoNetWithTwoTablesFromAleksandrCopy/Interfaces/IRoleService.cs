@@ -17,8 +17,6 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Interfaces
 
         void DeleteRole(int id);
 
-        List<User> GetUsersInRole(int roleId);
-
         Role GetRole(int id);
     }
 }
