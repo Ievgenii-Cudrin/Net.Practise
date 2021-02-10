@@ -12,13 +12,11 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
 {
     public class RoleRepository : IRoleRepository
     {
-        IConnection connection;
         static string connectionString;
 
-        public RoleRepository(IConnection connection)
+        public RoleRepository(string connectionStr)
         {
-            this.connection = connection;
-            connectionString = this.connection.ConnectionString;
+            connectionString = connectionStr;
         }
 
         

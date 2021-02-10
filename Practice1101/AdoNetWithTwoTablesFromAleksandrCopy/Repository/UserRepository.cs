@@ -14,13 +14,11 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
 {
     public class UserRepository : IUserRepository
     {
-        IConnection connection;
         static string connectionString;
 
-        public UserRepository(IConnection connection)
+        public UserRepository(string connectionStr)
         {
-            this.connection = connection;
-            connectionString = this.connection.ConnectionString;
+            connectionString = connectionStr;
         }
 
         public void Create(User user)

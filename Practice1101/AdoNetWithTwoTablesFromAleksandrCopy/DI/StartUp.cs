@@ -16,13 +16,12 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.DI
         public static IServiceProvider ConfigureService()
         {
             var provider = new ServiceCollection()
-                .AddTransient<IUserRepository, UserRepository>()
-                .AddTransient<IRoleRepository, RoleRepository>()
+                .AddTransient<IUserRepository>(s => new UserRepository("UserDBConnection"))
+                .AddTransient<IRoleRepository>(s => new RoleRepository("UserDBConnection"))
                 .AddTransient<IRoleService, RoleService>()
                 .AddTransient<IUserService, UserService>()
                 .AddTransient<IUserView,UserView>()
                 .AddTransient<IRoleView, RoleView>()
-                .AddTransient<IConnection, Connection>()
                 .BuildServiceProvider();
 
             return provider;
