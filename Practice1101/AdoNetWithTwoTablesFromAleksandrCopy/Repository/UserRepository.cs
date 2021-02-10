@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Text;
 
 namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
@@ -117,7 +118,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
                             role.Name = reader.GetString(3);
                             
                         }
-                        catch
+                        catch(SqlNullValueException ex)
                         {
                             role = null;
                         }
