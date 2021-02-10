@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projects\\Net.Practise\\Practice1101\\SomeBusinessService\\SomeBusinessService.csproj",
+      "projectUniqueName": "E:\\Projects\\Net.Practise0502\\Practice1101\\SomeBusinessService\\SomeBusinessService.csproj",
       "projectName": "SomeBusinessService",
-      "projectPath": "E:\\Projects\\Net.Practise\\Practice1101\\SomeBusinessService\\SomeBusinessService.csproj",
+      "projectPath": "E:\\Projects\\Net.Practise0502\\Practice1101\\SomeBusinessService\\SomeBusinessService.csproj",
       "packagesPath": "C:\\Users\\zhend\\.nuget\\packages\\",
-      "outputPath": "E:\\Projects\\Net.Practise\\Practice1101\\SomeBusinessService\\obj\\",
+      "outputPath": "E:\\Projects\\Net.Practise0502\\Practice1101\\SomeBusinessService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -64,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

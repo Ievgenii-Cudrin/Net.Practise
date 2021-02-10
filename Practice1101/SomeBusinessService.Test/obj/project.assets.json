@@ -5025,11 +5025,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projects\\Net.Practise\\Practice1101\\SomeBusinessService.Test\\SomeBusinessService.Test.csproj",
+      "projectUniqueName": "E:\\Projects\\Net.Practise0502\\Practice1101\\SomeBusinessService.Test\\SomeBusinessService.Test.csproj",
       "projectName": "SomeBusinessService.Test",
-      "projectPath": "E:\\Projects\\Net.Practise\\Practice1101\\SomeBusinessService.Test\\SomeBusinessService.Test.csproj",
+      "projectPath": "E:\\Projects\\Net.Practise0502\\Practice1101\\SomeBusinessService.Test\\SomeBusinessService.Test.csproj",
       "packagesPath": "C:\\Users\\zhend\\.nuget\\packages\\",
-      "outputPath": "E:\\Projects\\Net.Practise\\Practice1101\\SomeBusinessService.Test\\obj\\",
+      "outputPath": "E:\\Projects\\Net.Practise0502\\Practice1101\\SomeBusinessService.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5049,8 +5049,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "E:\\Projects\\Net.Practise\\Practice1101\\SomeBusinessService\\SomeBusinessService.csproj": {
-              "projectPath": "E:\\Projects\\Net.Practise\\Practice1101\\SomeBusinessService\\SomeBusinessService.csproj"
+            "E:\\Projects\\Net.Practise0502\\Practice1101\\SomeBusinessService\\SomeBusinessService.csproj": {
+              "projectPath": "E:\\Projects\\Net.Practise0502\\Practice1101\\SomeBusinessService\\SomeBusinessService.csproj"
             }
           }
         }
@@ -5105,7 +5105,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Projects\\Net.Practise\\Practice1101\\Practice1101\\Practice1101.csproj": {}
+    "E:\\Projects\\Net.Practise0502\\Practice1101\\Practice1101\\Practice1101.csproj": {}
   },
   "projects": {
-    "E:\\Projects\\Net.Practise\\Practice1101\\Practice1101\\Practice1101.csproj": {
+    "E:\\Projects\\Net.Practise0502\\Practice1101\\Practice1101\\Practice1101.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects\\Net.Practise\\Practice1101\\Practice1101\\Practice1101.csproj",
+        "projectUniqueName": "E:\\Projects\\Net.Practise0502\\Practice1101\\Practice1101\\Practice1101.csproj",
         "projectName": "Practice1101",
-        "projectPath": "E:\\Projects\\Net.Practise\\Practice1101\\Practice1101\\Practice1101.csproj",
+        "projectPath": "E:\\Projects\\Net.Practise0502\\Practice1101\\Practice1101\\Practice1101.csproj",
         "packagesPath": "C:\\Users\\zhend\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects\\Net.Practise\\Practice1101\\Practice1101\\obj\\",
+        "outputPath": "E:\\Projects\\Net.Practise0502\\Practice1101\\Practice1101\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -57,7 +57,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

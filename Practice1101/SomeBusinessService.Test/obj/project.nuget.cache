@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YQyXnRE6RjbADXYHdCNoWQ/wAN8oe3lswTt6yTO/MFNyhcfZvu9+Uk/IWDRqcOFYjNtr5X/7m6C7E9kzdZ7RhQ==",
+  "dgSpecHash": "Zj3Isq57FCTFiudgaP7dDIeYOGmDMN5mImmxBvWZWRAu9vRd8rq00Gk4vOrP6SzsztkoUfjkWbbiEbV7+KxgGg==",
   "success": true,
-  "projectFilePath": "E:\\Projects\\Net.Practise\\Practice1101\\SomeBusinessService.Test\\SomeBusinessService.Test.csproj",
+  "projectFilePath": "E:\\Projects\\Net.Practise0502\\Practice1101\\SomeBusinessService.Test\\SomeBusinessService.Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\zhend\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\zhend\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
