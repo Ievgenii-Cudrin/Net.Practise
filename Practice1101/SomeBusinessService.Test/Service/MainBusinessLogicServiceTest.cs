@@ -135,6 +135,34 @@ namespace SomeBusinessService.Test.Service
         }
 
         [TestMethod]
+        public void UpdateSecond_EmptyString_ArgumentNullException()
+        {
+            Mock<IDBManager> dbManager = new Mock<IDBManager>();
+            dbManager.Setup(db => db.Update(It.IsAny<Product>(), It.IsAny<string>()));
+            dbManager.Setup(db => db.Get(It.IsAny<string>()));
+            var testClass = new MainBusinessLogicService(dbManager.Object);
+
+            var product = new Product() { Name = "TestName" };
+            string OldName = "";
+
+            Assert.ThrowsException<ArgumentNullException>(() => testClass.Update(product, OldName));
+        }
+
+        [TestMethod]
+        public void UpdateSecond_NullString_ArgumentNullException()
+        {
+            Mock<IDBManager> dbManager = new Mock<IDBManager>();
+            dbManager.Setup(db => db.Update(It.IsAny<Product>(), It.IsAny<string>()));
+            dbManager.Setup(db => db.Get(It.IsAny<string>()));
+            var testClass = new MainBusinessLogicService(dbManager.Object);
+
+            var product = new Product() { Name = "TestName" };
+            string OldName = null;
+
+            Assert.ThrowsException<ArgumentNullException>(() => testClass.Update(product, OldName));
+        }
+
+        [TestMethod]
         public void Get_ValidName_ArgumentNullException()
         {
             Mock<IDBManager> dbManager = new Mock<IDBManager>();
