@@ -7,18 +7,18 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Interfaces
 {
     public interface IRoleService
     {
-        public void CreateRole(Role role);
+        void CreateRole(Role role);
 
-        public void ShowAllRole();
+        void ShowAllRole();
 
-        public List<Role> GetAllRoles();
+        List<Role> GetAllRoles();
 
-        public void UpdateRole(Role role);
+        void UpdateRole(Role role);
 
-        public void DeleteRole(int id);
+        void DeleteRole(int id);
 
-        public List<User> GetUsersInRole(int roleId);
+        List<User> GetUsersInRole(int roleId);
 
-        public Role GetRole(int id);
+        Role GetRole(int id);
     }
 }

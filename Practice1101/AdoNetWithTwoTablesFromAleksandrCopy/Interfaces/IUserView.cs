@@ -6,12 +6,12 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Interfaces
 {
     interface IUserView
     {
-        public void ShowAllUsers();
+        void ShowAllUsers();
 
-        public void CreateUser();
+        void CreateUser();
 
-        public void UpdateUser();
+        void UpdateUser();
 
-        public void DeleteUser();
+        void DeleteUser();
     }
 }
