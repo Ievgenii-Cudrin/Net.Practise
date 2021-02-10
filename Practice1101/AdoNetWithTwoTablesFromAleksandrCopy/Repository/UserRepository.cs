@@ -1,6 +1,7 @@
 ﻿using AdoNetWithTwoTablesFromAleksandr0102.Entities;
 using AdoNetWithTwoTablesFromAleksandr0102.Interfaces;
 using AdoNetWithTwoTablesFromAleksandrCopy.Helpers;
+using AdoNetWithTwoTablesFromAleksandrCopy.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -13,7 +14,14 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
 {
     public class UserRepository : IUserRepository
     {
-        static string connectionString = Connection.ConnectionString;
+        IConnection connection;
+        static string connectionString;
+
+        public UserRepository(IConnection connection)
+        {
+            this.connection = connection;
+            connectionString = this.connection.ConnectionString;
+        }
 
         public void Create(User user)
         {

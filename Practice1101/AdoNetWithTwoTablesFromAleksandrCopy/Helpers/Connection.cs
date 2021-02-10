@@ -1,15 +1,16 @@
-﻿using System;
+﻿using AdoNetWithTwoTablesFromAleksandrCopy.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Text;
 
 namespace AdoNetWithTwoTablesFromAleksandrCopy.Helpers
 {
-    public static class Connection
+    public class Connection : IConnection
     {
-        static string connectionString = ConfigurationManager.ConnectionStrings["UserDBConnection"].ConnectionString;
+        string connectionString = ConfigurationManager.ConnectionStrings["UserDBConnection"].ConnectionString;
 
-        public static string ConnectionString
+        public string ConnectionString
         {
             get
             {
