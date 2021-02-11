@@ -9,8 +9,6 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Interfaces
     {
         void CreateUser(User user);
 
-        List<User> GetAllUsers();
-
         void UpdateUser(User user);
 
         void DeleteUser(User user);
