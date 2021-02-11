@@ -9,18 +9,6 @@
 *.user
 *.userosscache
 *.sln.docstates
-*.xml
-*.dll
-*.dtbcache.v2
-*.csprojAssemblyReference.cache
-*.sln
-*.AssemblyInfoInputs.cache
-*.AssemblyInfo.cs
-*.csproj.nuget.dgspec
-*.csproj.nuget.g.props
-*.csproj.nuget.g.targets
-dir_to_ignore/
-
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
