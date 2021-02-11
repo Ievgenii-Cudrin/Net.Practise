@@ -139,11 +139,11 @@ namespace SomeBusinessService.Test.Service
         {
             Mock<IDBManager> dbManager = new Mock<IDBManager>();
             dbManager.Setup(db => db.Update(It.IsAny<Product>(), It.IsAny<string>()));
-            dbManager.Setup(db => db.Get(It.IsAny<string>()));
+            dbManager.Setup(db => db.Get(It.IsAny<string>())).Returns(new Product() { LastUpdated = new DateTime(2015, 12, 12) });
             var testClass = new MainBusinessLogicService(dbManager.Object);
 
-            var product = new Product() { Name = "TestName" };
             string OldName = "";
+            var product = new Product() { Name = "TestName" };
 
             Assert.ThrowsException<ArgumentNullException>(() => testClass.Update(product, OldName));
         }
@@ -153,14 +153,60 @@ namespace SomeBusinessService.Test.Service
         {
             Mock<IDBManager> dbManager = new Mock<IDBManager>();
             dbManager.Setup(db => db.Update(It.IsAny<Product>(), It.IsAny<string>()));
-            dbManager.Setup(db => db.Get(It.IsAny<string>()));
+            dbManager.Setup(db => db.Get(It.IsAny<string>())).Returns(new Product() { LastUpdated = new DateTime(2015, 12, 12) });
             var testClass = new MainBusinessLogicService(dbManager.Object);
 
-            var product = new Product() { Name = "TestName" };
             string OldName = null;
+            var product = new Product() { Name = "TestName" };
 
             Assert.ThrowsException<ArgumentNullException>(() => testClass.Update(product, OldName));
         }
+
+        [TestMethod]
+        public void UpdateSecond_RequiredStrindProductWithInvalidLastUpdate_ThrowArgumentException()
+        {
+            Mock<IDBManager> dbManager = new Mock<IDBManager>();
+            dbManager.Setup(db => db.Update(It.IsAny<Product>(), It.IsAny<string>())).Throws(new ArgumentException());
+            dbManager.Setup(db => db.Get(It.IsAny<string>())).Returns(new Product() { LastUpdated = new DateTime(2050, 12, 12) });
+            var testClass = new MainBusinessLogicService(dbManager.Object);
+
+            var productToUpdate = new Product() { Name = "TestName" };
+            string oldName = "oldName";
+
+            Assert.ThrowsException<ArgumentException>(() => testClass.Update(productToUpdate, oldName));
+        }
+
+        [TestMethod]
+        public void UpdateSecond_RequiredStrindProductWithLastUpdateToDay_ThrowArgumentException()
+        {
+            Mock<IDBManager> dbManager = new Mock<IDBManager>();
+            dbManager.Setup(db => db.Update(It.IsAny<Product>(), It.IsAny<string>())).Throws(new ArgumentException());
+            dbManager.Setup(db => db.Get(It.IsAny<string>())).Returns(new Product() { LastUpdated = DateTime.Now });
+            var testClass = new MainBusinessLogicService(dbManager.Object);
+
+            var productToUpdate = new Product() { Name = "TestName" };
+            string oldName = "oldName";
+
+            Assert.ThrowsException<ArgumentException>(() => testClass.Update(productToUpdate, oldName));
+        }
+
+        [TestMethod]
+        public void UpdateSecond_RequiredStringAndProduct_DBManagerCallUpdate()
+        {
+            Mock<IDBManager> dbManager = new Mock<IDBManager>();
+            dbManager.Setup(db => db.Update(It.IsAny<Product>(), It.IsAny<string>()));
+            dbManager.Setup(db => db.Get(It.IsAny<string>())).Returns(new Product() {LastUpdated = new DateTime(1980, 12, 12) });
+            var testClass = new MainBusinessLogicService(dbManager.Object);
+
+            var oldName = "oldName";
+            var productToUpdate = new Product() { Name = "TestName" };
+
+            testClass.Update(productToUpdate, oldName);
+
+            dbManager.Verify(x => x.Update(productToUpdate, oldName), Times.Once);
+        }
+
+
 
         [TestMethod]
         public void Get_ValidName_ArgumentNullException()

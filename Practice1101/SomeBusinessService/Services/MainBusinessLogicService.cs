@@ -56,5 +56,25 @@ namespace SomeBusinessService.Services
                 throw new ArgumentNullException();
             }
         }
+
+        public void UpdateSecond(Product product, string name)
+        {
+            if (!string.IsNullOrEmpty(name))
+            {
+                var updatedProduct = _dBManager.Get(name);
+                if (updatedProduct.LastUpdated < DateTime.Now)
+                {
+                    _dBManager.Update(product, name);
+                }
+                else
+                {
+                    throw new ArgumentNullException();
+                }
+            }
+            else
+            {
+                throw new ArgumentNullException();
+            }
+        }
     }
 }
