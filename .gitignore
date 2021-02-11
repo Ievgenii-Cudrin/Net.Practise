@@ -353,3 +353,5 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 *.cache
+Practice1101/Threads1801/obj/Debug/netcoreapp3.1/Threads1801.csprojAssemblyReference.cache
+*.cache
