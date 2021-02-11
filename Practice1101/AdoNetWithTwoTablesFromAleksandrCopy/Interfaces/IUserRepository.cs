@@ -7,7 +7,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Interfaces
 {
     public interface IUserRepository
     {
-        IEnumerable<User> GetAll();
+        IEnumerable<User> GetAllForOnePage(int skip);
         
         User Get(int id);
         
@@ -15,6 +15,8 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Interfaces
         
         void Update(User item);
         
-        void Delete(int id);
+        void Delete(User user);
+
+        void UpdateRoleInUsersCache(Role role);
     }
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
 {
@@ -16,7 +17,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
         public RoleRepository(string connectionStr)
         {
             connectionString = connectionStr;
-            this.rolesCache = new List<Role>();
+            this.rolesCache = GetAllRoles();
         }
 
         
@@ -30,10 +31,14 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 SqlParameter nameParam = new SqlParameter("@name", role.Name);
                 command.Parameters.Add(nameParam);
-
                 command.ExecuteNonQuery();
+                
                 //Add to cache
-                this.rolesCache.Add(role);
+                if (!this.rolesCache.Contains(role))
+                {
+                    this.rolesCache.Add(role);
+                }
+
                 Console.WriteLine("Добавлен объект");
             }
         }
@@ -93,20 +98,39 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
             return role;
         }
 
-        public IEnumerable<Role> GetAllForOnePage(int skip)
+        public List<Role> GetAllForOnePage(int skip)
         {
-            List<Role> roles = new List<Role>();
             string sqlExpression = @"SELECT *
-                                        FROM Users
+                                        FROM Roles
                                         Order by ID
                                         OFFSET @skip ROWS FETCH NEXT 10 ROWS ONLY";
+
+            return GetRolesForOnePage(skip, sqlExpression).ToList();
+        }
+
+        List<Role> GetAllRoles()
+        {
+            string sqlExpression = @"SELECT *
+                                        FROM Roles";
+
+            return GetRolesForOnePage(null, sqlExpression).ToList();
+        }
+
+        IEnumerable<Role> GetRolesForOnePage(int? skip, string sqlExpression)
+        {
+            List<Role> roles = new List<Role>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
-                SqlParameter skipParam = new SqlParameter("@skip", skip);
-                command.Parameters.Add(skipParam);
+
+                if(skip != null)
+                {
+                    SqlParameter skipParam = new SqlParameter("@skip", skip);
+                    command.Parameters.Add(skipParam);
+                }
+
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.HasRows)

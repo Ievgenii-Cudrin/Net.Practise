@@ -2,8 +2,6 @@
 using AdoNetWithTwoTablesFromAleksandr0102.Repository;
 using AdoNetWithTwoTablesFromAleksandr0102.Services;
 using AdoNetWithTwoTablesFromAleksandr0102.Views;
-using AdoNetWithTwoTablesFromAleksandrCopy.Helpers;
-using AdoNetWithTwoTablesFromAleksandrCopy.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;

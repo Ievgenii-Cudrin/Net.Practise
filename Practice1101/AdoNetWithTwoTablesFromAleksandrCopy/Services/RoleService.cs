@@ -10,10 +10,12 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Services
     public class RoleService : IRoleService
     {
         IRoleRepository roleRepository;
+        IUserRepository userRepository;
 
-        public RoleService(IRoleRepository roleRepository)
+        public RoleService(IRoleRepository roleRepository, IUserRepository userRepo)
         {
             this.roleRepository = roleRepository;
+            this.userRepository = userRepo;
         }
 
         public void CreateRole(Role role)
@@ -24,6 +26,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Services
         public void UpdateRole(Role role)
         {
             this.roleRepository.Update(role);
+            this.userRepository.UpdateRoleInUsersCache(role);
         }
 
         public void DeleteRole(Role role)
