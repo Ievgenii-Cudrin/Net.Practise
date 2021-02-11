@@ -1,7 +1,5 @@
 ﻿using AdoNetWithTwoTablesFromAleksandr0102.Entities;
 using AdoNetWithTwoTablesFromAleksandr0102.Interfaces;
-using AdoNetWithTwoTablesFromAleksandrCopy.Helpers;
-using AdoNetWithTwoTablesFromAleksandrCopy.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -12,11 +10,13 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
 {
     public class RoleRepository : IRoleRepository
     {
+        List<Role> rolesCache;
         static string connectionString;
 
         public RoleRepository(string connectionStr)
         {
             connectionString = connectionStr;
+            this.rolesCache = new List<Role>();
         }
 
         
@@ -32,33 +32,49 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
                 command.Parameters.Add(nameParam);
 
                 command.ExecuteNonQuery();
+                //Add to cache
+                this.rolesCache.Add(role);
                 Console.WriteLine("Добавлен объект");
             }
         }
 
-        public void Delete(int id)
+        public void Delete(Role role)
         {
-            string sqlExpression = $"DELETE FROM Roles WHERE Id=@id";
+            string sqlExpression = @"DELETE FROM Roles WHERE Id=@id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
-                SqlParameter idParam = new SqlParameter("@id", id);
+                SqlParameter idParam = new SqlParameter("@id", role.Id);
                 command.Parameters.Add(idParam);
-
                 command.ExecuteNonQuery();
+
+                if(this.rolesCache.Find(x => x.Id == role.Id) != null)
+                {
+                    //Delete from cache
+                    this.rolesCache.Remove(role);
+                }
+
                 Console.WriteLine("Удален объект");
             }
         }
 
         public Role Get(int id)
         {
-            Role role = new Role();
+            Role role = this.rolesCache.Find(x => x.Id == id);
+
+            if(role != null)
+            {
+                //Get from cache
+                return role;
+            }
+
             string sqlExpression = "SELECT * FROM Roles WHERE Id=@id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                role = new Role();
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
                 SqlParameter idParam = new SqlParameter("@id", id);
@@ -77,14 +93,20 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
             return role;
         }
 
-        public IEnumerable<Role> GetAll()
+        public IEnumerable<Role> GetAllForOnePage(int skip)
         {
             List<Role> roles = new List<Role>();
-            string sqlExpression = "SELECT * FROM Roles";
+            string sqlExpression = @"SELECT *
+                                        FROM Users
+                                        Order by ID
+                                        OFFSET @skip ROWS FETCH NEXT 10 ROWS ONLY";
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(sqlExpression, connection);
+                SqlParameter skipParam = new SqlParameter("@skip", skip);
+                command.Parameters.Add(skipParam);
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.HasRows)
@@ -109,6 +131,14 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Repository
 
         public void Update(Role role)
         {
+            Role roleToUpdate = this.rolesCache.Find(x => x.Id == role.Id);
+
+            if(roleToUpdate != null)
+            {
+                //Update role in cache
+                roleToUpdate.Name = role.Name;
+            }
+
             string sqlExpression = $"UPDATE Roles SET RoleName=@name WHERE Id=@id";
 
             using (SqlConnection connection = new SqlConnection(connectionString))

@@ -5,7 +5,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Interfaces
 {
     public interface IRoleRepository
     {
-        IEnumerable<Role> GetAll();
+        IEnumerable<Role> GetAllForOnePage();
 
         Role Get(int id);
 
@@ -13,6 +13,6 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Interfaces
 
         void Update(Role item);
 
-        void Delete(int id);
+        void Delete(Role id);
     }
 }

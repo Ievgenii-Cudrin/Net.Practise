@@ -28,7 +28,7 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Services
 
         public void DeleteRole(Role role)
         {
-            this.roleRepository.Delete(role.Id);
+            this.roleRepository.Delete(role);
         }
 
         public Role GetRole(int id)

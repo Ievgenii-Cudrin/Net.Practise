@@ -1,7 +1,5 @@
 ﻿using AdoNetWithTwoTablesFromAleksandr0102.Entities;
 using AdoNetWithTwoTablesFromAleksandr0102.Interfaces;
-using AdoNetWithTwoTablesFromAleksandrCopy.Helpers;
-using AdoNetWithTwoTablesFromAleksandrCopy.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
