@@ -353,3 +353,8 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+Practice1101/BullsAndCows/obj/BullsAndCows.csproj.nuget.dgspec.json
+*.cs
+*.cache
+*.json
+*.cache
