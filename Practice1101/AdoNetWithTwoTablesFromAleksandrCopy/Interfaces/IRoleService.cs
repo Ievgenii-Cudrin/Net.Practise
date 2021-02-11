@@ -9,10 +9,6 @@ namespace AdoNetWithTwoTablesFromAleksandr0102.Interfaces
     {
         void CreateRole(Role role);
 
-        void ShowAllRole();
-
-        List<Role> GetAllRoles();
-
         void UpdateRole(Role role);
 
         void DeleteRole(Role role);
