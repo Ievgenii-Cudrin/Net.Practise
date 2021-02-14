@@ -1,4 +1,0 @@
-E:\Projects\Net.Practise\Practice1101\TestingTask.Core\obj\Debug\netcoreapp3.1\TestingTask.Core.csprojAssemblyReference.cache
-E:\Projects\Net.Practise\Practice1101\TestingTask.Core\obj\Debug\netcoreapp3.1\TestingTask.Core.AssemblyInfoInputs.cache
-E:\Projects\Net.Practise\Practice1101\TestingTask.Core\obj\Debug\netcoreapp3.1\TestingTask.Core.AssemblyInfo.cs
-E:\Projects\Net.Practise\Practice1101\TestingTask.Core\obj\Debug\netcoreapp3.1\TestingTask.Core.csproj.CoreCompileInputs.cache
