@@ -1,0 +1,182 @@
+h1.italic{
+      font-style: italic;
+}
+
+span.selected-word{
+  font-style: italic;
+}
+
+#spanBold{
+
+}
+
+#h1{
+	color: red;
+	text-align: center;
+}
+#h2{
+	color: green;
+}
+#b{
+  color: red; font-size: 20px;
+}
+#i{
+  color: blue; font-weight: bold;
+}
+
+#p{
+  font: 12px/25px Arial; width: 500px; text-align: justify;
+}
+#ul{
+  font-style: italic; color: #924763; width: 500px;
+}
+#ol{
+  color: red;
+}
+
+#bodynine{
+	background: url(img/fon.jpg) repeat-y right top;
+}
+#pnine{
+	width: 500px;
+	text-align: justify;
+	font-weight: bold;
+}
+
+#h1nine {
+  color: black;
+}
+
+#pnine {
+  color: black;
+}
+
+#img1  {float: left; margin-right: 20px}
+#img2  {float: right; margin-left: 20px}
+#pten {width: 600px; text-align: justify; }
+
+
+#menu8{
+	width: 100%;
+	background-color: #FC9D00;
+	font-family: Arial;
+}
+#menu8 li{
+	display: inline-block;
+}
+#menu8 a:link{
+	color: #FFFFFF;
+	text-decoration: none;
+	display: block;
+	padding: 0px 13px;
+	line-height: 35px;
+	text-align: center;
+	font-size: 13px;
+}
+#menu8 ul{
+	margin-left: 13px;
+	padding: 0px;
+}
+
+
+#menu3 ul{list-style-type: none; width: 200px;}
+#menu3 li{margin-bottom: 5px;}
+#menu3 a:link, #menu3 a:visited{
+	text-decoration: none;
+	color: white;
+	font: 13px Arial;
+	border: 1px solid black;
+	display: block;
+	padding: 0px 5px;
+	line-height: 30px;
+	background-color: #484848;
+	font-weight: bold
+}
+
+
+
+#div{
+	border: 1px solid black;
+}
+#wrapper{
+	width: 700px;
+	margin: 50px auto;
+	padding: 0px;
+	text-align: justify;
+}
+
+#h1thirteen{
+  style="text-align: center;"
+}
+
+
+#pthirtenn{border: 3px;
+    padding: 10px;
+    margin: 10px;
+  }
+
+a:link, a:visited{
+	color: blue;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+
+#menu{margin: 0px; background-color: #484848; height: 30px; margin-bottom: 20px;}
+#menu ul{
+	list-style-type: none; padding: 0px; margin: 0px;
+}
+#menu li{
+	float: left; margin-right: 10px;
+}
+#menu a:link, #menu a:visited {
+	text-decoration: none;
+	color: #fff;
+	font: bold 13px Arial;
+	display: block;
+	line-height: 30px;
+	padding: 0px 5px;
+
+}
+
+#wrapper{
+	position: relative;
+	width: 200px;
+	height: 400px;
+	margin: 0px auto;
+	border: 1px solid black;
+
+}
+
+#elem1{
+	border: 1px solid black;
+	background-color: red;
+	position: absolute;
+	left: 50px;
+	top: 50px;
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+}
+#elem2{
+
+
+	background-color: yellow;
+	border: 1px solid black;
+	position: absolute;
+	left: 50px;
+	top: 145px;
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+}
+#elem3{
+	border: 1px solid black;
+	background-color: green;
+	position: absolute;
+	left: 50px;
+	top: 240px;
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+}
