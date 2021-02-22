@@ -4,7 +4,7 @@
     if (valueFromUser === "") {
         document.getElementById('info').innerHTML = "";
     }
-    else if (valueFromUser[0] === 'Р' && valueFromUser[0] === 'y') {
+    else if (valueFromUser.startsWith('Ру')) {
             document.getElementById('info').innerHTML = valueFromUser;
         }
     else {
