@@ -1,6 +1,6 @@
-﻿function getCountOfDays() {
+﻿function getFullPathLocationFile() {
     console.log(window.location);
     document.getElementById('path').innerHTML = window.location;
 }
 
-getCountOfDays();
+getFullPathLocationFile();
