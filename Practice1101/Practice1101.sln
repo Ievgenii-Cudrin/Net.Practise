@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirstWithFluentApiCrudOperation", "CodeFirstWithFluentApiCrudOperation\CodeFirstWithFluentApiCrudOperation.csproj", "{F3D722DF-6B3B-4EEE-8A0F-C95CA7EE0B36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeFirstWithFluentApiCrudOperation", "CodeFirstWithFluentApiCrudOperation\CodeFirstWithFluentApiCrudOperation.csproj", "{F3D722DF-6B3B-4EEE-8A0F-C95CA7EE0B36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondDbFirstAfterFluentApi", "SecondDbFirstAfterFluentApi\SecondDbFirstAfterFluentApi.csproj", "{681CA39B-D70D-4E82-839D-CFE34FC09455}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecondDbFirstAfterFluentApi", "SecondDbFirstAfterFluentApi\SecondDbFirstAfterFluentApi.csproj", "{681CA39B-D70D-4E82-839D-CFE34FC09455}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSFromSergei", "JSFromSergei\JSFromSergei.csproj", "{EA9DFCC8-7704-4430-8D9B-509B8D450276}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{681CA39B-D70D-4E82-839D-CFE34FC09455}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{681CA39B-D70D-4E82-839D-CFE34FC09455}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{681CA39B-D70D-4E82-839D-CFE34FC09455}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA9DFCC8-7704-4430-8D9B-509B8D450276}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA9DFCC8-7704-4430-8D9B-509B8D450276}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA9DFCC8-7704-4430-8D9B-509B8D450276}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA9DFCC8-7704-4430-8D9B-509B8D450276}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
