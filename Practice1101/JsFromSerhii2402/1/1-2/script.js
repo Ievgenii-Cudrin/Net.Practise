@@ -1,5 +1,5 @@
 ﻿class Shape {
-
+    yearCreated = "2021";
     name = "Shape";
 
     area() {
@@ -27,14 +27,15 @@ class Circle {
     area() {
         return 3.14 * this.radius * this.radius;
     }
-
     __proto__ = Shape;
 }
 
 firstCircle = new Circle(3);
 firstCircle.name = "firstCircle";
+console.log(firstCircle.yearCreated);
 firstSquare = new Square(4);
 firstSquare.name = "firstSquare";
+console.log(firstSquare.yearCreated);
 
 document.getElementById('circle').innerHTML = firstCircle.area();
 document.getElementById('square').innerHTML = firstSquare.area();
