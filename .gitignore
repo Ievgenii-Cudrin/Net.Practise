@@ -9,6 +9,20 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.pdb
+*.dll
+*.v2
+*.cache
+*.json
+
+=======
+*.xml
+*.dll
+*.dtbcache.v2
+*.csprojAssemblyReference.cache
+*.AssemblyInfoInputs.cache
+*.AssemblyInfo.cs
+>>>>>>> eacfd219c4f413c72e9c7f67b2e32af7a8a74bf4
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -338,5 +352,9 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
-Practice1101/SecondDbFirstAfterFluentApi/Practice1101.sln
-Practice1101/Practice1101.sln
+Practice1101/BullsAndCows/obj/BullsAndCows.csproj.nuget.dgspec.json
+*.cs
+*.cache
+*.json
+*.cache
+Practice1101/.vs/Practice1101/DesignTimeBuild/.dtbcache.v2
