@@ -13,7 +13,6 @@
 *.dll
 *.dtbcache.v2
 *.csprojAssemblyReference.cache
-*.sln
 *.AssemblyInfoInputs.cache
 *.AssemblyInfo.cs
 *.csproj.nuget.dgspec
