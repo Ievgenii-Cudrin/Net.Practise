@@ -357,3 +357,4 @@ Practice1101/BullsAndCows/obj/BullsAndCows.csproj.nuget.dgspec.json
 *.json
 *.cache
 Practice1101/.vs/Practice1101/DesignTimeBuild/.dtbcache.v2
+*.csproj
