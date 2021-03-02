@@ -22,7 +22,6 @@
 *.csprojAssemblyReference.cache
 *.AssemblyInfoInputs.cache
 *.AssemblyInfo.cs
->>>>>>> eacfd219c4f413c72e9c7f67b2e32af7a8a74bf4
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -358,3 +357,4 @@ Practice1101/BullsAndCows/obj/BullsAndCows.csproj.nuget.dgspec.json
 *.json
 *.cache
 Practice1101/.vs/Practice1101/DesignTimeBuild/.dtbcache.v2
+*.csproj
