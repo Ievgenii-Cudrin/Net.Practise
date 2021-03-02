@@ -35,9 +35,9 @@ namespace PricticeDapper0802.Services
             }
         }
 
-        public List<User> GetAllUsers()
+        public User GetUserById(int id)
         {
-            return this.userRepository.FindAll().Result.ToList();
+            return this.userRepository.FindByID(id).Wait();
         }
     }
 }

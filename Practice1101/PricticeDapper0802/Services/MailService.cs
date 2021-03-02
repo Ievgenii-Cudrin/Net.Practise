@@ -30,11 +30,6 @@ namespace PricticeDapper0802.Services
             this.mailRepository.Update(mail).Wait();
         }
 
-        public List<Mail> GetAllMails()
-        {
-            return this.mailRepository.FindAll().Result.ToList();
-        }
-
         public void DeleteMail(int id)
         {
             Mail mail = this.mailRepository.FindByID(id).Result;
