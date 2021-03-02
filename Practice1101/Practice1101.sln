@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeFirstWithFluentApiCrudOperation", "CodeFirstWithFluentApiCrudOperation\CodeFirstWithFluentApiCrudOperation.csproj", "{F3D722DF-6B3B-4EEE-8A0F-C95CA7EE0B36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecondDbFirstAfterFluentApi", "SecondDbFirstAfterFluentApi\SecondDbFirstAfterFluentApi.csproj", "{681CA39B-D70D-4E82-839D-CFE34FC09455}"
+
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SomeBusinessService", "SomeBusinessService\SomeBusinessService.csproj", "{3C0784FF-FB8B-4F5B-B0B8-ADF36C7810B2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Threads1801", "Threads1801\Threads1801.csproj", "{272824B6-3EFA-4924-9C42-EFB649CB85D8}"
@@ -20,6 +24,7 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SomeBusinessService.Test", "SomeBusinessService.Test\SomeBusinessService.Test.csproj", "{B1DA26D0-52A4-47ED-8647-E9AE926FA746}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlCssBootstrap", "HtmlCssBootstrap\HtmlCssBootstrap.csproj", "{9CC75C70-FD2F-4F02-A9DD-C9782A1539CE}"
+
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +32,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3D722DF-6B3B-4EEE-8A0F-C95CA7EE0B36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3D722DF-6B3B-4EEE-8A0F-C95CA7EE0B36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3D722DF-6B3B-4EEE-8A0F-C95CA7EE0B36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3D722DF-6B3B-4EEE-8A0F-C95CA7EE0B36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{681CA39B-D70D-4E82-839D-CFE34FC09455}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{681CA39B-D70D-4E82-839D-CFE34FC09455}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{681CA39B-D70D-4E82-839D-CFE34FC09455}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{681CA39B-D70D-4E82-839D-CFE34FC09455}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3C0784FF-FB8B-4F5B-B0B8-ADF36C7810B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3C0784FF-FB8B-4F5B-B0B8-ADF36C7810B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C0784FF-FB8B-4F5B-B0B8-ADF36C7810B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
