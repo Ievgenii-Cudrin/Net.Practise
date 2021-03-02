@@ -21,15 +21,21 @@ namespace PricticeDapper0802.Services
 
         public void EncryptData(string email)
         {
-            List<Mail> mails = this.mailService.GetAllMails().ToList();
-            EncryptUserData(email);
-            EncryprtToInMail(mails, email);
-            EncryprtToFromMail(mails, email);
+            int countOfEmail = this.mailService.GetCountOfEmailTableRows();
+
+            for(int i = 1; i < countOfEmail/10 + 1; i++)
+            {
+                Pager pager = new Pager(i);
+                List<Mail> mails = this.mailService.GetAllMailsInPage(pager, "Emails");
+                EncryptUserData(email);
+                EncryprtToInMail(mails, email);
+                EncryprtToFromMail(mails, email);
+            }
         }
 
         private void EncryptUserData(string email)
         {
-            User user = this.userService.GetAllUsers().Where(x => x.Email == email).FirstOrDefault();
+            User user = this.userService.GetUserByEmail(email);
 
             if (user != null)
             {
