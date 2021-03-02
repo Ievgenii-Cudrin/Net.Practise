@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PricticeDapper0802.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,14 +8,18 @@ namespace PricticeDapper0802.Interfaces
 {
     public interface IRepository<T> where T : class
     {
-        public Task Add(T item);
+        Task Add(T item);
 
-        public Task Update(T entity);
+        Task Update(T entity);
 
-        public Task Delete(T entity);
+        Task Delete(T entity);
 
-        public Task<T> FindByID(int id);
+        Task<T> FindByID(int id);
 
-        public Task<IEnumerable<T>> FindAll();
+        Task<T> GetEntityByString(string table, string email, string stringFoFind);
+
+        Task<IEnumerable<T>> GetAll(Pager pager, string table);
+
+        Task<int> GetCountInTable(string tableName);
     }
 }

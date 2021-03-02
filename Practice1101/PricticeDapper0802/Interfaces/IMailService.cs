@@ -7,12 +7,14 @@ namespace PricticeDapper0802.Interfaces
 {
     public interface IMailService
     {
-        public void AddMail(Mail mail, int userId);
+        void AddMail(Mail mail, int userId);
 
-        public void UpdateMail(Mail mail);
+        void UpdateMail(Mail mail);
 
-        public List<Mail> GetAllMails();
+        void DeleteMail(int id);
 
-        public void DeleteMail(int id);
+        int GetCountOfEmailTableRows();
+
+        List<Mail> GetAllMailsInPage(Pager pager, string tableName);
     }
 }

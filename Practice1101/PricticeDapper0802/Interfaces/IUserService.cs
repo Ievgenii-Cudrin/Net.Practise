@@ -7,12 +7,12 @@ namespace PricticeDapper0802.Interfaces
 {
     public interface IUserService
     {
-        public void AddUser(User user);
+        void AddUser(User user);
 
-        public void UpdateUser(User user);
+        void UpdateUser(User user);
 
-        public void DeleteUser(int id);
+        void DeleteUser(int id);
 
-        public List<User> GetAllUsers();
+        User GetUserByEmail(string email);
     }
 }
