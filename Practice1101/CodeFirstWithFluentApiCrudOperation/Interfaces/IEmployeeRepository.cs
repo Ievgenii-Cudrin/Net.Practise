@@ -1,20 +1,22 @@
 ﻿using CodeFirstWithFluentApiCrudOperation.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace CodeFirstWithFluentApiCrudOperation.Interfaces
 {
     public interface IEmployeeRepository
     {
-        public IEnumerable<Employee> GetAll();
+        IQueryable<Employee> GetEmployeeByPredicate(Expression<Func<Employee, bool>> predicat);
 
-        public Employee Get(int id);
+        Employee Get(int id);
 
-        public void Create(Employee item);
+        void Create(Employee item);
 
-        public void Update(Employee item);
+        void Update(Employee item);
 
-        public void Delete(int id);
+        void Delete(int id);
     }
 }

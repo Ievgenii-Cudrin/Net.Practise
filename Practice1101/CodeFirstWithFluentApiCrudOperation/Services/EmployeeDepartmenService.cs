@@ -4,6 +4,7 @@ using CodeFirstWithFluentApiCrudOperation.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace CodeFirstWithFluentApiCrudOperation.Services
@@ -26,9 +27,9 @@ namespace CodeFirstWithFluentApiCrudOperation.Services
             this.employeeDepartmenRepository.Delete(id);
         }
 
-        public List<EmployeeDepartmen> GetAllEmployeeDepartmens()
+        public List<EmployeeDepartmen> GetEmployeeDepartmensByPredicate(Expression<Func<EmployeeDepartmen, bool>> predicat)
         {
-            return this.employeeDepartmenRepository.GetAll().ToList();
+            return this.employeeDepartmenRepository.GetEmployeeByPredicate(predicat).ToList();
         }
 
         public EmployeeDepartmen GetEmployeeDepartmen(int id)

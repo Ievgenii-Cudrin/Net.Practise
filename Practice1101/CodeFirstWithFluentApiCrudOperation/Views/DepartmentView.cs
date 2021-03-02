@@ -43,14 +43,6 @@ namespace CodeFirstWithFluentApiCrudOperation.Views
             Console.WriteLine("Department updated");
         }
 
-        public static void ShowAllDepartments()
-        {
-            foreach (var department in departmentService.GetAllDepartments().ToList())
-            {
-                Console.WriteLine($"{department.DepartmentID}. {department.GroupName}, {department.Name}");
-            }
-        }
-
         public static void DeleteDepartment(int id)
         {
             departmentService.DeleteDepartment(id);

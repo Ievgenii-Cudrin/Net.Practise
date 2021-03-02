@@ -4,6 +4,7 @@ using CodeFirstWithFluentApiCrudOperation.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace CodeFirstWithFluentApiCrudOperation.Repositories
@@ -32,15 +33,15 @@ namespace CodeFirstWithFluentApiCrudOperation.Repositories
             return this.db.Employee.Find(id);
         }
 
-        public IEnumerable<Employee> GetAll()
-        {
-            return this.db.Employee.ToList();
-        }
-
         public void Update(Employee item)
         {
             this.db.Update(item);
             this.db.SaveChanges();
+        }
+
+        public IQueryable<Employee> GetEmployeeByPredicate(Expression<Func<Employee, bool>> predicat)
+        {
+            return this.db.Set<Employee>().Where(predicat);
         }
     }
 }

@@ -46,14 +46,6 @@ namespace CodeFirstWithFluentApiCrudOperation.Views
             Console.WriteLine("Shift updated");
         }
 
-        public static void ShowAllShifts()
-        {
-            foreach (var shift in shiftService.GetAllShifts().ToList())
-            {
-                Console.WriteLine($"{shift.ShiftID}. {shift.StartTime}, {shift.EndTime}");
-            }
-        }
-
         public static void DeleteShift(int id)
         {
             shiftService.DeleteShift(id);

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace CodeFirstWithFluentApiCrudOperation.Repositories
@@ -45,15 +46,15 @@ namespace CodeFirstWithFluentApiCrudOperation.Repositories
             return this.db.EmployeeDepartmen.Find(id);
         }
 
-        public IEnumerable<EmployeeDepartmen> GetAll()
-        {
-            return this.db.EmployeeDepartmen.ToList();
-        }
-
         public void Update(EmployeeDepartmen item)
         {
             this.db.Update(item);
             this.db.SaveChanges();
+        }
+
+        public IQueryable<EmployeeDepartmen> GetEmployeeByPredicate(Expression<Func<EmployeeDepartmen, bool>> predicat)
+        {
+            return this.db.Set<EmployeeDepartmen>().Where(predicat);
         }
     }
 }

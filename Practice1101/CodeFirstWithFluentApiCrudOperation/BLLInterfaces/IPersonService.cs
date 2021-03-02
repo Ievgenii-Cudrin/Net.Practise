@@ -1,20 +1,21 @@
 ﻿using CodeFirstWithFluentApiCrudOperation.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace CodeFirstWithFluentApiCrudOperation.BLLInterfaces
 {
     public interface IPersonService
     {
-        public void CreatePerson(Person user);
+        void CreatePerson(Person user);
 
-        public List<Person> GetAllPerson();
+        List<Person> GetAllPersonByPredicate(Expression<Func<Person, bool>> predicat);
 
-        public void UpdatePerson(Person user);
+        void UpdatePerson(Person user);
 
-        public void DeletePerson(int id);
+        void DeletePerson(int id);
 
-        public Person GetPerson(int id);
+        Person GetPerson(int id);
     }
 }

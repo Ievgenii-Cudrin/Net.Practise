@@ -4,6 +4,7 @@ using CodeFirstWithFluentApiCrudOperation.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace CodeFirstWithFluentApiCrudOperation.Repositories
@@ -33,9 +34,9 @@ namespace CodeFirstWithFluentApiCrudOperation.Repositories
             return this.db.Persons.Find(id);
         }
 
-        public IEnumerable<Person> GetAll()
+        public IQueryable<Person> GetEmployeeByPredicate(Expression<Func<Person, bool>> predicat)
         {
-            return this.db.Persons.ToList();
+            return this.db.Set<Person>().Where(predicat);
         }
 
         public void Update(Person item)

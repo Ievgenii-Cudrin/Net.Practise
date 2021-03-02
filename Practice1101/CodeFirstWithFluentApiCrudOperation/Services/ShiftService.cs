@@ -4,6 +4,7 @@ using CodeFirstWithFluentApiCrudOperation.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace CodeFirstWithFluentApiCrudOperation.Services
@@ -26,9 +27,9 @@ namespace CodeFirstWithFluentApiCrudOperation.Services
             this.shiftRepository.Delete(id);
         }
 
-        public List<Shift> GetAllShifts()
+        public List<Shift> GetAllShiftsByPredicate(Expression<Func<Shift, bool>> predicat)
         {
-            return this.shiftRepository.GetAll().ToList();
+            return this.shiftRepository.GetEmployeeByPredicate(predicat).ToList();
         }
 
         public Shift GetShift(int id)

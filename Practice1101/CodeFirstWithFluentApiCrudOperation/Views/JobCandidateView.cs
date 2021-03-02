@@ -42,14 +42,6 @@ namespace CodeFirstWithFluentApiCrudOperation.Views
             Console.WriteLine("JobCandidate updated");
         }
 
-        public static void ShowAllJobCandidate()
-        {
-            foreach (var jobCandidate in jobCandidateService.GetAllJobCandidates().ToList())
-            {
-                Console.WriteLine($"{jobCandidate.JobCandidateID}. {jobCandidate.Resume}, {jobCandidate.BusinessEntityID}");
-            }
-        }
-
         public static void DeleteJobCandidate(int id)
         {
             jobCandidateService.DeleteJobCandidate(id);

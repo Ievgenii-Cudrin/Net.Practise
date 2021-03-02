@@ -51,14 +51,6 @@ namespace CodeFirstWithFluentApiCrudOperation.Views
             Console.WriteLine("Employee updated");
         }
 
-        public static void ShowAllEmployees()
-        {
-            foreach (var employee in employeeService.GetAllEmployees().ToList())
-            {
-                Console.WriteLine($"{employee.BusinessEntityID}. {employee.JobTitle}, {employee.NationalIDNumber}, {employee.OrganizationLevel}");
-            }
-        }
-
         public static void DeleteEmployee(int id)
         {
             employeeService.DeleteEmployee(id);

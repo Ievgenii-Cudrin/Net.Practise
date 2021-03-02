@@ -42,14 +42,6 @@ namespace CodeFirstWithFluentApiCrudOperation.Views
             Console.WriteLine("SalesPerson updated");
         }
 
-        public static void ShowAllSalesPersons()
-        {
-            foreach (var salesPerson in salesPersonService.GetAllSalesPersons().ToList())
-            {
-                Console.WriteLine($"{salesPerson.SalesPersonID}. {salesPerson.SalesQuota}, {salesPerson.BusinessEntityID}");
-            }
-        }
-
         public static void DeleteSalesPerson(int id)
         {
             salesPersonService.DeleteSalesPerson(id);

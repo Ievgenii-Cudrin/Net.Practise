@@ -48,14 +48,6 @@ namespace CodeFirstWithFluentApiCrudOperation.Views
             Console.WriteLine("EmployeePayHistory updated");
         }
 
-        public static void ShowAllEmployeePayHistories()
-        {
-            foreach (var employeePayHistory in employeePayHistoryService.GetAllDepartments().ToList())
-            {
-                Console.WriteLine($"{employeePayHistory.EmployeePayHistoryId}. {employeePayHistory.PayFrequency}, {employeePayHistory.Rate}, {employeePayHistory.RateChangeDate}");
-            }
-        }
-
         public static void DeleteEmployeePayHistory(int id)
         {
             employeePayHistoryService.DeleteEmployeePayHistory(id);

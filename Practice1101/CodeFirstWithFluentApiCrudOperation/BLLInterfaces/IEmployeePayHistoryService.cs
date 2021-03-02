@@ -1,20 +1,21 @@
 ﻿using CodeFirstWithFluentApiCrudOperation.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace CodeFirstWithFluentApiCrudOperation.BLLInterfaces
 {
     public interface IEmployeePayHistoryService
     {
-        public void CreateEmployeePayHistory(EmployeePayHistory item);
+        void CreateEmployeePayHistory(EmployeePayHistory item);
 
-        public List<EmployeePayHistory> GetAllDepartments();
+        List<EmployeePayHistory> GetDepartmentsByPredicate(Expression<Func<EmployeePayHistory, bool>> predicat);
 
-        public void UpdateEmployeePayHistory(EmployeePayHistory item);
+        void UpdateEmployeePayHistory(EmployeePayHistory item);
 
-        public void DeleteEmployeePayHistory(int id);
+        void DeleteEmployeePayHistory(int id);
 
-        public EmployeePayHistory GetEmployeePayHistory(int id);
+        EmployeePayHistory GetEmployeePayHistory(int id);
     }
 }

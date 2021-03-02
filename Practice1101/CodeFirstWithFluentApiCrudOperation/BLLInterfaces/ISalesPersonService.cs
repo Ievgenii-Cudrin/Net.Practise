@@ -1,6 +1,7 @@
 ﻿using CodeFirstWithFluentApiCrudOperation.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace CodeFirstWithFluentApiCrudOperation.BLLInterfaces
@@ -9,7 +10,7 @@ namespace CodeFirstWithFluentApiCrudOperation.BLLInterfaces
     {
         public void CreateSalesPerson(SalesPerson item);
 
-        public List<SalesPerson> GetAllSalesPersons();
+        public List<SalesPerson> GetAllSalesPersonsByPredicate(Expression<Func<SalesPerson, bool>> predicat);
 
         public void UpdateSalesPerson(SalesPerson item);
 

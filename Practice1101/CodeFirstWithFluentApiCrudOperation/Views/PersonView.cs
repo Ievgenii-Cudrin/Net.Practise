@@ -38,14 +38,6 @@ namespace CodeFirstWithFluentApiCrudOperation.Views
             Console.WriteLine("Person updated");
         }
 
-        public static void ShowAllPersons()
-        {
-            foreach(var person in personService.GetAllPerson().ToList())
-            {
-                Console.WriteLine($"{person.PersonID}. {person.FirstName} {person.LastName}");
-            }
-        }
-
         public static void DeletePerson(int id)
         {
             personService.DeletePerson(id);

@@ -1,13 +1,15 @@
 ﻿using CodeFirstWithFluentApiCrudOperation.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace CodeFirstWithFluentApiCrudOperation.Interfaces
 {
     public interface ISalesPersonRepository
     {
-        public IEnumerable<SalesPerson> GetAll();
+        public IQueryable<SalesPerson> GetEmployeeByPredicate(Expression<Func<SalesPerson, bool>> predicat);
 
         public SalesPerson Get(int id);
 

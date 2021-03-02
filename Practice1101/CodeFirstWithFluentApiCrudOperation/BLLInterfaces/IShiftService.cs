@@ -1,20 +1,21 @@
 ﻿using CodeFirstWithFluentApiCrudOperation.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace CodeFirstWithFluentApiCrudOperation.BLLInterfaces
 {
     public interface IShiftService
     {
-        public void CreateShift(Shift item);
+        void CreateShift(Shift item);
 
-        public List<Shift> GetAllShifts();
+        List<Shift> GetAllShiftsByPredicate(Expression<Func<Shift, bool>> predicat);
 
-        public void UpdateShift(Shift item);
+        void UpdateShift(Shift item);
 
-        public void DeleteShift(int id);
+        void DeleteShift(int id);
 
-        public Shift GetShift(int id);
+        Shift GetShift(int id);
     }
 }

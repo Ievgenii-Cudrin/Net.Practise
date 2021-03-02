@@ -1,20 +1,21 @@
 ﻿using CodeFirstWithFluentApiCrudOperation.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace CodeFirstWithFluentApiCrudOperation.BLLInterfaces
 {
     public interface IDepartmentService
     {
-        public void CreateDepartment(Department item);
+        void CreateDepartment(Department item);
 
-        public List<Department> GetAllDepartments();
+        List<Department> GetDepartments(Expression<Func<Department, bool>> predicat);
 
-        public void UpdateDepartment(Department item);
+        void UpdateDepartment(Department item);
 
-        public void DeleteDepartment(int id);
+        void DeleteDepartment(int id);
 
-        public Department GetDepartment(int id);
+        Department GetDepartment(int id);
     }
 }
