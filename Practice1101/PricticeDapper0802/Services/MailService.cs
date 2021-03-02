@@ -39,5 +39,15 @@ namespace PricticeDapper0802.Services
                 this.mailRepository.Delete(mail).Wait();
             }
         }
+
+        public List<Mail> GetAllMailsInPage(Pager pager, string tableName)
+        {
+            return this.mailRepository.GetAll(pager, tableName).Result.ToList();
+        }
+
+        public int GetCountOfEmailTableRows()
+        {
+            return this.mailRepository.GetCountInTable("Email").Result;
+        }
     }
 }

@@ -37,7 +37,12 @@ namespace PricticeDapper0802.Services
 
         public User GetUserById(int id)
         {
-            return this.userRepository.FindByID(id).Wait();
+            return this.userRepository.FindByID(id).Result;
+        }
+
+        public User GetUserByEmail(string email)
+        {
+            return this.userRepository.GetEntityByString("Users", "Email", email).Result;
         }
     }
 }
