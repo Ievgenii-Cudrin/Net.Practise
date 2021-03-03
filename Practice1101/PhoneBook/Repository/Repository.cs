@@ -62,19 +62,19 @@ namespace PhoneBook.Repository
 
         public IList<T> GetPage(PageInfo page)
         {
-            var skip = page.Size * (page.Number - 1);
+            var skip = page.ItemsPerPage * (page.CurrentPage - 1);
             return this.dbContext.Set<T>()
-                        .Skip(skip).Take(page.Size).ToList();
+                        .Skip(skip).Take(page.ItemsPerPage).ToList();
         }
 
         public IList<T> GetPage(
             Expression<Func<T, bool>> predicat,
             PageInfo page)
         {
-            var skip = page.Size * (page.Number - 1);
+            var skip = page.ItemsPerPage * (page.CurrentPage - 1);
             return this.dbContext.Set<T>()
                         .Where(predicat)
-                        .Skip(skip).Take(page.Size).ToList();
+                        .Skip(skip).Take(page.ItemsPerPage).ToList();
         }
 
         public IList<TResult> Get<TResult>(
@@ -91,12 +91,12 @@ namespace PhoneBook.Repository
             Expression<Func<T, bool>> predicat,
             PageInfo page)
         {
-            var skip = page.Size * (page.Number - 1);
+            var skip = page.ItemsPerPage * (page.CurrentPage - 1);
 
             return this.dbContext.Set<T>()
                         .Where(predicat)
                         .Select(selector)
-                        .Skip(skip).Take(page.Size).ToList();
+                        .Skip(skip).Take(page.ItemsPerPage).ToList();
         }
 
         public bool Exist(Expression<Func<T, bool>> predicat)
@@ -107,6 +107,7 @@ namespace PhoneBook.Repository
         public void Add(T entity)
         {
             this.dbContext.Set<T>().Add(entity);
+            this.dbContext.SaveChanges();
         }
 
         public void Save()
@@ -122,12 +123,14 @@ namespace PhoneBook.Repository
         public void Update(T item)
         {
             this.dbContext.Entry<T>(item).State = EntityState.Modified;
+            this.dbContext.SaveChanges();
         }
 
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
             var entity = this.dbContext.Set<T>().Find(id);
             this.dbContext.Set<T>().Remove(entity);
+            this.dbContext.SaveChanges();
         }
 
         public IList<T> Except(IList<T> list, IEqualityComparer<T> comparer)
@@ -138,6 +141,11 @@ namespace PhoneBook.Repository
         public T GetLastEntity<TOrderBy>(Expression<Func<T, TOrderBy>> orderBy)
         {
             return this.dbContext.Set<T>().OrderBy(orderBy).Last();
+        }
+
+        public int Count()
+        {
+            return this.dbContext.Set<T>().Count();
         }
     }
 }

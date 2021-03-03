@@ -17,7 +17,7 @@ namespace PhoneBook.Interfaces
 
         void Update(T item);
 
-        void Delete(int id);
+        void Delete(Guid id);
 
         IList<T> GetAll(params Expression<Func<T, object>>[] includes);
 
@@ -47,5 +47,7 @@ namespace PhoneBook.Interfaces
         IList<T> Except(IList<T> list, IEqualityComparer<T> comparer);
 
         T GetLastEntity<TOrderBy>(Expression<Func<T, TOrderBy>> orderBy);
+
+        int Count();
     }
 }
