@@ -11,6 +11,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using PhoneBook.Interfaces;
 using PhoneBook.Repository;
+using PhoneBook.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+using PhoneBook.ModelsView;
+using PhoneBook.ModelsView.Validators;
 
 namespace PhoneBook
 {
@@ -28,9 +34,25 @@ namespace PhoneBook
         {
 
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
+            services.AddTransient<IWorkWithAuthorizedUser, AuthorizedUser>();
+            services.AddTransient<IAuthorizedUser, AuthorizedUser>();
+            services.AddTransient<ILogInService, LogInService>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IOperationResult, OperationResult>();
+            services.AddTransient<IAutoMapperService, AutoMapperService>();
+            services.AddTransient<IRecordService, RecordService>();
+            services.AddTransient<IStatusService, StatusService>();
 
-            services.AddControllersWithViews();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/Account/Login";
+                    options.Cookie.Name = "PhoneBookCookie";
+                });
 
+            services.AddControllersWithViews().AddFluentValidation();
+            services.AddTransient<IValidator<RecordViewModel>, RecordViewModelValidator>();
+            services.AddTransient<IValidator<RegisterModel>, RegisterModelValidator>();
             services.AddDbContext<PhoneBookContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
         }
@@ -50,13 +72,17 @@ namespace PhoneBook
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
+
+            app.UseCookiePolicy();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=PhoneBook}/{action=Index}/{id?}");
+                    pattern: "{controller=Account}/{action=Login}/{id?}");
             });
         }
     }
