@@ -26,19 +26,18 @@ namespace PhoneBook.Interfaces
         bool Exist(Expression<Func<T, bool>> predicat);
 
         IList<T> GetPage(
-            Expression<Func<T, bool>> predicat,
-            PageInfo page);
+            Expression<Func<T, bool>> predicat, int skip, int take);
 
-        IList<T> GetPage(PageInfo page);
+        IList<T> GetPage(int skip, int take);
 
         IList<TResult> Get<TResult>(
             Expression<Func<T, TResult>> selector,
             Expression<Func<T, bool>> predicat);
 
-        public IList<TResult> Get<TResult>(
+       IList<TResult> Get<TResult>(
             Expression<Func<T, TResult>> selector,
             Expression<Func<T, bool>> predicat,
-            PageInfo page);
+            int skip, int take);
 
         IList<TResult> Get<TResult>(Expression<Func<T, TResult>> selector);
 
@@ -49,5 +48,7 @@ namespace PhoneBook.Interfaces
         T GetLastEntity<TOrderBy>(Expression<Func<T, TOrderBy>> orderBy);
 
         int Count();
+
+        IList<T> GetPageWithInclude(Expression<Func<T, object>> predicat, int skip, int take);
     }
 }

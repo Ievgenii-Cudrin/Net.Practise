@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace PhoneBook.Interfaces
 {
-    public interface IOperationResult
+    public interface IWorkWithAuthorizedUser : IAuthorizedUser
     {
-        string Message { get; set; }
+        public void SetUser(User user);
 
-        bool IsSucceed { get; set; }
+        public void CleanUser();
     }
 }
