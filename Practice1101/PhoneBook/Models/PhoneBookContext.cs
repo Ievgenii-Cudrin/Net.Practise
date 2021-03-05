@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PhoneBook.ModelsView;
 
 namespace PhoneBook.Models
 {
@@ -39,5 +40,7 @@ namespace PhoneBook.Models
                 .WithOne(e => e.Status)
                 .OnDelete(DeleteBehavior.Cascade);
         }
+
+        public DbSet<PhoneBook.ModelsView.RecordViewModel> RecordViewModel { get; set; }
     }
 }

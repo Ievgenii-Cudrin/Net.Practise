@@ -16,5 +16,10 @@ namespace PhoneBook.Models
         public string Password { get; set; }
 
         public List<Record> Records { get; set; }
+
+        public User()
+        {
+            Records = new List<Record>();
+        }
     }
 }

@@ -19,6 +19,10 @@ namespace PhoneBook.Models
 
         public string PhoneNumber { get; set; }
 
+        public DateTime DateAdded { get; set; }
+
+        public DateTime LastChangeDate { get; set; }
+
         public User User { get; set; }
 
         public Status Status { get; set; }
