@@ -60,21 +60,24 @@ namespace PhoneBook.Repository
                         .Where(predicat).ToList();
         }
 
-        public IList<T> GetPage(PageInfo page)
+        public IList<T> GetPage(int skip, int take)
         {
-            var skip = page.ItemsPerPage * (page.CurrentPage - 1);
             return this.dbContext.Set<T>()
-                        .Skip(skip).Take(page.ItemsPerPage).ToList();
+                        .Skip(skip).Take(take).ToList();
+        }
+
+        public IList<T> GetPageWithInclude(Expression<Func<T, object>> predicat,int skip, int take)
+        {
+            return this.dbContext.Set<T>()
+                .Include(predicat).Skip(skip).Take(take).ToList();
         }
 
         public IList<T> GetPage(
-            Expression<Func<T, bool>> predicat,
-            PageInfo page)
+            Expression<Func<T, bool>> predicat, int skip, int take)
         {
-            var skip = page.ItemsPerPage * (page.CurrentPage - 1);
             return this.dbContext.Set<T>()
                         .Where(predicat)
-                        .Skip(skip).Take(page.ItemsPerPage).ToList();
+                        .Skip(skip).Take(take).ToList();
         }
 
         public IList<TResult> Get<TResult>(
@@ -89,14 +92,12 @@ namespace PhoneBook.Repository
         public IList<TResult> Get<TResult>(
             Expression<Func<T, TResult>> selector,
             Expression<Func<T, bool>> predicat,
-            PageInfo page)
+            int skip, int take)
         {
-            var skip = page.ItemsPerPage * (page.CurrentPage - 1);
-
             return this.dbContext.Set<T>()
                         .Where(predicat)
                         .Select(selector)
-                        .Skip(skip).Take(page.ItemsPerPage).ToList();
+                        .Skip(skip).Take(take).ToList();
         }
 
         public bool Exist(Expression<Func<T, bool>> predicat)
@@ -107,12 +108,27 @@ namespace PhoneBook.Repository
         public void Add(T entity)
         {
             this.dbContext.Set<T>().Add(entity);
-            this.dbContext.SaveChanges();
+            try
+            {
+                this.dbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public void Save()
         {
-            this.dbContext.SaveChanges();
+            try
+            {
+
+                this.dbContext.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public T Get(int id)

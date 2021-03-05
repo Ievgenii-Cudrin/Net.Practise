@@ -11,13 +11,16 @@ namespace PhoneBook.Services
     {
         IRepository<User> userRepository;
         IWorkWithAuthorizedUser authorizedUser;
+        IStatusService statusService;
 
         public LogInService(
             IRepository<User> userRepository,
-            IWorkWithAuthorizedUser authorizedUser)
+            IWorkWithAuthorizedUser authorizedUser,
+            IStatusService statusService)
         {
             this.userRepository = userRepository;
             this.authorizedUser = authorizedUser;
+            this.statusService = statusService;
         }
 
         public bool LogIn(string name, string password)
