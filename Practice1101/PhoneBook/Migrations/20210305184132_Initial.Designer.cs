@@ -10,7 +10,7 @@ using PhoneBook.Models;
 namespace PhoneBook.Migrations
 {
     [DbContext(typeof(PhoneBookContext))]
-    [Migration("20210303155838_Initial")]
+    [Migration("20210305184132_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,11 +30,17 @@ namespace PhoneBook.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("DateAdded")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FullName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastChangeDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
@@ -85,6 +91,70 @@ namespace PhoneBook.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("PhoneBook.ModelsView.RecordViewModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RecordStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("StatusId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StatusId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("RecordViewModel");
+                });
+
+            modelBuilder.Entity("PhoneBook.ModelsView.StatusViewModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("RecordStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("StatusViewModel");
+                });
+
+            modelBuilder.Entity("PhoneBook.ModelsView.UserViewModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserViewModel");
+                });
+
             modelBuilder.Entity("PhoneBook.Models.Record", b =>
                 {
                     b.HasOne("PhoneBook.Models.Status", "Status")
@@ -102,12 +172,32 @@ namespace PhoneBook.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("PhoneBook.ModelsView.RecordViewModel", b =>
+                {
+                    b.HasOne("PhoneBook.ModelsView.StatusViewModel", "Status")
+                        .WithMany("Records")
+                        .HasForeignKey("StatusId");
+
+                    b.HasOne("PhoneBook.ModelsView.UserViewModel", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Status");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("PhoneBook.Models.Status", b =>
                 {
                     b.Navigation("Records");
                 });
 
             modelBuilder.Entity("PhoneBook.Models.User", b =>
+                {
+                    b.Navigation("Records");
+                });
+
+            modelBuilder.Entity("PhoneBook.ModelsView.StatusViewModel", b =>
                 {
                     b.Navigation("Records");
                 });
