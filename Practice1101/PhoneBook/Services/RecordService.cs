@@ -1,4 +1,5 @@
-﻿using PhoneBook.Interfaces;
+﻿using Microsoft.AspNetCore.Authorization;
+using PhoneBook.Interfaces;
 using PhoneBook.Models;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace PhoneBook.Services
 {
+    [Authorize]
     public class RecordService : IRecordService
     {
         IRepository<Record> recordRepository;
