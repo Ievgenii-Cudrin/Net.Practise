@@ -28,7 +28,16 @@ namespace TestingTask.Core.Test.UnitTests
         public void GetSuitableHotelNames_ValidGroupWithPets_ReturnsOneHotelNames()
         {
             // Arrange
-            this.hotelsList.Add(new Hotel() { Name = "test", AllowPets = false });
+            this.hotelsList.Add(
+                new Hotel() 
+                { 
+                    Name = "test", 
+                    AllowPets = true,
+                    Rooms = new List<Room>()
+                    {
+                        new Room() { Capacity = 1}
+                    }
+                });
             var validator = new GroupValidator();
             var bookingService = new BookingService(validator, this.hotelRepository.Object);
             var group = new Group()
@@ -41,6 +50,7 @@ namespace TestingTask.Core.Test.UnitTests
             };
 
             var expectedHotels = new List<string>();
+            expectedHotels.Add("test");
 
             //Act
             var hotelsResult = bookingService.GetSuitableHotelNames(group);
@@ -104,7 +114,7 @@ namespace TestingTask.Core.Test.UnitTests
         }
 
         [TestMethod]
-        public void GetSuitableHotelNames_ValidGroupTwoBigHotels_ReturnsTwoHotelNames()
+        public void GetSuitableHotelNames_ValidGroupTwoBigHotels_ReturnsOneHotelName()
         {
             // Arrange
             this.hotelsList.Add(
@@ -156,7 +166,7 @@ namespace TestingTask.Core.Test.UnitTests
         }
 
         [TestMethod]
-        public void GetSuitableHotelNames_ValidGroupTwoLitleHotel_ThrowArgumentException()
+        public void GetSuitableHotelNames_ValidGroupTwoLitleHotel_EmptyList()
         {
             // Arrange
             this.hotelsList.Add(
@@ -183,6 +193,7 @@ namespace TestingTask.Core.Test.UnitTests
             var validator = new GroupValidator();
             var bookingService = new BookingService(validator, this.hotelRepository.Object);
 
+            List<string> hotels = new List<string>();
             var group = new Group()
             {
                 HasPets = true,
@@ -525,7 +536,7 @@ namespace TestingTask.Core.Test.UnitTests
         //3. Two child = one adult
 
         [TestMethod]
-        public void GetSuitableHotelNames_FourChildTwoAdult_TwoHotelsNames()
+        public void GetSuitableHotelNames_FourChildTwoAdult_ThreeHotelsNames()
         {
             // Arrange
             this.hotelsList.Add(
@@ -580,6 +591,7 @@ namespace TestingTask.Core.Test.UnitTests
             };
 
             var expectedHotelsNames = new List<string>();
+            expectedHotelsNames.Add("test");
             expectedHotelsNames.Add("test1");
             expectedHotelsNames.Add("test2");
 
@@ -794,7 +806,7 @@ namespace TestingTask.Core.Test.UnitTests
 
         //6. The hotel may or may not allow pets
         [TestMethod]
-        public void GetSuitableHotelNames_GroupHasPetsHotelNotAllowPets_ThrowArgumentException()
+        public void GetSuitableHotelNames_GroupHasPetsHotelNotAllowPets_Null()
         {
             // Arrange
             this.hotelsList.Add(
@@ -849,7 +861,7 @@ namespace TestingTask.Core.Test.UnitTests
                 }
             };
 
-            Assert.ThrowsException<ArgumentException>(() => bookingService.GetSuitableHotelNames(group));
+            Assert.IsNull(bookingService.GetSuitableHotelNames(group));
         }
 
         //8.One group can only have one reservation

@@ -361,3 +361,10 @@ Practice1101/BullsAndCows/obj/BullsAndCows.csproj.nuget.dgspec.json
 *.cache
 Practice1101/.vs/Practice1101/DesignTimeBuild/.dtbcache.v2
 *.csproj
+*.css
+*.map
+*.js
+*.txt
+Practice1101/PhoneBook/wwwroot/lib/bootstrap/LICENSE
+*.ico
+*.md
