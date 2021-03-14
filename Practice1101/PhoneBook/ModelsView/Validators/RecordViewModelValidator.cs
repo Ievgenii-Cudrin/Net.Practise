@@ -15,7 +15,6 @@ namespace PhoneBook.ModelsView.Validators
             RuleFor(x => x.Email).EmailAddress();
             RuleFor(x => x.Address).MinimumLength(10);
             RuleFor(x => x.PhoneNumber).Matches(new Regex(@"^[0-9]{10}$")).WithMessage("Phone numbers must have only ten digits.");
-
         }
     }
 }
