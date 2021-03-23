@@ -36,34 +36,9 @@ namespace PhoneBook.Services
             }
         }
 
-        public IOperationResult UpdateUser(User user)
+        public bool ExistUser(string name)
         {
-            if (!this.userRepository.Exist(x => x.Id == user.Id))
-            {
-                SetValueToOperatopnResult(false, userNotExist);
-                return this.operationResult;
-            }
-            else
-            {
-                this.userRepository.Update(user);
-                SetValueToOperatopnResult(true, userExist);
-                return this.operationResult;
-            }
-        }
-
-        public IOperationResult Delete(Guid id)
-        {
-            if (!this.userRepository.Exist(x => x.Id == id))
-            {
-                SetValueToOperatopnResult(false, userNotExist);
-                return this.operationResult;
-            }
-            else
-            {
-                this.userRepository.Delete(id);
-                SetValueToOperatopnResult(true, userExist);
-                return this.operationResult;
-            }
+            return this.userRepository.Exist(x => x.Name == name);
         }
 
         public User GetUser(Guid id)
@@ -76,6 +51,16 @@ namespace PhoneBook.Services
             {
                 return null;
             }
+        }
+
+        public User GetUserByName(string name)
+        {
+            if (!string.IsNullOrEmpty(name))
+            {
+                return this.userRepository.Get(x => x.Name == name).FirstOrDefault();
+            }
+
+            return null;
         }
 
         private void SetValueToOperatopnResult(bool isSuccess, string message)

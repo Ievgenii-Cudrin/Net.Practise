@@ -13,7 +13,6 @@ namespace PhoneBook.Services
     {
         IRepository<Record> recordRepository;
         IOperationResult operationResult;
-        private IAuthorizedUser authorizedUser;
         private IUserService userService;
 
         static string recordExist = "Record exist";
@@ -21,12 +20,10 @@ namespace PhoneBook.Services
 
         public RecordService(IRepository<Record> recordRepository, 
             IOperationResult operationResult,
-            IAuthorizedUser authorizedUser,
             IUserService userService)
         {
             this.recordRepository = recordRepository;
             this.operationResult = operationResult;
-            this.authorizedUser = authorizedUser;
             this.userService = userService;
         }
 
@@ -39,9 +36,10 @@ namespace PhoneBook.Services
             }
             else
             {
+                //add user manager
+
+                //record.UserId = this.authorizedUser.User.Id;
                 this.recordRepository.Add(record);
-                this.authorizedUser.User.Records.Add(record);
-                this.userService.UpdateUser(this.authorizedUser.User);
                 SetValueToOperatopnResult(true, recordNotExist);
                 return this.operationResult;
             }

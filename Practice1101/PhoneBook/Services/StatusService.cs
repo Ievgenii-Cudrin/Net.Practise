@@ -21,52 +21,7 @@ namespace PhoneBook.Services
             this.operationResult = operationResult;
         }
 
-        public IOperationResult CreateStatus(Status status)
-        {
-            if (this.statusRepository.Exist(x => x.RecordStatus == status.RecordStatus))
-            {
-                SetValueToOperatopnResult(false, userExist);
-                return this.operationResult;
-            }
-            else
-            {
-                this.statusRepository.Add(status);
-                SetValueToOperatopnResult(true, userNotExist);
-                return this.operationResult;
-            }
-        }
-
-        public IOperationResult UpdateStatus(Status status)
-        {
-            if (!this.statusRepository.Exist(x => x.Id == status.Id))
-            {
-                SetValueToOperatopnResult(false, userNotExist);
-                return this.operationResult;
-            }
-            else
-            {
-                this.statusRepository.Update(status);
-                SetValueToOperatopnResult(true, userExist);
-                return this.operationResult;
-            }
-        }
-
-        public IOperationResult Delete(Guid id)
-        {
-            if (!this.statusRepository.Exist(x => x.Id == id))
-            {
-                SetValueToOperatopnResult(false, userNotExist);
-                return this.operationResult;
-            }
-            else
-            {
-                this.statusRepository.Delete(id);
-                SetValueToOperatopnResult(true, userExist);
-                return this.operationResult;
-            }
-        }
-
-        public Status GetUser(Guid id)
+        public Status GetStatus(Guid id)
         {
             if (this.statusRepository.Exist(x => x.Id == id))
             {
