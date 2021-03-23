@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhoneBook.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,6 +22,6 @@ namespace PhoneBook.ModelsView
 
         public UserViewModel User { get; set; }
 
-        public StatusViewModel Status { get; set; }
+        public Status Status { get; set; }
     }
 }
