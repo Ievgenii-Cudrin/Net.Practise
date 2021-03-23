@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PhoneBook.Interfaces;
@@ -15,29 +16,26 @@ namespace PhoneBook.Controllers
     public class PhoneBookController : Controller
     {
         private IRecordService recordService;
-        private IAutoMapperService autoMapperService;
         private IOperationResult operationResult;
         private IStatusService statusService;
-        private IAuthorizedUser authorizedUser;
+        private IMapper mapper;
 
         public PhoneBookController(IRecordService recordService,
-            IAutoMapperService autoMapperService,
             IOperationResult operationResult,
             IStatusService statusService,
-            IAuthorizedUser authorizedUser)
+            IMapper mapper)
         {
             this.recordService = recordService;
-            this.autoMapperService = autoMapperService;
             this.operationResult = operationResult;
             this.statusService = statusService;
-            this.authorizedUser = authorizedUser;
+            this.mapper = mapper;
         }
 
         // GET: PhoneBookController
         [HttpGet]
         public ActionResult Index(int id = 1)
         {
-            const int pageSize = 10;
+            const int pageSize = 4;
 
             if (id < 1)
             {
@@ -49,13 +47,14 @@ namespace PhoneBook.Controllers
             int recordsSkip = (id - 1) * pageSize;
 
             var recordsFromDbForOnePage = this.recordService.GetRecordsForOnePage(recordsSkip, pager.PageSize);
+            var recordViewModel = this.mapper.Map<IEnumerable<Record>, IEnumerable<RecordViewModel>>(recordsFromDbForOnePage);
 
-            List<RecordViewModel> recordVM = this.autoMapperService
-                .CreateListMapFromDomainToVMWithIncludeType<Record, RecordViewModel, User, UserViewModel, Status, StatusViewModel>(recordsFromDbForOnePage);
-            this.ViewBag.AuthorizedUserId = this.authorizedUser.User.Id;
+            //add user manager
+
+            //this.ViewBag.AuthorizedUserId = this.HttpContext.User
             this.ViewBag.Pager = pager;
 
-            return View(recordVM);
+            return View(recordViewModel);
         }
 
         // GET: PhoneBookController/Create
@@ -74,8 +73,7 @@ namespace PhoneBook.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Record recordDomain = this.autoMapperService
-                        .CreateMapFromVMToDomain<RecordViewModel, Record>(record);
+                    Record recordDomain = this.mapper.Map<RecordViewModel, Record>(record);
                     recordDomain.Status = this.statusService.GetStatusByName(record.RecordStatus);
                     recordDomain.DateAdded = DateTime.Now;
                     this.recordService.CreateRecord(recordDomain);
@@ -91,8 +89,7 @@ namespace PhoneBook.Controllers
         // GET: PhoneBookController/Edit/5
         public ActionResult Edit(Guid id)
         {
-            RecordViewModel recordViewModel = this.autoMapperService.CreateMapFromVMToDomainWithIncludeLsitType
-                <Record, RecordViewModel, Status, StatusViewModel>(this.recordService.GetRecord(id));
+            RecordViewModel recordViewModel = this.mapper.Map<Record, RecordViewModel>(this.recordService.GetRecord(id));
 
             return View(recordViewModel);
         }
@@ -104,9 +101,7 @@ namespace PhoneBook.Controllers
         {
             try
             {
-                Record recordToUpdate = this.autoMapperService.CreateMapFromVMToDomainWithIncludeLsitType
-                    <RecordViewModel, Record, StatusViewModel, Status>(recordView);
-
+                Record recordToUpdate = this.mapper.Map<RecordViewModel, Record>(recordView);
                 recordToUpdate.LastChangeDate = DateTime.Now;
                 this.operationResult = this.recordService.UpdateRecord(recordToUpdate);
                 return RedirectToAction(nameof(Index));
@@ -120,8 +115,7 @@ namespace PhoneBook.Controllers
         // GET: PhoneBookController/Delete/5
         public ActionResult Delete(Guid id)
         {
-            RecordViewModel recordViewModel = this.autoMapperService.CreateMapFromVMToDomainWithIncludeLsitType
-                <Record, RecordViewModel, Status, StatusViewModel>(this.recordService.GetRecord(id));
+            RecordViewModel recordViewModel = this.mapper.Map<Record, RecordViewModel>(this.recordService.GetRecord(id));
 
             return View(recordViewModel);
         }

@@ -7,25 +7,22 @@ using PhoneBook.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using AutoMapper;
+using PhoneBook.WebServices;
 
 namespace PhoneBook.Controllers
 {
     public class AccountController : Controller
     {
-        private ILogInService logInService;
-        private IUserService userService;
-        private IAutoMapperService autoMapperService;
-        private IOperationResult operationResult;
+        private readonly SignInManager signInManager;
+        private readonly UserManager userManager;
 
-        public AccountController(ILogInService logInService,
-            IUserService userService,
-            IAutoMapperService autoMapperService,
-            IOperationResult operationResult)
+        public AccountController(
+            SignInManager signInManager,
+            UserManager userManager)
         {
-            this.logInService = logInService;
-            this.userService = userService;
-            this.autoMapperService = autoMapperService;
-            this.operationResult = operationResult;
+            this.signInManager = signInManager;
+            this.userManager = userManager;
         }
 
         [HttpGet]
@@ -35,57 +32,54 @@ namespace PhoneBook.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Login(LoginModel model)
+        public async Task<IActionResult> Login(LoginModel model)
         {
             if (ModelState.IsValid)
             {
-                if (this.logInService.LogIn(model.Email, model.Password))
+                var user = new User() { Name = model.Email, Password = model.Password };
+
+                bool successSignIn = await this.signInManager.SignInAsync(user, model.Password, isPersistent: false);
+
+                if (successSignIn)
                 {
-                    var claims = new List<Claim>
-                    {
-                        new Claim(ClaimTypes.Name, model.Email)
-                    };
-
-                    var identity = new ClaimsIdentity(
-                        claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                    var principal = new ClaimsPrincipal(identity);
-                    var props = new AuthenticationProperties();
-                    HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, props).Wait();
-
                     return RedirectToAction("Index", "PhoneBook");
                 }
+
                 ModelState.AddModelError("", "Некорректные логин и(или) пароль");
             }
             return View(model);
         }
+
         [HttpGet]
         public IActionResult Register()
         {
-            return View();
+            return this.View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Register(RegisterModel model)
+        public async Task<IActionResult> Register(RegisterModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                User user = this.autoMapperService.CreateMapFromVMToDomain<RegisterModel, User>(model);
-                this.operationResult = this.userService.CreateUser(user);
-                if (operationResult.IsSucceed)
-                {
-                    return RedirectToAction("Login", "Account");
-                }
-                else
-                    ModelState.AddModelError("", operationResult.Message);
+                return View(model);
             }
+
+            var user = new User { Name = model.Name, Password = model.Password };
+            var result = this.userManager.CreateUSer(user);
+
+            if (result)
+            {
+                await this.signInManager.SignInAsync(user, user.Password, isPersistent: false);
+                return RedirectToAction("Index", "PhoneBook");
+            }
+
             return View(model);
         }
 
-        public IActionResult Logout()
+        public async Task<IActionResult> Logout()
         {
-            this.logInService.LogOut();
-            HttpContext.SignOutAsync().Wait();
+            await this.signInManager.SignOutAsync();
             return RedirectToAction("Login", "Account");
         }
     }
