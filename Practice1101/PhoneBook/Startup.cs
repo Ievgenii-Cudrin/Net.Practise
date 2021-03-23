@@ -17,6 +17,7 @@ using FluentValidation.AspNetCore;
 using FluentValidation;
 using PhoneBook.ModelsView;
 using PhoneBook.ModelsView.Validators;
+using PhoneBook.WebServices;
 
 namespace PhoneBook
 {
@@ -32,16 +33,14 @@ namespace PhoneBook
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddAutoMapper(typeof(Startup));
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
-            services.AddTransient<IWorkWithAuthorizedUser, AuthorizedUser>();
-            services.AddTransient<IAuthorizedUser, AuthorizedUser>();
-            services.AddTransient<ILogInService, LogInService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IOperationResult, OperationResult>();
-            services.AddTransient<IAutoMapperService, AutoMapperService>();
             services.AddTransient<IRecordService, RecordService>();
             services.AddTransient<IStatusService, StatusService>();
+            services.AddScoped<SignInManager>();
+            services.AddScoped<UserManager>();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
@@ -51,8 +50,9 @@ namespace PhoneBook
                 });
 
             services.AddControllersWithViews().AddFluentValidation();
-            services.AddTransient<IValidator<RecordViewModel>, RecordViewModelValidator>();
-            services.AddTransient<IValidator<RegisterModel>, RegisterModelValidator>();
+            services.AddMvc()
+                .AddFluentValidation(mvcConfiguration => mvcConfiguration.RegisterValidatorsFromAssemblyContaining<Startup>());
+
             services.AddDbContext<PhoneBookContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
         }
