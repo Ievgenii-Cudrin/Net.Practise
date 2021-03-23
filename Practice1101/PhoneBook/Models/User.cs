@@ -15,7 +15,7 @@ namespace PhoneBook.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        public List<Record> Records { get; set; }
+        public ICollection<Record> Records { get; set; }
 
         public User()
         {

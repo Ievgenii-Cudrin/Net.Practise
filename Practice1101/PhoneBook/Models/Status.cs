@@ -11,6 +11,6 @@ namespace PhoneBook.Models
 
         public string RecordStatus { get; set; }
 
-        public List<Record> Records { get; set; }
+        public ICollection<Record> Records { get; set; }
     }
 }

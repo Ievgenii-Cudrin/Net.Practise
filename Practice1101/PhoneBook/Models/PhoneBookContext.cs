@@ -40,7 +40,5 @@ namespace PhoneBook.Models
                 .WithOne(e => e.Status)
                 .OnDelete(DeleteBehavior.Cascade);
         }
-
-        public DbSet<PhoneBook.ModelsView.RecordViewModel> RecordViewModel { get; set; }
     }
 }

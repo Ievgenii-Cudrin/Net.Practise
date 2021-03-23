@@ -23,7 +23,11 @@ namespace PhoneBook.Models
 
         public DateTime LastChangeDate { get; set; }
 
+        public Guid UserId { get; set; }
+
         public User User { get; set; }
+
+        public Guid StatusId { get; set; }
 
         public Status Status { get; set; }
     }
