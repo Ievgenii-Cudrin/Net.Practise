@@ -8,13 +8,7 @@ namespace PhoneBook.Interfaces
 {
     public interface IStatusService
     {
-        IOperationResult CreateStatus(Status status);
-
-        IOperationResult UpdateStatus(Status status);
-
-        IOperationResult Delete(Guid id);
-
-        Status GetUser(Guid id);
+        Status GetStatus(Guid id);
 
         List<Status> GetAllStatuses();
 

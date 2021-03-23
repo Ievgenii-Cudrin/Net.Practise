@@ -10,10 +10,10 @@ namespace PhoneBook.Interfaces
     {
         IOperationResult CreateUser(User user);
 
-        IOperationResult UpdateUser(User user);
-
-        IOperationResult Delete(Guid id);
-
         User GetUser(Guid id);
+
+        bool ExistUser(string name);
+
+        User GetUserByName(string name);
     }
 }
